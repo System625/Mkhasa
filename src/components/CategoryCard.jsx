@@ -25,7 +25,7 @@ export const CategoryCard = ({ category, numberOfProducts = Math.floor(Math.rand
         />
 
         <div className="absolute bottom-0 left-0 right-0 z-10 h-32 px-4 pt-10 bg-gradient-to-t from-black">
-          <h2 className="font-bold text-white">{category}</h2>
+          <h2 className="font-bold font-  font-HelveticaBold text-white">{category}</h2>
           <p className="text-app-ash">
             {numberOfProducts} Products{numberOfProducts > 1 ? "s" : ""}
           </p>

@@ -4,11 +4,11 @@ import dolceimg from "../assets/images/dolceonly.png";
 export const SwiperCard1 = () => {
   return (
 
-    <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden font-farFetch">
+    <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden    font-Helvetica">
       <div className="bg-image h-screen pb-20">
         <div>
           <div className="w-full title ">
-            <div className="flex flex-col md:gap-4 px-16 md:px-20 pt-16 md:pt-24 leading-6 font-farFetch">
+            <div className="flex flex-col md:gap-4 px-16 md:px-20 pt-16 md:pt-24 leading-6    font-Helvetica">
               <h1 className="text-[#000] lg:text-7xl mt-4 sm:pt-8 text-lg md:text-3xl font-bold leading-tight md:-mt-2 md:pt-4">
                 Scented dreams,
               </h1>

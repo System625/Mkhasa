@@ -17,7 +17,7 @@
 //   }, [setElement]);
 
 //   return (
-//     <section className="py-8 font-FarfetchRegular">
+//     <section className="py-8    font-Helvetica">
 //       <div className="flex items-center justify-between">
 //         <SectionHeader header="Best Sellers" />
 
@@ -90,8 +90,9 @@ import { useLoaderData } from "react-router-dom/dist";
 import useLongPress from "../hooks/utils/useLongPress";
 import { Icon } from "@iconify/react";
 import { useRef, useEffect } from "react";
+import {cn} from "../utils/cn.js"
 
-export const BestSellers = ({ horizontalOnSmallScreens = false }) => {
+export const BestSellers = ({ horizontalOnSmallScreens = true }) => {
   const { bestsellers } = useLoaderData();
   const ref = useRef();
 
@@ -102,7 +103,7 @@ export const BestSellers = ({ horizontalOnSmallScreens = false }) => {
   }, [setElement]);
 
   return (
-    <section className="py-8 font-FarfetchRegular">
+    <section className="py-8  font-Helvetica">
       <div className="flex items-center justify-between">
         <SectionHeader header="Best Sellers" />
 
@@ -128,7 +129,10 @@ export const BestSellers = ({ horizontalOnSmallScreens = false }) => {
             { product, category, originalPrice, discountedPrice, image, id },
             index
           ) => (
-            <li key={index} className="flex-shrink-0 min-w-[10rem] sm:grow">
+            <li key={index}  className={cn(
+                "min-w-[11rem] sm:grow",
+                horizontalOnSmallScreens && index === 0 ? "ml-44 md:ml-0" : ""
+              )}>
               <Product
                 product={product}
                 category={category}

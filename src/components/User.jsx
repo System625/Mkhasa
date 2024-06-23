@@ -135,14 +135,14 @@ const User = forwardRef((props, ref) => {
       </Button>
       {!hideList.some((x) => pathname.includes(x)) && (
         <div
-          className={`font-farFetch absolute min-w-full right-0 pb-6 pt-3 bg-white px-4 rounded-md shadow-lg top-[calc(100%+1.5rem)] z-50 ${
+          className={`   font-Helvetica absolute min-w-full right-0 pb-6 pt-3 bg-white px-4 rounded-md shadow-lg top-[calc(100%+1.5rem)] z-50 ${
             expand ? "" : "hidden"
           }`}
           ref={ref}
         >
           {user ? (
             <>
-              <h2 className="pb-4 text-xl font-bold tracking-tight capitalize font-farFetch">
+              <h2 className="pb-4 text-xl font-bold tracking-tight capitalize    font-Helvetica">
                 {user?.username}
               </h2>
               <p className="pb-4 text-app-ash-2 z-[9999]">{user?.email}</p>
@@ -151,7 +151,7 @@ const User = forwardRef((props, ref) => {
                 .includes("/account") && (
                 <Link
                   to="/account"
-                  className="inline-block py-4 font-farFetch z-[9999]"
+                  className="inline-block py-4    font-Helvetica z-[9999]"
                   onClick={() => setExpand(false)}
                 >
                   My Account
@@ -162,7 +162,7 @@ const User = forwardRef((props, ref) => {
           ) : (
             <Link to="/login">
               <Button
-                className="w-full font-bold text-app-red bg-app-ash text-nowrap font-farFetch z-[9999]"
+                className="w-full font-bold text-app-red bg-app-ash text-nowrap    font-Helvetica z-[9999]"
                 onClick={toggle}
               >
                 Login

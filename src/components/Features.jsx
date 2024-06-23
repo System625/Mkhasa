@@ -7,21 +7,21 @@ export const Features = () => {
   return (
     <div className="bg-white">
       <Wrapper className="grid py-6 justify-center min-[520px]:py-12 grid-cols-3">
-        <div className="py-7 flex justify-center items-center gap-2 text-[#323232] font-bold min-[520px]:py-2">
+        <div className="py-7 flex justify-center items-center gap-2 text-[#323232] font-bold font-  font-HelveticaBold  min-[520px]:py-2">
           <img src={pointer} alt="" className="h-12 aspect-square" />
           <p className="hidden sm:block">
             One Click <br />
             Checkout
           </p>
         </div>
-        <div className="py-7 flex justify-center items-center gap-2 text-[#323232] font-bold min-[520px]:py-2 border-app-red border-r-2 border-l-2 ">
+        <div className="py-7 flex justify-center items-center gap-2 text-[#323232] font-bold  font-  font-HelveticaBold min-[520px]:py-2 border-app-red border-r-2 border-l-2 ">
           <img src={bus} alt="" className="h-12 aspect-square" />
           <p className="hidden sm:block">
             Same Day <br />
             Delivery
           </p>
         </div>
-        <div className="py-7 flex  justify-center items-center gap-2 text-[#323232] font-bold min-[520px]:py-2">
+        <div className="py-7 flex  justify-center items-center gap-2 text-[#323232] font-bold font-  font-HelveticaBold min-[520px]:py-2">
           <img src={cycle} alt="" className="h-12 aspect-square" />
           <p className="hidden sm:block">
             7 Days Return <br />

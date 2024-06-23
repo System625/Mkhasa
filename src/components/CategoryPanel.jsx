@@ -86,9 +86,9 @@ export const CategoryPanel = () => {
 
   return (
     <div style={{ display: isPanelOpen ? "block" : "none" }}>
-      <div className="hidden bg-white relative  md:block font-farFetch">
+      <div className="hidden bg-white relative  md:block    font-Helvetica">
       <h2 className="px-6"></h2>
-      <div className="flex items-center md:gap-4 font-farFetch">
+      <div className="flex items-center md:gap-4    font-Helvetica">
         <Button
           className="px-0 text-nowrap md:px-5 md:bg-app-ash"
           aria-label="Profile drop down"

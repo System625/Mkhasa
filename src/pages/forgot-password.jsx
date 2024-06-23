@@ -28,10 +28,10 @@ export const ForgotPassword = () => {
         setIsSubmitting(false);
         navigate(`/reset-password?email=${encodeURIComponent(values.email)}`);
       }
-      console.log(response)
+      // console.log(response)
     } catch (error) {
       setIsSubmitting(false);
-      console.log(error?.response?.data?.message);
+      // console.log(error?.response?.data?.message);
     }
   };
 
@@ -131,12 +131,12 @@ export const ResetPassword = () => {
           { email, token: otp, password },
           { headers: { "Content-Type": "application/json" } }
         );
-        console.log(response)
+        // console.log(response)
         if (response.status === 200) {
           setIsSubmitting(false);
           navigate(`/login`);
         }
-        console.log(response)
+        // console.log(response)
       } catch (error) {
         setIsSubmitting(false);
         console.error(error);
@@ -157,7 +157,7 @@ export const ResetPassword = () => {
       );
       if (response.status === 200) {
         setIsRequestingOtp(false);
-        console.log(response);
+        // console.log(response);
       }
     } catch (error) {
       setIsRequestingOtp(false);

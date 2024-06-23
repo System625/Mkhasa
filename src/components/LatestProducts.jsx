@@ -7,7 +7,7 @@
 //   const { latestProducts } = useLoaderData();
 
 //   return (
-//     <section className="py-8 font-FarfetchRegular">
+//     <section className="py-8    font-Helvetica">
 //       <SectionHeader header="New In" />
 //       <ListGrid>
 //         {latestProducts.map(
@@ -37,11 +37,11 @@ import { ListGrid } from "./ui/ListGrid";
 import { useLoaderData } from "react-router-dom/dist";
 import {cn} from "../utils/cn.js"
 
-export const LatestProducts = ({ horizontalOnSmallScreens = false }) => {
+export const LatestProducts = ({ horizontalOnSmallScreens = true }) => {
   const { latestProducts } = useLoaderData();
 
   return (
-    <section className="py-8 font-FarfetchRegular">
+    <section className="py-8 font-Helvetica">
       <SectionHeader header="New In" />
       <ListGrid horizontalOnSmallScreens={horizontalOnSmallScreens}>
         {latestProducts.map(
@@ -52,8 +52,8 @@ export const LatestProducts = ({ horizontalOnSmallScreens = false }) => {
             <li
               key={index}
               className={cn(
-                "flex-shrink-0 min-w-[11rem] sm:grow",
-                horizontalOnSmallScreens && index === 0 ? "ml-44 md:ml-0" : ""
+                "min-w-[11rem] sm:grow",
+                horizontalOnSmallScreens && index === 0 ? "ml-68 md:ml-0" : ""
               )}
             >
               <Product

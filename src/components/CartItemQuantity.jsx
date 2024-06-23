@@ -67,7 +67,7 @@ export const CartItemQuantity = ({ productId, quantity }) => {
               Cancel
             </button>
             <Button
-              className="bg-app-black text-white font-bold"
+              className="bg-app-black text-white font-bold font-  font-HelveticaBold"
               onClick={() => {
                 removeFromCart(productId);
                 setShowModal(false);

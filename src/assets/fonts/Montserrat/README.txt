@@ -16,7 +16,7 @@ in those cases you can use the static font files for Montserrat:
   Montserrat/static/Montserrat-Thin.ttf
   Montserrat/static/Montserrat-ExtraLight.ttf
   Montserrat/static/Montserrat-Light.ttf
-  Montserrat/static/Montserrat-Regular.ttf
+  Montserrat/static/Montserrat-  font-Helvetica.ttf
   Montserrat/static/Montserrat-Medium.ttf
   Montserrat/static/Montserrat-SemiBold.ttf
   Montserrat/static/Montserrat-Bold.ttf

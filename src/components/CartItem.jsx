@@ -65,7 +65,7 @@
 //               Cancel
 //             </button>
 //             <Button
-//               className="bg-app-black text-white font-bold font-FarfetchBold"
+//               className="bg-app-black text-white font-bold font-  font-HelveticaBold"
 //               onClick={() => {
 //                 removeFromCart(item.productId._id);
 //                 setShowModal(false);
@@ -156,7 +156,7 @@
 //               Cancel
 //             </button>
 //             <Button
-//               className="bg-app-black text-white py-2 px-4 rounded-full font-bold font-FarfetchBold w-28"
+//               className="bg-app-black text-white py-2 px-4 rounded-full font-bold font-  font-HelveticaBold w-28"
 //               onClick={() => {
 //                 removeFromCart(item.productId._id);
 //                 setShowModal(false);
@@ -228,7 +228,7 @@
 //               Cancel
 //             </button>
 //             <Button
-//               className="bg-app-black text-white py-2 px-4 rounded-full font-bold font-FarfetchBold w-28"
+//               className="bg-app-black text-white py-2 px-4 rounded-full font-bold font-  font-HelveticaBold w-28"
 //               onClick={() => {
 //                 removeFromCart(item.productId._id);
 //                 setShowModal(false);
@@ -265,14 +265,14 @@ export const CartItem = ({ item, isCheckout }) => {
         <div className="flex items-center gap-2 col-span-9 md:col-span-6 md:gap-12">
           <div className="w-20 min-h-[96px] bg-white">
             <img
-              src={item.productId.mainImage}
+              src={item?.productId?.mainImage}
               alt="main-image"
               className="md:w-44 w-full h-full object-cover"
             />
           </div>
 
           <div>
-            <p className="line-clamp-1">{item.productId.name}</p>
+            <p className="line-clamp-1">{item?.productId?.name}</p>
             <button
               className="inline-flex items-center gap-2 hover:bg-app-ash-1 p-1 rounded-sm"
               onClick={() => {
@@ -287,30 +287,30 @@ export const CartItem = ({ item, isCheckout }) => {
           <div className="col-span-3 sm:col-span-1 items-center md:col-span-6 grid grid-cols-1">
             <div className="grid items-center justify-end md:justify-center md:items-start md:text-center">
               <CartItemQuantity
-                quantity={item.quantity}
-                productId={item.productId._id}
+                quantity={item?.quantity}
+                productId={item?.productId._id}
               />
             </div>
 
             <p className="text-right md:text-center">
-              #{item.quantity * item.price}
+              #{item?.quantity * item?.price}
             </p>
           </div>
         ) : (
           <div className="col-span-3 sm:col-span-1 items-center md:col-span-6 grid grid-cols-1 md:grid-cols-6 ">
             <p className="hidden md:block md:text-center md:col-span-2">
-              #{item.price}
+              #{item?.price}
             </p>
 
             <div className="grid items-center md:col-span-2 justify-end md:justify-center md:items-start md:text-center">
               <CartItemQuantity
-                quantity={item.quantity}
-                productId={item.productId._id}
+                quantity={item?.quantity}
+                productId={item?.productId?._id}
               />
             </div>
 
             <p className="text-right md:text-center md:col-span-2">
-              #{item.quantity * item.price}
+              #{item?.quantity * item?.price}
             </p>
           </div>
         )}
@@ -321,7 +321,7 @@ export const CartItem = ({ item, isCheckout }) => {
           <p className="text-center p-4">
             Are you sure you want to remove "
             <span className="text-app-red font-medium">
-              {item.productId.name}
+              {item?.productId?.name}
             </span>
             " from cart? <br /> Click "
             <span className="text-app-red">Cancel</span>" to cancel or "Remove"
@@ -337,13 +337,13 @@ export const CartItem = ({ item, isCheckout }) => {
               Cancel
             </button>
             <Button
-              className="bg-app-black text-white py-2 px-4 rounded-full font-bold font-FarfetchBold w-28"
+              className="bg-app-black text-white py-2 px-4 rounded-full font-bold font-  font-HelveticaBold w-28"
               onClick={() => {
-                removeFromCart(item.productId._id);
+                removeFromCart(item?.productId?._id);
                 setShowModal(false);
                 toast(
                   <p>
-                    <span className="text-app-red">{item.productId.name}</span>{" "}
+                    <span className="text-app-red">{item?.productId?.name}</span>{" "}
                     removed from Cart
                   </p>
                 );

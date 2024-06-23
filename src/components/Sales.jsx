@@ -4,7 +4,7 @@ import White from "../assets/images/Ellipse-white.svg";
 import { Wrapper } from "./ui/Wrapper";
 export const Sales = () => {
   return (
-    <div className="w-full h-[180px] bg-sales relative">
+    <div className="w-full h-[180px] bg-sales relative    font-Helvetica">
       <Wrapper>
         <div className="flex justify-center">
           <div className="flex flex-col items-start md:items-center md:justify-center gap-2 pt-10 relative">
@@ -13,7 +13,7 @@ export const Sales = () => {
             </h1>
             <div className="flex md:gap-2 text-2xl md:text-2xl md:pr-12">
               <span className="text-white">UP TO</span>
-              <span className="inline-block text-white bg-black">50% off</span>
+              <span className="inline-block text-white bg-black"><span className="font-NimbusSan">50</span>% off</span>
             </div>
           </div>
 

@@ -5,10 +5,10 @@ import elipses from "../assets/images/Ellipse 28.png";
 export const SwiperCard = () => {
   return (
     <div>
-      <div className="min-h-[240px] md:w-[1253px] w-full bg-[#A40001] font-farFetch rounded-3xl overflow-hidden md:h-[560px]">
+      <div className="min-h-[240px] md:w-[1253px] w-full h-full bg-[#A40001]    font-Helvetica rounded-3xl overflow-hidden md:h-[560px]">
         <div>
           <div className="w-full title ">
-            <div className="flex flex-col gap-1 px-4 md:-mt-10 mt:12 pt:30 md:gap-2 md:px-28 md:pt-40 font-farFetch">
+            <div className="flex flex-col gap-1 px-4 md:-mt-10 mt:12 pt:30 md:gap-2 md:px-28 md:pt-40    font-Helvetica">
               <h1 className="text-[#fff] lg:text-6xl text-base  pt-28 -mt-10 md:text-5xl font-bold leading-tight md:-mt-24 md:pt-24 ">
                 Step into A world
               </h1>

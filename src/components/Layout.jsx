@@ -6,7 +6,7 @@ import ScrollToTop from "./ScrollToTop";
 export const Layout = () => {
   return (
     <ScrollToTop>
-    <div className="flex flex-col min-h-dvh">
+    <div className="flex font-Helvetica bg-white flex-col min-h-dvh">
       <header className="bg-white">
         <Navbar />
       </header>

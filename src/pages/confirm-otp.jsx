@@ -37,10 +37,10 @@ export const Component = () => {
         setIsSubmitting(false);
         navigate(`/account-creation-success`);
       }
-      console.log(response)
+      // console.log(response)
     } catch (error) {
       setIsSubmitting(false);
-      console.log(error?.response?.data?.message);
+      // console.log(error?.response?.data?.message);
     }
   };
 

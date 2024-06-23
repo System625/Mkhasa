@@ -4,10 +4,10 @@ import elipses from "../assets/images/Rectangle7.png";
 export const SwiperCard2 = () => {
   return (
     <div>
-      <div className="min-h-[410px] md:w-[1253px] w-full bg-swift font-farFetch rounded-3xl overflow-hidden md:h-[560px]">
+      <div className="min-h-[410px] md:w-[1253px] w-full bg-swift    font-Helvetica rounded-3xl overflow-hidden md:h-[560px]">
         <div>
           <div className="w-full  -px-10 title">
-            <div className="flex flex-col gap-1 px-4 md:-mt-10 mt:15 pt:30 md:gap-2 md:px-28 md:pt-32 font-farFetch">
+            <div className="flex flex-col gap-1 px-4 md:-mt-10 mt:15 pt:30 md:gap-2 md:px-28 md:pt-32    font-Helvetica">
               <h1 className="text-[#fff] lg:text-8xl text-2xl pt-32 -mt-10 md:text-3xl font-bold leading-tight md:-mt-24 md:pt-24 pl-16 md:pl-0 z-10">
                 Swift & Fast
               </h1>

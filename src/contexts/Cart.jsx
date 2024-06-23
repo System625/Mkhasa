@@ -117,7 +117,7 @@ export const Cart = ({ children }) => {
     mutationFn: ({ userId, itemId, quantity }) =>
       axios.post(`add/cart/${userId}/${itemId}`, { quantity }),
     onSuccess: () => {
-      toast.success("Added to Cart");
+      // toast.success("Added to Cart");
       queryClient.invalidateQueries({ queryKey: ["cart"] });
     },
   });

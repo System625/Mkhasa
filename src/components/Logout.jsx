@@ -28,7 +28,7 @@ export const Logout = ({ toggle, className }) => {
   return (
     <Button
       className={cn(
-        "w-full font-bold bg-app-ash text-nowrap text-app-red",
+        "w-full font-bold font-  font-HelveticaBold bg-app-ash text-nowrap text-app-red",
         className
       )}
       onClick={onClick}

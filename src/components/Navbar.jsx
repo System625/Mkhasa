@@ -23,8 +23,8 @@ const Navbar = () => {
 
   return (
     <Wrapper className="py-4 relative">
-      <nav className="relative flex items-center justify-between gap-x-8 pb-[56px] md:pb-0 font-farFetch">
-        <div className="flex items-center gap-2">
+      <nav className="relative font-Helvetica flex items-center justify-between gap-x-8 pb-[56px] md:pb-0 ">
+        <div className="flex items-center gap-2 font-Helvetica">
           <button onClick={toggle}>
             {expand ? (
               <Icon icon="uil:times" style={{ fontSize: 36 }} />
@@ -46,18 +46,18 @@ const Navbar = () => {
           <input
             id="search"
             type="text"
-            placeholder="Search For item"
-            className="w-full px-6 py-2 rounded-full outline-none peer bg-app-ash md:bg-transparent md:focus-visible:bg-app-ash"
+            placeholder="Search for item"
+            className="w-full px-6 py-2 rounded-full font-Helvetica outline-none peer bg-app-ash md:bg-transparent md:focus-visible:bg-app-ash"
           ></input>
           <button
             aria-label="search for product"
-            className="absolute -translate-y-1/2 right-3 top-1/2 md:hidden md:group-focus-within:block"
+            className="absolute -translate-y-1/2 right-3 top-1/2 font-Helvetica md:hidden md:group-focus-within:block"
             type="submit"
           >
             <Icon icon="mynaui:search" style={{ fontSize: 28 }} />
           </button>
         </form>
-        <div className="flex items-center justify-between gap-2 sm:gap-4">
+        <div className="flex items-center font-Helvetica justify-between gap-2 sm:gap-4">
           <CartButton />
           <User />
         </div>
@@ -79,11 +79,11 @@ const MobileNavbar = ({ toggle }) => {
   const { categories, status } = useCategory();
 
   return (
-    <div className="fixed top-0 bottom-0 left-0 right-0 z-50 overflow-y-scroll bg-white  md:hidden">
+    <div className="fixed font-Helvetica top-0 bottom-0 left-0 right-0 z-50 overflow-y-scroll bg-white  md:hidden">
       <nav className="pt-6 min-h-[100vh]">
         <Wrapper>
-          <div className="flex items-center justify-between pt-2 pb-6">
-            <h2 className="text-2xl font-bold">Categories</h2>
+          <div className="flex items-center font-Helvetica justify-between pt-2 pb-6">
+            <h2 className="text-2xl font-Helvetica">Categories</h2>
             <button onClick={toggle}>
               <Icon icon="uil:times" style={{ fontSize: 32 }} />
             </button>
@@ -117,7 +117,7 @@ const MobileNavbar = ({ toggle }) => {
 const DesktopNav = ({ toggle }) => {
   const { categories, status } = useCategory();
   return (
-    <div className="z-50 rounded bg-white top-[calc(100%+.5rem)] left-0 absolute px-12 hidden md:block">
+    <div className="z-50 rounded font-Helvetica bg-white top-[calc(100%+.5rem)] left-0 absolute px-12 hidden md:block">
       <nav>
         {status === "pending" ? (
           "Loading..."

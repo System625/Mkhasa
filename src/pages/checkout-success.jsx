@@ -124,7 +124,7 @@
 
 //   <div className="mb-4">
 //  <div className="flex justify-between gap-2 mt-8">
-//   <Heading className="mt-3 mb-[-10px] font-FarfetchBold font-bold text-app-black">Best Sellers </Heading>
+//   <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">Best Sellers </Heading>
 //     <div className="hidden md:flex gap-2" >
 //   <button
 //             {...getHandlers("backward")}

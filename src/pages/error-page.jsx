@@ -20,7 +20,7 @@ export default function ErrorPage() {
         <Navbar />
       </header>
       <Wrapper className="pt-12">
-        <h1 className="text-app-red font-farFetch">Oops!</h1>
+        <h1 className="text-app-red    font-Helvetica">Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
         <p>
           <i>{error.statusText || error.message}</i>

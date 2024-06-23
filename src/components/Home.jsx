@@ -17,7 +17,7 @@ import { Sort } from "../components/Sort";
 import { Sales } from "./Sales";
 
 export const Home = () => {
-  console.log("this is Home");
+  // console.log("this is Home");
   const ref = useRef();
   const [featuredProducts, setFeaturedProducts] = useState([]);
 

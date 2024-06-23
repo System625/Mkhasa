@@ -41,7 +41,7 @@ export const Component = () => {
         />
         <Heading>Order History</Heading>
 
-        <div className="@container bg-white py-6 px-4 rounded-3xl my-4 md:px-8 font-FarfetchRegular">
+        <div className="@container bg-white py-6 px-4 rounded-3xl my-4 md:px-8    font-Helvetica">
           <div className="grid font-bold border-b-2 pb-4 grid-cols-6">
             <p className="text-nowrap col-span-3 @md:col-span-2">Order No.</p>
             <p className="hidden text-center col-span-2 @md:block">City</p>
