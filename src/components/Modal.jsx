@@ -7,7 +7,7 @@ export const Modal = ({ title, children }) => {
   return (
     <div className="fixed left-0 right-0 top-0 bottom-0 bg-[#00000020] z-[100] grid">
       <div className="bg-app-ash m-auto text-center rounded-3xl py-16 px-6 w-[min(90vw,600px)] sm:px-16">
-        <h2 className="text-app-red font-bold  font-  font-HelveticaBold py-2 text-xl">{title}</h2>
+        <h2 className="text-app-red font-bold  font-Helvetica py-2 text-xl">{title}</h2>
         {children}
       </div>
       <style>{css}</style>

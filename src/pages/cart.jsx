@@ -26,7 +26,7 @@ export const Component = () => {
         name=""
       />
       <Wrapper className="py-4">
-        <Navigation
+        {/* <Navigation
           location={[
             { description: "Home", to: "/", title: "Go to Home Page" },
             { description: "Cart", to: "/cart" },
@@ -34,7 +34,7 @@ export const Component = () => {
           className="text-[#3338]"
           iconClassName="text-[#3339] text-2xl"
           currentLocationClassName="text-app-black"
-        />
+        /> */}
         <div className="flex items-center justify-between">
           <Heading className="pt-2">Your Shopping Cart</Heading>
           {status === "success" && data.items.length > 0 && (
@@ -83,15 +83,16 @@ export const Component = () => {
             >
               CANCEL
             </button>
-            <Button
-              className="bg-app-black text-white font-bold"
+            <button
+            // variant="rectangle"
+              className="bg-app-black px-6 py-2 rounded-full text-white font-normal"
               onClick={() => {
                 clearCart();
                 setShowModal(false);
               }}
             >
               CLEAR
-            </Button>
+            </button>
           </div>
         </Modal>
       )}

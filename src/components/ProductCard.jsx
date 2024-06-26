@@ -188,7 +188,7 @@ export const Product = ({
             <div className="flex gap-2 w-full mt-2">
               <Button
                 variant="rectangle"
-                className="md:hidden block bg-app-black md:w-full px-8 text-center text-app-ash font-medium text-nowrap text-sm"
+                className="md:hidden block bg-app-black md:w-full px-8 text-center text-app-ash font-normal text-nowrap text-sm"
               >
                 Buy Now
               </Button>

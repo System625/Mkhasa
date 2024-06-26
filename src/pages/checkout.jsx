@@ -1072,22 +1072,12 @@ export const Component = () => {
       />
 
       <Wrapper className="py-4">
-        <Navigation
-          location={[
-            { description: "Home", to: "/", title: "Go to Home Page" },
-            { description: "Cart", to: "/cart" },
-            { description: "Checkout", to: "" },
-          ]}
-          className="text-[#3338] py-4"
-          iconClassName="text-[#3339] text-2xl"
-          currentLocationClassName="text-app-black"
-        />
-
+       
         <div className="grid gap-6 md:grid-cols-12">
           <form
             onSubmit={formik.handleSubmit}
             id="checkout-form"
-            className="grid gap-6 md:col-span-6 lg:col-span-7 xl:col-span-8"
+            className="grid md:col-span-6 lg:col-span-7 xl:col-span-8"
           >
             <PersonalDetails formik={formik} />
             <DeliveryDetails formik={formik} />

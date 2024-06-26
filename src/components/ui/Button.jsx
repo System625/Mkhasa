@@ -7,7 +7,7 @@ export const Button = ({ variant, className, ...props }) => {
   );
 };
 
-const buttonVariants = cva("py-2 px-4 w-full    font-Helvetica", {
+const buttonVariants = cva("py-2 w-full    font-Helvetica", {
   variants: {
     variant: {
       pill: "rounded-full    font-Helvetica",

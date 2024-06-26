@@ -37,43 +37,43 @@ export const OrderSummary = ({ alignToEnd, state }) => {
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>Subtotal:</h2>
-            <p>{formatCurrency(data.subTotal, userCurrency)}</p>
+            <h2 className="font-normal">Subtotal:</h2>
+            <p className="font-normal">{formatCurrency(data.subTotal, userCurrency)}</p>
           </div>
           <div
             className={cn(
-              `flex items-center justify-between py-1`,
+              `flex items-center justify-between py-1 font-normal`,
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>Discount:</h2>
-            <p>{formatCurrency(data?.discount || "", userCurrency)}</p>
+            <h2 className="font-light">Discount:</h2>
+            <p className="font-light">{formatCurrency(data?.discount || "", userCurrency)}</p>
           </div>
           <div
             className={cn(
-              `flex items-center justify-between py-1`,
+              `flex items-center justify-between py-1 fon`,
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2 className="text-blue-400">Delivery Fee:</h2>
+            <h2 className="text-blue-400 font-normal">Delivery Fee:</h2>
             <p>{formatCurrency(deliveryFee, userCurrency)}</p>
           </div>
           <div
             className={cn(
-              `flex items-center justify-between py-1 text-app-red`,
+              `flex items-center justify-between py-1 text-app-red font-normal`,
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>7.5% VAT Inclusive</h2>
+            <h2 className="font-normal">7.5% VAT Inclusive</h2>
           </div>
           <div
             className={cn(
-              "flex items-center justify-between pb-1 pt-2 font-bold",
+              "flex items-center justify-between pb-1 pt-2 font-normal",
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>Total:</h2>
-            <p>
+            <h2 className="font-normal">Total:</h2>
+            <p className="font-normal">
               {formatCurrency(
                 data.subTotal - (data?.discount ?? 0) + deliveryFee,
                 userCurrency

@@ -330,7 +330,7 @@ export const Component = () => {
             {totalProducts} <strong>results </strong> for {category}
           </div>
           <div className="flex items-center justify-between py-4">
-            <SectionHeader header={category} />
+            <SectionHeader header={category} className="text-nowrap" />
             <Sort onClick={onClick} sort={sortBy} />
           </div>
           {status === "pending" ? (

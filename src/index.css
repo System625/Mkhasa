@@ -278,13 +278,62 @@ input[type="number"] {
 }
 
 .bg-image {
-  background-image: url("./assets/images/dolceNew.svg");
+  background-image: url("./assets/images/shangaf-amar.webp");
   background-size: cover;
   background-position: center; 
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
 }
+.bg-image1 {
+  background-image: url("./assets/images/shaghaf-tonka.webp");
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.bg-first-card-image {
+  background-image: url("./assets/images/GenieClubluxe.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.bg-second-card-image {
+  background-image: url("./assets/images/casablanca.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.bg-third-card-image {
+  background-image: url("./assets/images/9pm.webp");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.bg-fourth-card-image {
+  background-image: url("./assets/images/armaf1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.bg-fifth-card-image {
+  background-image: url("./assets/images/club.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
 
 @media only screen and (max-width: 374px) {
   .bg-image {
@@ -311,4 +360,23 @@ input[type="number"] {
   /* background-repeat: no-repeat; */
   /* background-size: cover; */
 }
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.progress-bar {
+  width: 0;
+  height: 2px;
+  background-color: #A40001; /* Adjust the color as needed */
+}
+
+.animate-progress {
+  animation: progress 2s linear forwards;
+}
+
 

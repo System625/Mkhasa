@@ -32,7 +32,7 @@ export const OrderTotal = ({ partial }) => {
             <Button
               onClick={proceed}
               variant="rectangle"
-              className="bg-app-red font-medium w-full text-white md:bg-app-black"
+              className="bg-app-red font-normal w-full text-white md:bg-app-black"
             >
               Proceed To Checkout
             </Button>
@@ -70,15 +70,15 @@ export const OrderSummary = ({ alignToEnd, state, partial }) => {
       {status === "pending" ? (
         "Loading ..."
       ) : !data?.items || data.items.length === 0 ? null : (
-        <div className="font-medium pt-6 md:p-0">
+        <div className="font-normal pt-6 md:p-0">
           <div
             className={cn(
               `flex items-center justify-between py-1`,
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>Subtotal:</h2>
-            <p>{formatCurrency(data.subTotal, userCurrency)}</p>
+            <h2 className="font-normal">Subtotal:</h2>
+            <p className="font-normal">{formatCurrency(data.subTotal, userCurrency)}</p>
           </div>
           <div
             className={cn(
@@ -86,8 +86,8 @@ export const OrderSummary = ({ alignToEnd, state, partial }) => {
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>Discount:</h2>
-            <p>{formatCurrency(data?.discount || "", userCurrency)}</p>
+            <h2 className="font-normal">Discount:</h2>
+            <p className="font-normal">{formatCurrency(data?.discount || "", userCurrency)}</p>
           </div>
           {partial ? null : (
             <div
@@ -96,27 +96,27 @@ export const OrderSummary = ({ alignToEnd, state, partial }) => {
                 alignToEnd ? "md:justify-end gap-3" : ""
               )}
             >
-              <h2 className="text-blue-300">Delivery Fee:</h2>
-              <p>{formatCurrency(deliveryFee, userCurrency)}</p>
+              <h2 className="text-blue-300 font-normal">Delivery Fee:</h2>
+              <p className="font-normal">{formatCurrency(deliveryFee, userCurrency)}</p>
             </div>
           )}
           <div
             className={cn(
-              `flex items-center justify-between py-1 text-app-red`,
+              `flex items-center justify-between py-1 text-app-red font-normal`,
               alignToEnd ? "md:justify-end gap-3" : ""
             )}
           >
-            <h2>7.5% VAT Inclusive</h2>
+            <h2 className="font-normal">7.5% VAT Inclusive</h2>
           </div>
           {partial ? null : (
             <div
               className={cn(
-                "flex items-center justify-between pb-1 pt-2 font-bold",
+                "flex items-center justify-between pb-1 pt-2 font-normal",
                 alignToEnd ? "md:justify-end gap-3" : ""
               )}
             >
-              <h2>Total:</h2>
-              <p>
+              <h2 className="font-normal">Total:</h2>
+              <p className="font-normal">
                 {formatCurrency(
                   data.subTotal - (data?.discount ?? 0) + deliveryFee,
                   userCurrency

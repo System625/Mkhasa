@@ -180,22 +180,22 @@ export const Sort = ({ onClick, sort }) => {
   };
 
   return (
-    <div className="relative z-10 w-48 py-2" ref={dropdownRef}>
+    <div className="relative z-10 px-8 md:w-[48] py-2" ref={dropdownRef}>
       <Button
         ref={ref}
         onClick={() => setShow(!show)}
-        className="flex items-center justify-between w-full py-2 bg-white"
+        className="flex justify-between items-center gap-1 py-2 bg-white"
       >
-        Sort By{" "}
+       <span className="text-nowrap md:ml-6 ml-2"> Sort By{""}</span>
         <Icon
           icon="fa6-solid:angle-down"
           vFlip={show}
           style={{ fontSize: 24 }}
-          className="text-app-black"
+          className="text-app-black md:mr-2 ml-1"
         />
       </Button>
       <ul
-        className={`bg-white absolute top-full w-full overflow-hidden rounded-3xl ${
+        className={`bg-white absolute top-full  text-nowrap overflow-hidden rounded-3xl ${
           show ? "" : "hidden"
         }`}
       >

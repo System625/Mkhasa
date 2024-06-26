@@ -531,8 +531,10 @@ import {
 } from "./ui/ToolTip";
 
 export const ProductDetail = ({ productId }) => {
+
   const { getUserId } = useAuth();
   const { product } = useLoaderData();
+  console.log(product.baseNotes)
   const schema = yup.object().shape({
     email: yup.string().email().required(),
     name: yup.string().trim().required(),
@@ -628,37 +630,37 @@ export const ProductDetail = ({ productId }) => {
       <div className="grid gap-6 pt-5 md:grid-cols-2">
         {tab === "description" ? (
           <div className="">
-            {product?.description && (
+            {(product?.description) && (
               <p className="py-1">
                 <span className="font-bold">Description:</span> {product?.description}
               </p>
             )}
-            {product?.appeal && (
+            {(product?.appeal) && (
               <p className="py-1">
                 <span className="font-bold">Orientation:</span> {product?.appeal}
               </p>
             )}
-            {product?.type && (
+            {(product?.type) && (
               <p className="py-1">
                 <span className="font-bold">Type:</span> {product?.type}
               </p>
             )}
-            {product?.volume && (
+            {(product?.volume) && (
               <p className="py-1">
                 <span className="font-bold">Volume:</span> {product?.volume}
               </p>
             )}
-            {product?.topNotes && (
+            {(product?.topNotes||product?.topNotes===null||product?.topNotes==="undefined") && (
               <p className="py-1">
                 <span className="font-bold">Top Notes:</span> {product?.topNotes}
               </p>
             )}
-            {product?.middleNotes && (
+            {(product?.middleNotes) && (
               <p className="py-1">
                 <span className="font-bold">Middle Notes:</span> {product?.middleNotes}
               </p>
             )}
-            {product?.baseNotes && (
+            {(product?.baseNotes) && (
               <p className="py-1">
                 <span className="font-bold">Base Notes:</span> {product?.baseNotes}
               </p>
@@ -725,7 +727,7 @@ export const ProductDetail = ({ productId }) => {
                         <Button
                           type="submit"
                           variant="rectangle"
-                          className="bg-app-black text-white font-medium w-fit hover:bg-app-black disabled:bg-[#999999] hover:disabled:bg-[#999999]"
+                          className="bg-app-black text-white font-medium w-fit px-4 hover:bg-app-black disabled:bg-[#999999] hover:disabled:bg-[#999999]"
                           disabled={!canSubmit}
                         >
                           Submit Review

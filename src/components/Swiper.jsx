@@ -4,6 +4,11 @@ import { register } from "swiper/element/bundle";
 import { SwiperCard } from "./SwiperCard";
 import { SwiperCard1 } from "./SwiperCard1";
 import { SwiperCard2 } from "./SwiperCard2";
+import { SwiperCard3 } from "./SwiperCard3";
+import { SwiperCard4 } from "./SwiperCard4";
+import { SwiperCard5 } from "./SwiperCard5";
+import { SwiperCard6 } from "./SwiperCard6";
+import { SwiperCard7 } from "./SwiperCard7";
 
 export const SwiperElem = () => {
   const ref = useRef();
@@ -28,8 +33,8 @@ export const SwiperElem = () => {
           }
           const elem = arr.map((val) => {
             return `<li style="background-color:white;height:${
-              val == current ? "10px" : "7px"
-            };width:64px;border-radius:20px"/>`;
+              val == current ? "10px" : "6px"
+            };width:${val == current ? "10px" : "6px"};border-radius:50%;margin:0 2px;"></li>`;
           });
           return elem.join("");
         },
@@ -49,8 +54,60 @@ export const SwiperElem = () => {
         a11y-prev-slide-message="Previous slide"
         a11y-next-slide-message="Next slide"
         autoplay="true"
-        autoplay-delay="5000"
+        autoplay-delay="4000"
       >
+       
+       
+        {/* <swiper-slide
+          style={{
+            borderRadius: 24,
+            overflow: "hidden",
+          }}
+        >
+          <div className="min-h-[250px] h-[40vw] md:h-[559px]">
+            <SwiperCard2 />
+          </div>
+        </swiper-slide> */}
+        {/* <swiper-slide
+          style={{
+            borderRadius: 24,
+            overflow: "hidden",
+          }}
+        >
+          <div className="min-h-[250px] h-[40vw] md:h-[559px]">
+            <SwiperCard3 />
+          </div>
+        </swiper-slide> */}
+        <swiper-slide
+          style={{
+            borderRadius: 24,
+            overflow: "hidden",
+          }}
+        >
+          <div className="min-h-[250px] h-[40vw] md:h-[579px]">
+            <SwiperCard4 />
+          </div>
+        </swiper-slide>
+        <swiper-slide
+          style={{
+            borderRadius: 24,
+            overflow: "hidden",
+          }}
+        >
+          <div className="min-h-[250px] h-[40vw] md:h-[579px] ">
+            <SwiperCard5 />
+          </div>
+        </swiper-slide>
+        <swiper-slide
+          style={{
+            borderRadius: 24,
+            overflow: "hidden",
+          }}
+        >
+          <div className="min-h-[250px] h-[40vw] md:h-[559px]">
+            <SwiperCard6 />
+          </div>
+        </swiper-slide>
         <swiper-slide
           style={{
             borderRadius: 24,
@@ -68,7 +125,7 @@ export const SwiperElem = () => {
           }}
         >
           <div className="min-h-[250px] h-[40vw] md:h-[559px]">
-            <SwiperCard1 />
+            <SwiperCard7 />
           </div>
         </swiper-slide>
         <swiper-slide
@@ -78,7 +135,7 @@ export const SwiperElem = () => {
           }}
         >
           <div className="min-h-[250px] h-[40vw] md:h-[559px]">
-            <SwiperCard2 />
+            <SwiperCard1 />
           </div>
         </swiper-slide>
       </swiper-container>
@@ -98,7 +155,7 @@ export const SwiperElem = () => {
           color="white"
         />
       </button>
-      <ul className="absolute z-10 flex items-end gap-2 swiper-pagination bottom-4 left-4 md:bottom-8">
+      <ul className="absolute z-10 w-full flex items-center justify-center gap-2 swiper-pagination bottom-4 left-0 md:bottom-8">
         
       </ul>
     </div>
