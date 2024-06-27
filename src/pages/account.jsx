@@ -17,7 +17,7 @@ export const Component = () => {
 
       setOrderData(res.data)
     }).catch((err)=>{
-    console.log(err)
+    // console.log(err)
     })
 
   },[])

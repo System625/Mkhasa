@@ -174,10 +174,11 @@ export const Cart = ({ children }) => {
     if (!userId) {
       const { pathname } = window.location;
       const toastId = toast.custom(
-        <div className="bg-app-ash pb-4 pt-7 px-5 rounded">
+        <div className="bg-app-ash pb-4 pt-7 px-8 rounded">
           <p>Please login to your account to continue shopping</p>
           <div className="flex items-center justify-center gap-6 p-6">
             <button
+            
               onClick={() => {
                 toast.remove(toastId);
               }}
@@ -186,7 +187,7 @@ export const Cart = ({ children }) => {
             </button>
             <Link to={`/login?redirect=${encodeURIComponent(pathname)}`}>
               <Button
-                className="bg-app-red text-white"
+                className="bg-app-red text-white w-full px-6"
                 onClick={() => {
                   toast.remove(toastId);
                 }}
@@ -198,7 +199,7 @@ export const Cart = ({ children }) => {
         </div>,
         {
           id: "toast",
-          duration: 2000,  // Set duration to 2 seconds
+          // duration: 2000,  // Set duration to 2 seconds
         }
       );
     }

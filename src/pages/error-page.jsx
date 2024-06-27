@@ -6,7 +6,7 @@ import { Seo } from "../components/Seo";
 
 export default function ErrorPage() {
   const error = useRouteError();
-  console.error(error);
+  // console.error(error);
 
   return (
     <div id="error-page" className="flex flex-col min-h-dvh">

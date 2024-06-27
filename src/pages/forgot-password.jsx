@@ -139,7 +139,7 @@ export const ResetPassword = () => {
         // console.log(response)
       } catch (error) {
         setIsSubmitting(false);
-        console.error(error);
+        // console.error(error);
       }
     },
   });

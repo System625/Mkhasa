@@ -167,7 +167,7 @@ export const Component = () => {
       } else {
         setError("Invalid Email or Password");
       }
-      toast.error(error);
+      // toast.error(error);
     },
   });
 

@@ -68,16 +68,7 @@ export const SwiperElem = () => {
             <SwiperCard2 />
           </div>
         </swiper-slide> */}
-        {/* <swiper-slide
-          style={{
-            borderRadius: 24,
-            overflow: "hidden",
-          }}
-        >
-          <div className="min-h-[250px] h-[40vw] md:h-[559px]">
-            <SwiperCard3 />
-          </div>
-        </swiper-slide> */}
+       
         <swiper-slide
           style={{
             borderRadius: 24,
@@ -108,6 +99,16 @@ export const SwiperElem = () => {
             <SwiperCard6 />
           </div>
         </swiper-slide>
+        {/* <swiper-slide
+          style={{
+            borderRadius: 24,
+            overflow: "hidden",
+          }}
+        >
+          <div className="min-h-[250px] h-[40vw] md:h-[559px]">
+            <SwiperCard3 />
+          </div>
+        </swiper-slide> */}
         <swiper-slide
           style={{
             borderRadius: 24,

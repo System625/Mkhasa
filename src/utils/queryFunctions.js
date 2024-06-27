@@ -16,7 +16,7 @@ export async function getProducts(url) {
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to get featured products");
+    // throw new Error("Failed to get featured products");
   }
 }
 
@@ -36,7 +36,7 @@ export async function getBestSellers(url) {
     });
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to get featured products");
+    // throw new Error("Failed to get featured products");
   }
 }
 

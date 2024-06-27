@@ -29,7 +29,7 @@ export const Component = () => {
         name=""
       />
       <Wrapper className="py-4">
-        <Navigation
+        {/* <Navigation
           location={[
             { description: "Home", to: "/", title: "Go to Home Page" },
             { description: "My Account", to: "/account" },
@@ -38,7 +38,7 @@ export const Component = () => {
           className="text-[#3338] py-4"
           iconClassName="text-[#3339] text-2xl"
           currentLocationClassName="text-app-black"
-        />
+        /> */}
         <Heading>Order History</Heading>
 
         <div className="@container bg-white py-6 px-4 rounded-3xl my-4 md:px-8    font-Helvetica">

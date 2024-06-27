@@ -534,7 +534,7 @@ export const ProductDetail = ({ productId }) => {
 
   const { getUserId } = useAuth();
   const { product } = useLoaderData();
-  console.log(product.baseNotes)
+  // console.log(product)
   const schema = yup.object().shape({
     email: yup.string().email().required(),
     name: yup.string().trim().required(),

@@ -1,21 +1,46 @@
+import { useState } from 'react';
 import { Button } from "./ui/Button";
-import geneimg from "../assets/images/GenieClubluxe.jpeg";
+import geneVideo from "../assets/videos/GenieClubluxe.mp4";
 import { Link } from "react-router-dom";
-export const SwiperCard3 = () => {
-  return (
 
+export const SwiperCard3 = () => {
+  const [muted, setMuted] = useState(true); // State to manage mute/unmute
+
+  const toggleMute = () => {
+    setMuted(!muted);
+  };
+
+  return (
     <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden font-Helvetica">
-      <Link to="/products/66711ca37216bd00159220e4" style={{ display: "contents" }}>
-      <div className="bg-first-card-image h-screen">
-      <div className="">
-        <img
-          src={geneimg}
-          fetchpriority="high"
-          className="block md:hidden cursor-pointer object-cover bg-no-repeat absolute bottom-0 -top-12 right-0 sm:bottom-2 sm:right-2 w-[400px]"
+      <div className="w-screen h-screen relative">
+        {/* Desktop Video */}
+        <video
+          src={geneVideo}
+          autoPlay
+          loop
+          muted={muted} // Muted state
+          playsInline
+          className="hidden md:block w-full h-full object-cover"
+          onClick={toggleMute} // Toggle mute/unmute on click
         />
-    </div>
+        
+        {/* Mobile Video */}
+        <video
+          src={geneVideo}
+          autoPlay
+          loop
+          muted={muted} // Muted state
+          playsInline
+          className="block md:hidden w-full h-full object-cover"
+          style={{ marginTop: '-50%', marginBottom: '-30%' }} // Adjust margins to center vertically
+          onClick={toggleMute} // Toggle mute/unmute on click
+        />
+
+        {/* Your content or UI elements */}
+        <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center">
+          {/* Content here */}
+        </div>
       </div>
-      </Link>
     </div>
   );
 };

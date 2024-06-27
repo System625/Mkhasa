@@ -35,7 +35,7 @@ export const homeLoader = (queryClient) => async () => {
     featuredProductQuery
   );
 
-  const latestProducts = await queryClient.ensureQueryData(latestProductQuery);
+  const latestProducts = await queryClient?.ensureQueryData(latestProductQuery);
   const newArrivals = await queryClient.ensureQueryData(
     newArrivalsProductQuery
   );
