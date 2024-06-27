@@ -6,7 +6,7 @@ import { SwiperElem } from "../components/Swiper";
 import { LatestProducts } from "../components/LatestProducts";
 // import { TopCategories } from "../components/TopCategories";
 import { Seo } from "../components/Seo";
-import { Sales } from "../components/Sales";
+// import { Sales } from "../components/Sales";
 import { NewArrivals } from "../components/NewArrivals";
 import { BestSellers } from "../components/BestSellers";
 // import { CategoryPanel } from "../components/CategoryPanel";
@@ -21,7 +21,7 @@ export const Component = () => {
         </div>
         <BestSellers />
         <LatestProducts />
-        <Sales />
+        {/* <Sales /> */}
         <NewArrivals />
         {/* <FeaturedProducts /> */}
         {/* <TopCategories /> */}
