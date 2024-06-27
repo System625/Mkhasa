@@ -30,7 +30,7 @@ export const Component = () => {
         name=""
       />
       <Wrapper className="py-4">
-        <Navigation
+        {/* <Navigation
           location={[
             { description: "Home", to: "/", title: "Go to Home Page" },
             { description: "My Account", to: "" },
@@ -38,7 +38,7 @@ export const Component = () => {
           className="text-[#3338] py-4"
           iconClassName="text-[#3339] text-2xl"
           currentLocationClassName="text-app-black"
-        />
+        /> */}
         <div className="flex justify-between gap-8 items-center py-4">
           <Heading className="text-app-black">Hi {getUserEmail()}</Heading>
           <Logout

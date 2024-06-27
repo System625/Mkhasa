@@ -95,7 +95,7 @@ export const Component = () => {
         name=""
       />
       <Wrapper className="py-4">
-        <Navigation
+        {/* <Navigation
           location={[
             { description: "Home", to: "/", title: "Go to Home Page" },
             { description: "My Account", to: "/account" },
@@ -104,7 +104,7 @@ export const Component = () => {
           className="text-[#3338] py-4"
           iconClassName="text-[#3339] text-2xl"
           currentLocationClassName="text-app-black"
-        />
+        /> */}
         <Heading>My Profile</Heading>
 
         <div className="grid gap-6 py-6 md:grid-cols-2">
