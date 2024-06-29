@@ -8,7 +8,9 @@ import { LatestProducts } from "../components/LatestProducts";
 import { Seo } from "../components/Seo";
 // import { Sales } from "../components/Sales";
 import { NewArrivals } from "../components/NewArrivals";
+import { NewDeals } from "../components/NewDeals"
 import { BestSellers } from "../components/BestSellers";
+import { Recommended } from "../components/Recommended";
 // import { CategoryPanel } from "../components/CategoryPanel";
 
 export const Component = () => {
@@ -21,8 +23,11 @@ export const Component = () => {
         </div>
         <BestSellers />
         <LatestProducts />
-        {/* <Sales /> */}
-        <NewArrivals />
+
+        <Sales />
+        <NewDeals/>
+        {/* <NewArrivals /> */}
+
         {/* <FeaturedProducts /> */}
         {/* <TopCategories /> */}
       </Wrapper>

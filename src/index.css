@@ -374,4 +374,15 @@ input[type="number"] {
 } */
 
 
+.my-button {
+  /* other styles */
+}
+
+
+
+@media (min-width: 320px) {
+  .my-button {
+    /* margin-right: 2rem; */
+  }
+}
 

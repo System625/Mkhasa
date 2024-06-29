@@ -140,8 +140,8 @@ export const Component = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const schema = yup.object().shape({
-    username: yup.string().required().min(3, "Must be at least 3 characters"),
-    phone: yup
+    address: yup.string().required().min(3, "Must be at least 3 characters"),
+    phoneNumber: yup
       .string()
       .required("Phone number is required")
       .matches(/^\d+$/, "Phone number must contain only digits"),
@@ -157,7 +157,7 @@ export const Component = () => {
   });
 
   const formik = useFormik({
-    initialValues: { email: "", password: "", username: "", phone: "" },
+    initialValues: { email: "", password: "", address: "", phoneNumber: "" , },
     validationSchema: schema,
     onSubmit: async (values) => {
       try {
@@ -201,24 +201,25 @@ export const Component = () => {
           className="w-full max-w-xl bg-white rounded-3xl p-4 font-Helvetica"
         >
           <div className="grid gap-x-4 sm:grid-cols-2">
-            <Input
-              name="username"
+          <Input
+              name="email"
               formik={formik}
               className="bg-app-ash-1"
-              placeholder="Full Name"
+              placeholder="Email Address"
             />
             <Input
-              name="phone"
+              name="phoneNumber"
               formik={formik}
               className="bg-app-ash-1"
               placeholder="Phone Number"
               type="tel"
             />
-            <Input
-              name="email"
+          
+             <Input
+              name="address"
               formik={formik}
               className="bg-app-ash-1"
-              placeholder="Email Address"
+              placeholder="address"
             />
             <PInput
               name="password"

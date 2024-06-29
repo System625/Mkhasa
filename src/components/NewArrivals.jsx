@@ -4,14 +4,15 @@ import { ListGrid } from "./ui/ListGrid";
 import { useLoaderData } from "react-router-dom/dist";
 
 export const NewArrivals = () => {
-  const { newArrivals } = useLoaderData();
+  const { featuredProducts } = useLoaderData();
+  console.log(useLoaderData())
 
   return (
     <section className="py-8    font-Helvetica">
       <SectionHeader header="Deals" />
 
       <ListGrid>
-        {newArrivals.map(
+        {featuredProducts.map(
           (
             { product, category, originalPrice, discountedPrice, image, id },
             index

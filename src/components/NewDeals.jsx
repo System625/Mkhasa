@@ -67,7 +67,7 @@ import useLongPress from "../hooks/utils/useLongPress";
 import { Icon } from "@iconify/react";
 import { cn } from "../utils/cn.js";
 
-export const Recommended = ({ horizontalOnSmallScreens = true }) => {
+export const NewDeals = ({ horizontalOnSmallScreens = true }) => {
   const [recommend, setRecommended] = useState([]);
   const [err, setErr] = useState(null);
   const ref = useRef();
@@ -80,7 +80,7 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
 
   async function getRecommended() {
     try {
-      const response = await axios.get("/recommend"); // Ensure this URL is correct
+      const response = await axios.get("/deal/product"); // Ensure this URL is correct
       // console.log("Fetched data:", response.data); // Debugging: Log the fetched data
 
       setRecommended(() =>
@@ -112,10 +112,7 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
   return (
     <section className="py-8 font-Helvetica">
       <div className="flex items-center justify-between">
-
-        <SectionHeader header="You Might Also Like This" />
-
-
+        <SectionHeader header="Deals" />
         <div className="hidden gap-4">
           <button
             {...getHandlers("backward")}
@@ -145,11 +142,7 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
               key={index}
               className={cn(
                 "min-w-[11rem]",
-
-
                 horizontalOnSmallScreens && index === 0 ? " md:ml-0" : ""
-
-
               )}
             >
               <Product

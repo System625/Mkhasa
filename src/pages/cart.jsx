@@ -60,7 +60,7 @@ export const Component = () => {
                 Please login to your account to view items in your cart
               </p>
               <Link to={`/login?redirect=${encodeURIComponent("/cart")}`}>
-                <Button className="bg-app-red px-12 text-white font-medium">
+                <Button className="bg-app-red px-12 text-white ">
                   Login
                 </Button>
               </Link>

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --host --port 3000",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build": "vite build"
   },
   "dependencies": {
     "@preact/signals-react": "^2.0.1",

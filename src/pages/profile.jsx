@@ -16,7 +16,10 @@ import toast from "react-hot-toast";
 import { useRef,useEffect } from "react";
 
 export const Component = () => {
-  const { getUserEmail, username, getUserId } = useAuth();
+  const { getUserEmail, username, getUserId, getUserAddress, getUserPhone } = useAuth();
+  console.log(useAuth())
+
+  console.log(getUserAddress())
   const [editMode, setEditMode] = useState(false);
   const [updatingPassword, setUpdatingPassword] = useState(false);
   const [val, setVal] = useState(username);
@@ -156,14 +159,14 @@ export const Component = () => {
                 <p className="font-bold">Email:</p>
                 <p>{getUserEmail()}</p>
               </div>
-              <div>
+              {/* <div>
                 <p className="font-bold">Phone:</p>
-                <p>123 4567 890 79</p>
-              </div>
-              <div>
+                <p>{getUserPhone()}</p>
+              </div> */}
+              {/* <div>
                 <p className="font-bold">Address</p>
-                <p>No 7 morgan Estate</p>
-              </div>
+                <p>{getUserAddress()}</p>
+              </div> */}
             </div>
           </div>
 
@@ -189,7 +192,7 @@ export const Component = () => {
               </div>
               <Button
                 type="submit"
-                className="bg-app-black text-white font-medium mt-6 w-28 h-10"
+                className="bg-app-black text-white  mt-6 w-28 h-10"
               >
                 {updatingPassword ? (
                   <Icon

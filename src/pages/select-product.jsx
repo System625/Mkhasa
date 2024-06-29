@@ -771,9 +771,9 @@ export const Component = () => {
           currentLocationClassName="text-app-black"
         /> */}
 
-        <div className="@container pb-8    font-Helvetica bg-white md:px-6 md:py-6 px-2">
+        <div className="@container pb-8 font-Helvetica bg-white md:px-6 md:py-6">
           <div className="grid gap-8 @4xl:grid-cols-2">
-            <div className="relative min-w-[350px] md:min-w-[550px]">
+            <div className="relative md:min-w-[550px]">
               <div
                 className="rounded-2xl overflow-hidden w-full aspect-square md:@[460px]:aspect-video"
                 {...handlers}
@@ -805,17 +805,17 @@ export const Component = () => {
               <div className="flex justify-between items-center flex-wrap gap-2 font-Helvetica">
                 <p className="text-xl font-bold text-[#A40001] font-Helvetica">{product?.category}</p>
               </div>
-              <div className="mt-5 -md:mt-6    font-Helvetica">
+              <div className="mt-5 -md:mt-6 font-Helvetica">
                 <h3 className="text-[#555] font-bold md:text-4xl text-3xl font-Helvetica">
                   {product?.name}
                 </h3>
               </div>
 
-              <div className="mt-5 md:mt-2    font-Helvetica">
+              <div className="mt-5 md:mt-2 font-Helvetica">
                 <p className="md:text-5xl text-5xl  font-Helvetica">₦<span>{format(product?.price)}</span></p>
               </div>
 
-              <div className="mt-5 md:mt-2    font-Helvetica">
+              <div className="mt-5 md:mt-2 font-Helvetica">
                 {product?.sku && (
                   <p className="   font-Helvetica mt-2">
                     <strong className="text-black    font-Helvetica Basis font-bold">SKU</strong>:{" "}
@@ -866,7 +866,7 @@ export const Component = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col  md:flex-row gap-8 md:space-x-4 mt-4">
+              <div className="my-button flex flex-col md:flex-row gap-8 md:space-x-4 mt-4">
                 {!(
                   data &&
                   data.items.find((item) => item?.productId?._id === product._id)
@@ -875,13 +875,13 @@ export const Component = () => {
                     disabled={!count}
                     variant="rectangle"
                     onClick={onClick}
-                    className="  bg-app-black md:px-8 w-full px-10 disabled:bg-[#848484]"
+                    className="  bg-app-black w-full disabled:bg-[#848484]"
                   >
                     Add to Cart
                   </Button>
                 ) : (
                   <Link to="/cart" style={{ display: "contents" }}>
-                    <Button variant="rectangle" className=" bg-app-black md:px-8 px-10 w-full focus:outline-none font-normal">
+                    <Button variant="rectangle"  className=" bg-app-black w-full font-normal">
                       Go to Cart
                     </Button>
                   </Link>
@@ -889,7 +889,7 @@ export const Component = () => {
                 <Button
                   variant="rectangle"
                   onClick={onClickCheckout}
-                  className="bg-[#27D34C] text-white  md:px-8 w-full px-10 focus:outline-none font-normal  disabled:bg-[#848484]"
+                  className="bg-[#27D34C] text-white  w-full font-normal disabled:bg-[#848484]"
                 >
                   Buy Now
                 </Button>

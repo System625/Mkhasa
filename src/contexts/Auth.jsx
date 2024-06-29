@@ -11,6 +11,8 @@ export const Auth = ({ children }) => {
   const getAccessToken = () => user?.token;
   const getUserId = () => user?.id;
   const getUserEmail = () => user?.email;
+  const getUserAddress = () => user?.address;
+  const getUserPhone = () => user?.phoneNumber;
 
   return (
     <AuthContext.Provider
@@ -21,6 +23,8 @@ export const Auth = ({ children }) => {
         getUserId,
         getUserEmail,
         username,
+        getUserAddress,
+        getUserPhone
       }}
     >
       {children}
