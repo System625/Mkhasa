@@ -115,6 +115,7 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
 
         <SectionHeader header="You Might Also Like This" />
 
+
         <div className="hidden gap-4">
           <button
             {...getHandlers("backward")}
@@ -145,7 +146,9 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
               className={cn(
                 "min-w-[11rem]",
 
+
                 horizontalOnSmallScreens && index === 0 ? " md:ml-0" : ""
+
 
               )}
             >

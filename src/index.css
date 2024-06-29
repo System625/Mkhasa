@@ -373,9 +373,11 @@ input[type="number"] {
   min-width: 11rem;
 } */
 
+
 .my-button {
   /* other styles */
 }
+
 
 
 @media (min-width: 320px) {
