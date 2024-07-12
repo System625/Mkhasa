@@ -13,7 +13,7 @@ export const Input = ({
     <div className="py-2 w-full">
       <input
         type={type}
-        className={cn("rounded-full w-full py-2 px-6 outline-none", className)}
+        className={cn("w-full py-2 px-6 outline-none border border-black", className)}
         {...formik.getFieldProps(name)}
         {...rest}
       />
@@ -34,7 +34,7 @@ export const PInput = ({ name, formik, className = "", ...rest }) => {
       <div className="relative">
         <input
           type={seePassword ? "text" : "password"}
-          className={`rounded-full w-full py-2 px-6 outline-none ${className}`}
+          className={`w-full py-2 px-6 outline-none border border-black ${className}`}
           {...formik.getFieldProps(name)}
           {...rest}
         />
@@ -45,9 +45,9 @@ export const PInput = ({ name, formik, className = "", ...rest }) => {
           className="absolute right-4 top-1/2 -translate-y-1/2 "
         >
           {seePassword ? (
-            <Icon icon="clarity:eye-hide-line" style={{ fontSize: 32 }} />
+            <Icon icon="clarity:eye-hide-line" style={{ fontSize: 16 }} />
           ) : (
-            <Icon icon="clarity:eye-line" style={{ fontSize: 32 }} />
+            <Icon icon="clarity:eye-line" style={{ fontSize: 16 }} />
           )}
         </button>
       </div>
