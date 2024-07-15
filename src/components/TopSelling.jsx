@@ -165,14 +165,14 @@ export const TopSelling = ({ horizontalOnSmallScreens = true }) => {
         <p>{err}</p>
       ) : recommend.length > 0 ? (
         <ul
-          className="pt-8 w-full gap-1 flex sm:flex-nowrap overflow-x-auto"
+          className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-x-auto"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           ref={ref}
         >
           {recommend.map(({ product, category, price, image, id }, index) => (
             <li
               key={index}
-              className="min-w-[11rem]"
+              className="min-w-[17rem]"
             >
               <Product
                 product={product}

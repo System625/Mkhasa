@@ -7,7 +7,7 @@ import { SwiperCard2 } from "./SwiperCard2";
 import { SwiperCard3 } from "./SwiperCard3";
 import { SwiperCard4 } from "./SwiperCard4";
 import { SwiperCard5 } from "./SwiperCard5";
-import { SwiperCard6 } from "./SwiperCard6";
+// import { SwiperCard6 } from "./SwiperCard6";
 import { SwiperCard7 } from "./SwiperCard7";
 
 export const SwiperElem = () => {
@@ -89,7 +89,7 @@ export const SwiperElem = () => {
             <SwiperCard5 />
           </div>
         </swiper-slide>
-        <swiper-slide
+        {/* <swiper-slide
           style={{
             borderRadius: 24,
             overflow: "hidden",
@@ -98,7 +98,7 @@ export const SwiperElem = () => {
           <div className="min-h-[250px] h-[40vw] md:h-[559px]">
             <SwiperCard6 />
           </div>
-        </swiper-slide>
+        </swiper-slide> */}
         {/* <swiper-slide
           style={{
             borderRadius: 24,

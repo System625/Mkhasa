@@ -203,7 +203,7 @@ export const Component = ({ backGroundColor }) => {
       </p>
       <p className="text-xl font-bold mt-1">Sign In To Continue</p>
       <div className="w-[90%] md:w-[62%] mx-auto gap-10">
-        <p className="py-4 text-[#666666] text-left text-sm   ">
+        <p className="py-4 text-[#666666] text-center md:text-left text-sm   ">
           Don&rsquo;t Have An Account?
           <Link to="/register" className="ml-2 text-app-black underline hover:underline font-medium    z-50">
             Create An Account{" "}
@@ -213,11 +213,11 @@ export const Component = ({ backGroundColor }) => {
       </div>
 
       <form onSubmit={formik.handleSubmit} className="w-[90%] md:w-[60%] mx-auto gap-10">
-        <div className="text-center">
+        <div className="text-left md:text-center">
           <Label htmlFor="email">Email</Label>
           <Input name="email" formik={formik} />
         </div>
-        <div className="text-center">
+        <div className="text-left md:text-center">
           <Label htmlFor="password">Password</Label>
           <PInput name="password" formik={formik} />
         </div>
@@ -226,7 +226,7 @@ export const Component = ({ backGroundColor }) => {
 
         <Link
           to={"/forgot-password"}
-          className="inline-block text-center underline text-sm font-semibold w-full pb-6 text-app-black"
+          className="inline-block text-right md:text-center underline text-sm font-semibold w-full pb-6 text-app-black"
         >
           Forgot Password?
         </Link>
