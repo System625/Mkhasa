@@ -2,7 +2,7 @@ export const Delivery=()=>{
     // console.log("hello")
     return(
 
-        <div className="bg-white p-6 md:px-28 rounded-lg shadow-md    font-Helvetica">
+        <div className="bg-white p-6 md:px-28 rounded-lg shadow-md      ">
         <h2 className="text-2xl font-bold mb-4">Delivery Policy</h2>
       
         <h3 className="text-xl font-semibold mb-2">Business Days</h3>

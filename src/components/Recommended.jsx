@@ -110,7 +110,7 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
   }
 
   return (
-    <section className="py-8 font-Helvetica">
+    <section className="py-8   ">
       <div className="flex items-center justify-between">
 
         <SectionHeader header="You Might Also Like This" />

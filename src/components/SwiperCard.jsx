@@ -4,10 +4,10 @@ import shaghaftonka from "../assets/images/shaghaf-tonka.webp";
 export const SwiperCard = () => {
   return (
     // <div>
-    //   <div className="min-h-[240px] md:w-[1253px] w-full h-full bg-[#A40001]    font-Helvetica rounded-3xl overflow-hidden md:h-[560px]">
+    //   <div className="min-h-[240px] md:w-[1253px] w-full h-full bg-[#A40001]       rounded-3xl overflow-hidden md:h-[560px]">
     //     <div>
     //       <div className="w-full title ">
-    //         <div className="flex flex-col gap-1 px-4 md:-mt-10 mt:12 pt:30 md:gap-2 md:px-28 md:pt-40    font-Helvetica">
+    //         <div className="flex flex-col gap-1 px-4 md:-mt-10 mt:12 pt:30 md:gap-2 md:px-28 md:pt-40      ">
     //           <h1 className="text-[#fff] lg:text-6xl text-base  pt-28 -mt-10 md:text-5xl font-bold leading-tight md:-mt-24 md:pt-24 ">
     //             Step into A world
     //           </h1>
@@ -40,7 +40,7 @@ export const SwiperCard = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full max-h-screen rounded-3xl md:h-screen overflow-y-hidden font-Helvetica"> 
+    <div className="w-full max-h-screen rounded-3xl md:h-screen overflow-y-hidden   "> 
     <Link to="/products/667aa01f461aae00158744a9" style={{ display: "contents" }}>     
      <div className="bg-image1 h-screen">
          <div className="">

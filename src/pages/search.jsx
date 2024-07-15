@@ -67,7 +67,7 @@
 //                 iconClassName="text-2xl"
 //                 currentLocationClassName="text-white"
 //               />
-//               <h2 className="text-xl font-  font-Helvetica tracking-tighter text-white md:tracking-normal">
+//               <h2 className="text-xl font-     tracking-tighter text-white md:tracking-normal">
 //                 Search Results for "{search}"
 //               </h2>
 //             </Wrapper>
@@ -91,7 +91,7 @@
 //             <>
 //               {isEmpty ? (
 //                 <div className="text-center">
-//                   <p className="md:text-3xl text-xl font-  font-Helvetica    font-Helvetica">We don't have what you're looking for this time, but why not take recommendations made for you. Alternatively, shop by category.</p>
+//                   <p className="md:text-3xl text-xl font-          ">We don't have what you're looking for this time, but why not take recommendations made for you. Alternatively, shop by category.</p>
 //                   {/* Add your recommendations and categories here */}
 //                 </div>
 //               ) : (
@@ -210,7 +210,7 @@
 //                 iconClassName="text-2xl"
 //                 currentLocationClassName="text-white"
 //               />
-//               <h2 className="text-xl font-  font-Helvetica tracking-tighter text-white md:tracking-normal">
+//               <h2 className="text-xl font-     tracking-tighter text-white md:tracking-normal">
 //                 Search Results for "{search}"
 //               </h2>
 //             </Wrapper>
@@ -234,7 +234,7 @@
 //             <>
 //               {isEmpty ? (
 //                 <div className="text-center">
-//                   <p className="md:text-xl text-lg font-  font-Helvetica    font-Helvetica">
+//                   <p className="md:text-xl text-lg font-          ">
 //                     We don't have what you're looking for this time, but why not take recommendations made for you. Alternatively, shop by category.
 //                   </p>
 //                   {/* Add your recommendations and categories here */}
@@ -378,7 +378,7 @@ const url=`search?name=${search}&sort=${sortBy}`
                 iconClassName="text-2xl"
                 currentLocationClassName="text-white"
               /> 
-              <h2 className="text-xl font-  font-Helvetica tracking-tighter text-white md:tracking-normal">
+              <h2 className="text-xl font-     tracking-tighter text-white md:tracking-normal">
                 Search Results for "{search}"
               </h2>
             </Wrapper>
@@ -405,7 +405,7 @@ const url=`search?name=${search}&sort=${sortBy}`
             <>
               {isEmpty ? (
                 <div className="text-center">
-                  <p className="md:text-xl text-lg font- font-Helvetica">
+                  <p className="md:text-xl text-lg font-   ">
                     We don't have what you're looking for this time, but why not
                     take recommendations made for you. Alternatively, shop by
                     category.

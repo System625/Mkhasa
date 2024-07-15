@@ -6,6 +6,11 @@ import { useLoaderData } from "react-router-dom/dist";
 export const FeaturedProducts = () => {
   const { featuredProducts } = useLoaderData();
 
+  const handleAddToCart = ({ id, quantity }) => {
+    // Logic to add the product to the cart
+    console.log(`Added product ${id} with quantity ${quantity} to cart`);
+  };
+
   return (
     <section className="py-8">
       <SectionHeader header="Featured Products" />
@@ -16,7 +21,7 @@ export const FeaturedProducts = () => {
             { product, category, originalPrice, discountedPrice, image, id },
             index
           ) => (
-            <li key={index}>
+            <li key={index} className="min-w-[17rem]">
               <Product
                 product={product}
                 category={category}
@@ -24,6 +29,7 @@ export const FeaturedProducts = () => {
                 discountedPrice={discountedPrice}
                 image={image}
                 id={id}
+                onAddToCart={handleAddToCart}
               />
             </li>
           )

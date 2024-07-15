@@ -21,20 +21,20 @@ export const OrderTotal = ({ partial }) => {
 
   return (
     <div className="py-4 md:flex md:justify-between">
-      <div>
+      <div className="md:mr-5">
         <CouponCode />
       </div>
-      <div>
+      <div className="border-2 border-gray-300 pt-2 lg:pt-6 pb-5 lg:pb-12 px-5 lg:px-10 w-full lg:w-[40%] mt-5 md:mt-0 flex flex-col gap-10">
         <OrderSummary alignToEnd partial={partial} />
 
-        <div className="pt-6">
+        <div className="pt-2">
           {!data?.items || data.items.length === 0 ? null : (
             <Button
               onClick={proceed}
               variant="rectangle"
-              className="bg-app-red font-normal w-full text-white md:bg-app-black"
+              className="font-semibold text-xl py-2 w-full rounded-none text-white bg-black"
             >
-              Proceed To Checkout
+              Checkout
             </Button>
           )}
         </div>
@@ -55,8 +55,8 @@ export const OrderSummary = ({ alignToEnd, state, partial }) => {
         return data.subTotal > 100_000
           ? 0
           : state && state === "lagos"
-          ? 2500
-          : 5000;
+            ? 2500
+            : 5000;
       }
     });
   }, [state, data?.subTotal]);
@@ -70,69 +70,32 @@ export const OrderSummary = ({ alignToEnd, state, partial }) => {
       {status === "pending" ? (
         "Loading ..."
       ) : !data?.items || data.items.length === 0 ? null : (
-        <div className="font-normal pt-6 md:p-0">
-          <div
-            className={cn(
-              `flex items-center justify-between py-1`,
-              alignToEnd ? "md:justify-end gap-3" : ""
-            )}
-          >
-            <h2 className="font-normal">Subtotal:</h2>
-            <p className="font-normal">{formatCurrency(data.subTotal, userCurrency)}</p>
-          </div>
-          <div
-            className={cn(
-              `flex items-center justify-between py-1`,
-              alignToEnd ? "md:justify-end gap-3" : ""
-            )}
-          >
-            <h2 className="font-normal">Discount:</h2>
-            <p className="font-normal">{formatCurrency(data?.discount || "", userCurrency)}</p>
-          </div>
-          {partial ? null : (
-            <div
-              className={cn(
-                `flex items-center justify-between py-1`,
-                alignToEnd ? "md:justify-end gap-3" : ""
-              )}
-            >
-              <h2 className="text-blue-300 font-normal">Delivery Fee:</h2>
-              <p className="font-normal">{formatCurrency(deliveryFee, userCurrency)}</p>
+        <div className="font-normal pt-2 md:p-0">
+          <div className="flex flex-col gap-1 lg:gap-3">
+            <h2 className="text-lg font-semibold pb-4">Cart Summary</h2>
+            <div className="flex justify-between py-2">
+              <span className="font-semibold">Subtotal:</span>
+              <span className="font-semibold">{formatCurrency(data.subTotal, userCurrency)}</span>
             </div>
-          )}
-          <div
-            className={cn(
-              `flex items-center justify-between py-1 text-app-red font-normal`,
-              alignToEnd ? "md:justify-end gap-3" : ""
-            )}
-          >
-            <h2 className="font-normal">7.5% VAT Inclusive</h2>
-          </div>
-          {partial ? null : (
-            <div
-              className={cn(
-                "flex items-center justify-between pb-1 pt-2 font-normal",
-                alignToEnd ? "md:justify-end gap-3" : ""
-              )}
-            >
-              <h2 className="font-normal">Total:</h2>
-              <p className="font-normal">
-                {formatCurrency(
-                  data.subTotal - (data?.discount ?? 0) + deliveryFee,
-                  userCurrency
-                )}
-              </p>
+            <div className="flex justify-between py-2">
+              <span className="font-semibold">Delivery Fee:</span>
+              <span className="font-semibold">{formatCurrency(deliveryFee, userCurrency)}</span>
             </div>
-          )}
+            <div className="flex justify-between py-2">
+              <span className="font-semibold">Total:</span>
+              <span className="font-semibold">{formatCurrency(data.subTotal + deliveryFee, userCurrency)}</span>
+            </div>
+          </div>
         </div>
       )}
+
     </>
   );
 };
 
 const CouponCode = () => {
   return (
-    <div className="bg-red-100 rounded-full overflow-hidden relative max-w-lg md:w-[480px]">
+    <div className="bg-red-100 overflow-hidden relative max-w-lg md:w-[400px]">
       <input
         type="text"
         className="py-2 w-full pl-4 pr-32 outline-none"

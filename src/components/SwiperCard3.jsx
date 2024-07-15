@@ -11,7 +11,7 @@ export const SwiperCard3 = () => {
   };
 
   return (
-    <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden font-Helvetica">
+    <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden   ">
       <div className="w-screen h-screen relative">
         {/* Desktop Video */}
         <video

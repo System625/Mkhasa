@@ -1,27 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "./ui/Logo";
+import { FooterLogo } from "./ui/FooterLogo";
 import { Wrapper } from "./ui/Wrapper";
 import { Icon } from "@iconify/react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-black py-6 mt-auto">
+    <footer className="bg-black py-6 mt-auto text-center">
       <Wrapper>
 
         <div className="grid gap-y-5 grid-cols-1 md:grid-cols-12 items-start">
-        <div className="hidden md:flex justify-start md:col-span-3">
+          <div className="flex justify-center md:col-span-3">
             <div className="sm:block text-white font-fuzzy">
-              <Logo stack="hidden" size="lg" className="font-fuzzy" />
+              <FooterLogo stack="hidden" size="lg" className="font-fuzzy" />
             </div>
-
           </div>
 
-          <div className="md:col-span-3    font-Helvetica">
-            <h2 className="text-lg font-bold font-  font-HelveticaBold mt-4 text-white text-left">
+          <div className="md:col-span-3      ">
+            <h2 className="text-lg font-bold font-    mt-4 text-white text-center lg:text-left">
               Explore Mkhasa
             </h2>
-            <ul className="text-app-ash-2   text-left">
+            <ul className="text-app-ash-2   text-center lg:text-left">
               <li>
                 <Link
                   to="/about"
@@ -65,16 +64,16 @@ export const Footer = () => {
             </ul>
           </div>
 
-          <div className="md:col-span-3    font-Helvetica mt-4">
-            <h2 className="text-lg font-bold font-  font-HelveticaBold text-white text-left">
+          <div className="md:col-span-3       mt-4">
+            <h2 className="text-lg font-bold font-    text-white text-center lg:text-left">
               CONTACT US
             </h2>
-            <div className="text-app-ash-2 mt-4 text-left     font-Helvetica">
+            <div className="text-app-ash-2 mt-4 text-center lg:text-left       ">
               {/* <p>House 92, Dele Orisabiyi Street Okota Lagos State</p> */}
               <p className="py-2">Call Us: <span className="font-NimbusSan"> 09013898261</span></p>
               <p className="py-2">Email: info@mkhasa.com</p>
 
-              <h3 className="text-lg font-bold font-  font-HelveticaBold text-white mt-4">Support/Sales Team</h3>
+              <h3 className="text-lg font-bold font-    text-white mt-4">Support/Sales Team</h3>
               <p className="py-2">Call Us: <span className="font-NimbusSan">09131451391 </span></p>
 
               <p className="py-2">Email: sales@mkhasa.com</p>
@@ -82,11 +81,11 @@ export const Footer = () => {
             </div>
           </div>
 
-          <div className="md:col-span-3    font-Helvetica 0">
-            <h2 className="text-lg font-bold font-  font-HelveticaBold text-white text-left md:pr-20 md:text-right">
+          <div className="md:col-span-3       0">
+            <h2 className="text-lg font-bold font-    text-white text-center md:pr-20 md:text-right">
               Socials
             </h2>
-            <ul className="flex text-app-ash-2 justify-start gap-3 mt-4 md:justify-end">
+            <ul className="flex text-app-ash-2 justify-center gap-3 mt-4 md:justify-end">
               <li>
                 <Link
 
@@ -148,7 +147,7 @@ export const Footer = () => {
                   aria-label="link to Mkhasa tiktok page"
                 >
                   <Icon
-                  icon="ant-design:tik-tok-outlined"
+                    icon="ant-design:tik-tok-outlined"
                     style={{ fontSize: 32 }}
                     className="hover:text-app-red "
                   />
@@ -158,13 +157,13 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="md:hidden flex mt-3 justify-start md:col-span-3 ">
-            <div className="sm:block text-white font-fuzzy">
-              <Logo backGroundColor="black" />
-            </div>
+        {/* <div className="md:hidden flex mt-3 justify-start md:col-span-3 ">
+          <div className="sm:block text-white font-fuzzy">
+            <Logo backGroundColor="black" />
           </div>
+        </div> */}
 
-        <p className="text-app-ash-2 text-sm text-left pt-10 sm:text-right md:text-center    font-Helvetica">
+        <p className="text-app-ash-2 text-sm text-left pt-10 sm:text-right md:text-center      ">
           &copy; {new Date().getFullYear()} All Rights Reserved
         </p>
       </Wrapper>

@@ -36,7 +36,7 @@ export const Component = () => {
           currentLocationClassName="text-app-black"
         /> */}
         <div className="flex items-center justify-between">
-          <Heading className="pt-2">Your Shopping Cart</Heading>
+          <Heading className="pt-2">Cart</Heading>
           {status === "success" && data.items.length > 0 && (
             <button
               onClick={() => {

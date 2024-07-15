@@ -43,7 +43,7 @@ export const ListGrid = ({ children, horizontalOnSmallScreens = false }) => {
   return (
     <ul
       className={cn(
-        "pt-8 gap-1 justify-center",
+        "pt-8 gap-4 justify-center",
         horizontalOnSmallScreens
           ? "flex overflow-x-auto flex-nowrap sm:grid sm:grid-flow-row sm:auto-rows-fr sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 no-scrollbar px-4"
           : "grid grid-flow-row auto-rows-fr grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"

@@ -1,4 +1,4 @@
- import { CategoryCard } from "./CategoryCard";
+import { CategoryCard } from "./CategoryCard";
 import perfume from "../assets/images/perfume.webp";
 import useLongPress from "../hooks/utils/useLongPress";
 import { useEffect, useRef } from "react";
@@ -17,28 +17,41 @@ export const TopCategories = () => {
     setElement(ref.current);
   }, []);
 
+  const scrollByAmount = (amount) => {
+    if (ref.current) {
+      ref.current.scrollBy({
+        left: amount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <section className="py-8 hidden md:block">
+    <section className="py-8 block mb-40">
       <div className="flex items-center justify-between">
-        <SectionHeader header="Top Categories" />
+        <SectionHeader header="Top Deals On" />
 
         <div className="flex gap-4">
           <button
             {...getHandlers("backward")}
             className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
+            onClick={() => scrollByAmount(-300)}
           >
             <Icon icon="fa6-solid:angle-left" style={{ fontSize: 28 }} />
           </button>
           <button
             {...getHandlers("forward")}
             className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
+            onClick={() => scrollByAmount(300)}
           >
             <Icon icon="fa6-solid:angle-left" hFlip style={{ fontSize: 28 }} />
           </button>
         </div>
       </div>
 
-      <ul className="pt-8 flex gap-6 overflow-auto no-scrollbar" ref={ref}>
+      <ul className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-x-auto" 
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      ref={ref}>
         {status === "pending" ? (
           "Loading..."
         ) : status === "error" ? (

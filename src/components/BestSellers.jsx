@@ -17,7 +17,7 @@
 //   }, [setElement]);
 
 //   return (
-//     <section className="py-8    font-Helvetica">
+//     <section className="py-8      ">
 //       <div className="flex items-center justify-between">
 //         <SectionHeader header="Best Sellers" />
 
@@ -103,7 +103,7 @@
 //   }, [setElement]);
 
 //   return (
-//     <section className="py-8  font-Helvetica">
+//     <section className="py-8    ">
 //       <div className="flex items-center justify-between">
 //         <SectionHeader header="Best Sellers" />
 
@@ -166,27 +166,43 @@ export const BestSellers = ({ horizontalOnSmallScreens = true }) => {
     setElement(ref.current);
   }, [setElement]);
 
+  const handleAddToCart = ({ id, quantity }) => {
+    // Logic to add the product to the cart
+    console.log(`Added product ${id} with quantity ${quantity} to cart`);
+  };
+
+  // const scrollByAmount = (amount) => {
+  //   if (ref.current) {
+  //     ref.current.scrollBy({
+  //       left: amount,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
+
   return (
-    <section className="py-8 font-Helvetica">
+    <section className="py-8">
       <div className="flex items-center justify-between">
         <SectionHeader header="Best Sellers" />
         <div className="hidden gap-4">
           <button
             {...getHandlers("backward")}
             className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
+            // onClick={() => scrollByAmount(-300)}
           >
             <Icon icon="fa6-solid:angle-left" style={{ fontSize: 28 }} />
           </button>
           <button
             {...getHandlers("forward")}
             className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
+            // onClick={() => scrollByAmount(300)}
           >
             <Icon icon="fa6-solid:angle-left" hFlip style={{ fontSize: 28 }} />
           </button>
         </div>
       </div>
       <ul
-        className="pt-8 w-full gap-1 flex sm:flex-nowrap overflow-x-auto"
+        className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-x-auto"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         ref={ref}
       >
@@ -195,7 +211,7 @@ export const BestSellers = ({ horizontalOnSmallScreens = true }) => {
             { product, category, originalPrice, discountedPrice, image, id },
             index
           ) => (
-            <li key={index} className="min-w-[11rem]">
+            <li key={index} className="min-w-[17rem]">
               <Product
                 product={product}
                 category={category}
@@ -203,6 +219,7 @@ export const BestSellers = ({ horizontalOnSmallScreens = true }) => {
                 discountedPrice={discountedPrice}
                 image={image}
                 id={id}
+                onAddToCart={handleAddToCart}
               />
             </li>
           )
@@ -234,7 +251,7 @@ export const BestSellers = ({ horizontalOnSmallScreens = true }) => {
 //   }, [setElement]);
 
 //   return (
-//     <section className="py-8 font-Helvetica">
+//     <section className="py-8   ">
 //       <div className="flex items-center justify-between">
 //         <SectionHeader header="Best Sellers" />
 

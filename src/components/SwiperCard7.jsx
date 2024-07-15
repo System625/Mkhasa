@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export const SwiperCard7 = () => {
   return (
 
-    <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden font-Helvetica">
+    <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden   ">
       <Link to="/products/666e888a8587aa00152706fb" style={{ display: "contents" }}>
       <div className="bg-fifth-card-image h-screen">
       <div className="">
