@@ -6,10 +6,10 @@ import { Seo } from "../components/Seo";
 import { NewDeals } from "../components/NewDeals"
 import { BestSellers } from "../components/BestSellers";
 import NewArrival from "../components/NewArrival";
-import { Recommended } from "../components/Recommended";
-import { CategoryPanel } from "../components/CategoryPanel";
-import { Features } from "../components/Features";
-import { FeaturedProducts } from "../components/FeaturedProducts";
+// import { Recommended } from "../components/Recommended";
+// import { CategoryPanel } from "../components/CategoryPanel";
+// import { Features } from "../components/Features";
+// import { FeaturedProducts } from "../components/FeaturedProducts";
 import { Sales } from "../components/Sales";
 
 
@@ -32,7 +32,7 @@ export const Component = () => {
           </div>   
         <NewDeals/>
         {/* <NewArrivals /> */}
-        {/* <Sales /> */}
+        <Sales />
         {/* <div className="pt-6"><Features /></div> */}
         {/* <FeaturedProducts /> */}
       </Wrapper>
