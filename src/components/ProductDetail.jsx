@@ -94,7 +94,7 @@
 //   }, [productId]);
 
 //   return (
-//     <div className="bg-white px-6 py-4  mb-6    font-Helvetica mt-2">
+//     <div className="bg-white px-6 py-4  mb-6       mt-2">
 //       <CategoryPanel />
 //       <div className="grid grid-cols-2 border-b-2 md:grid-cols-4">
 //         <button
@@ -337,7 +337,7 @@
 //   }, [productId]);
 
 //   return (
-//     <div className="bg-white px-6 py-4 mb-6    font-Helvetica mt-2">
+//     <div className="bg-white px-6 py-4 mb-6       mt-2">
 //       <CategoryPanel />
 //       <div className="grid grid-cols-2 border-b-2 md:grid-cols-4">
 //         <button
@@ -606,7 +606,7 @@ export const ProductDetail = ({ productId }) => {
   }, [productId]);
 
   return (
-    <div className="bg-white px-6 py-4 mb-6    font-Helvetica mt-2">
+    <div className="bg-white px-6 py-4 mb-6       mt-2">
       <CategoryPanel />
       <div className="grid grid-cols-2 border-b-2 md:grid-cols-4">
         <button
@@ -696,13 +696,13 @@ export const ProductDetail = ({ productId }) => {
                 <form onSubmit={formik.handleSubmit} className="grid gap-4">
                   <div className="grid gap-4 grid-cols-2">
                     <Input
-                      className="rounded-full py-2 px-4 outline-none bg-app-ash-1 w-full col-span-2"
+                      className=" py-2 px-4 outline-none border-[#F5F5F5] bg-[#F5F5F5] w-full col-span-2"
                       placeholder="Name"
                       formik={formik}
                       name={"name"}
                     />
                     <Input
-                      className="rounded-full py-2 px-4 outline-none bg-app-ash-1 w-full col-span-2"
+                      className=" py-2 px-4 outline-none border-[#F5F5F5] bg-[#F5F5F5] w-full col-span-2"
                       placeholder="Email"
                       formik={formik}
                       name={"email"}
@@ -713,7 +713,7 @@ export const ProductDetail = ({ productId }) => {
                       cols="30"
                       rows="6"
                       placeholder="Your Review"
-                      className="rounded-3xl py-4 px-4 outline-none bg-app-ash-1 w-full"
+                      className=" py-4 px-4 outline-none border-[#F5F5F5] bg-[#F5F5F5] w-full"
                       {...formik.getFieldProps("review")}
                     ></textarea>
                     {formik.errors["review"] && (
@@ -723,11 +723,11 @@ export const ProductDetail = ({ productId }) => {
 
                   <TooltipProvider>
                     <Tooltip>
-                      <TooltipTrigger className="w-fit">
+                      <TooltipTrigger className="w-full">
                         <Button
                           type="submit"
                           variant="rectangle"
-                          className="bg-app-black text-white font-medium w-fit px-4 hover:bg-app-black disabled:bg-[#999999] hover:disabled:bg-[#999999]"
+                          className="bg-app-black text-white font-medium rounded-none w-full px-4 hover:bg-app-black disabled:bg-[#999999] hover:disabled:bg-[#999999]"
                           disabled={!canSubmit}
                         >
                           Submit Review

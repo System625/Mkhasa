@@ -6,7 +6,7 @@ import White from "../assets/images/Ellipse-white.svg";
 import { Wrapper } from "./ui/Wrapper";
 export const Sales = () => {
   return (
-    <div className="w-full h-full  font-Helvetica">
+    <div className="w-full h-full    ">
       
 
       <img src={white} className="object-cover rounded-2xl"/>

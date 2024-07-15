@@ -70,9 +70,9 @@
 //         name=""
 //       />
 //       <Heading>Login</Heading>
-//       <p className="py-4 text-[#666666] text-center    font-Helvetica">
+//       <p className="py-4 text-[#666666] text-center      ">
 //         Your Welcome back don&rsquo;t have an account?
-//         <Link to="/register" className="ml-2 text-app-black  underline hover:underline    font-Helvetica z-50">
+//         <Link to="/register" className="ml-2 text-app-black  underline hover:underline       z-50">
 //           Register Here{" "}
 //         </Link>
 //       </p>
@@ -120,8 +120,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { prefix } from "../utils/lib";
 import { useState } from "react";
+import { Label } from "../components/ui/label"
 
-export const Component = () => {
+export const Component = ({ backGroundColor }) => {
   const queryClient = useQueryClient();
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -190,36 +191,55 @@ export const Component = () => {
         description="login to your account"
         name=""
       />
-      <Heading>Login</Heading>
-      <p className="py-4 text-[#666666] text-center    font-Helvetica">
-        Your Welcome back don&rsquo;t have an account?
-        <Link to="/register" className="ml-2 text-app-black underline hover:underline    font-Helvetica z-50">
-          Register Here{" "}
-        </Link>
-      </p>
+      <p className="text-xl font-bold mt-1">
+        Welcome To {""}
+        <span
+          className={`font-fuzzy font-extrabold tracking-tighter text-sm pt-2 ${backGroundColor === "black" ? "text-white" : "text-app-red"
+            } min-[360px]:text-lg md:text-xl lg:text-2xl`}
 
-      <form onSubmit={formik.handleSubmit} className="w-full">
-        <Input name="email" formik={formik} placeholder="Email" className="bg-app-ash-1" />
-        <PInput name="password" formik={formik} placeholder="Password"  className="bg-app-ash-1" />
-        
+        >
+          Mkhasa
+        </span>
+      </p>
+      <p className="text-xl font-bold mt-1">Sign In To Continue</p>
+      <div className="w-[90%] md:w-[62%] mx-auto gap-10">
+        <p className="py-4 text-[#666666] text-left text-sm   ">
+          Don&rsquo;t Have An Account?
+          <Link to="/register" className="ml-2 text-app-black underline hover:underline font-medium    z-50">
+            Create An Account{" "}
+          </Link>
+          It Takes Less Than A Minute
+        </p>
+      </div>
+
+      <form onSubmit={formik.handleSubmit} className="w-[90%] md:w-[60%] mx-auto gap-10">
+        <div className="text-center">
+          <Label htmlFor="email">Email</Label>
+          <Input name="email" formik={formik} />
+        </div>
+        <div className="text-center">
+          <Label htmlFor="password">Password</Label>
+          <PInput name="password" formik={formik} />
+        </div>
+
         {error && <div className="text-red-500 text-center">{error}</div>}
 
         <Link
           to={"/forgot-password"}
-          className="inline-block w-full pb-6 text-right text-app-black"
+          className="inline-block text-center underline text-sm font-semibold w-full pb-6 text-app-black"
         >
           Forgot Password?
         </Link>
 
         <Button
-          className="w-full flex justify-center bg-app-red hover:bg-red-500 text-sm text-white font-bold mt-4 sm:hover:bg-black disabled:bg-[#999999] hover:disabled:bg-[#999999] sm:bg-app-black"
+          className="w-full rounded-none py-[10px] flex justify-center bg-app-red hover:bg-red-500 text-base text-white font-bold mt-2 sm:hover:bg-black disabled:bg-[#999999] hover:disabled:bg-[#999999] sm:bg-app-black"
           type="submit"
           disabled={!canSubmit}
         >
           {mutation.isLoading ? (
             <Icon icon="svg-spinners:6-dots-rotate" style={{ fontSize: 20 }} />
           ) : (
-            "Login"
+            "Sign In"
           )}
         </Button>
       </form>

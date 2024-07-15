@@ -71,7 +71,7 @@
 
 //         <form
 //           onSubmit={formik.handleSubmit}
-//           className="w-full max-w-xl bg-white rounded-3xl p-4    font-Helvetica"
+//           className="w-full max-w-xl bg-white rounded-3xl p-4      "
 //         >
 //           <div className="grid gap-x-4 sm:grid-cols-2">
 //             <Input
@@ -192,20 +192,20 @@ export const Component = ({ backGroundColor }) => {
       <Wrapper className="max-w-xl flex flex-col items-center py-12">
         <Heading>Create Your Account</Heading>
         <p className="text-xl font-bold mt-1">
-          welcome to {""}
-          <span
-            className={`font-fuzzy font-bold tracking-tighter text-sm pt-2 ${backGroundColor === "black" ? "text-white" : "text-app-red"
-              } min-[360px]:text-lg md:text-xl lg:text-2xl`}
+        welcome to {""}
+        <span
+          className={`font-fuzzy font-extrabold tracking-tighter text-sm pt-2 ${backGroundColor === "black" ? "text-white" : "text-app-red"
+            } min-[360px]:text-lg md:text-xl lg:text-2xl`}
 
-          >
-            mkhasa
-          </span>
-        </p>
+        >
+          Mkhasa
+        </span>
+      </p>
 
 
         <form
           onSubmit={formik.handleSubmit}
-          className="w-full max-w-xl bg-white rounded-3xl p-4 font-Helvetica"
+          className="w-full max-w-xl bg-white rounded-3xl p-4   "
         >
           <div className="w-[90%] md:w-[60%] mx-auto gap-10">
             <div>
@@ -248,7 +248,7 @@ export const Component = ({ backGroundColor }) => {
               </label>
             </div>
             <Button
-              className="w-full rounded-none py-3 flex justify-center bg-app-red hover:bg-red-500 text-sm text-white font-bold mt-8 sm:hover:bg-black disabled:bg-[#999999] hover:disabled:bg-[#999999] sm:bg-app-black"
+              className="w-full rounded-none py-[10px] flex justify-center bg-app-red hover:bg-red-500 text-base text-white font-bold mt-8 sm:hover:bg-black disabled:bg-[#999999] hover:disabled:bg-[#999999] sm:bg-app-black"
               type="submit"
               disabled={!canSubmit}
             >
@@ -262,7 +262,7 @@ export const Component = ({ backGroundColor }) => {
               )}
             </Button>
 
-            <p className="text-[#666666] py-4 text-center">
+            <p className="text-[#666666] py-4 text-center text-sm">
               Already have an account?
               <Link to="/login" className="text-app-black font-semibold ml-2 underline">
                 Sign In

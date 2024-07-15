@@ -105,12 +105,17 @@ export const NewDeals = ({ horizontalOnSmallScreens = true }) => {
     getRecommended();
   }, []);
 
+  const handleAddToCart = ({ id, quantity }) => {
+    // Logic to add the product to the cart
+    console.log(`Added product ${id} with quantity ${quantity} to cart`);
+  };
+
   if (recommend.length === 0) {
     return null;
   }
 
   return (
-    <section className="py-8 font-Helvetica">
+    <section className="py-8   ">
       <div className="flex items-center justify-between">
         <SectionHeader header="Deals" />
         <div className="hidden gap-4">
@@ -133,7 +138,7 @@ export const NewDeals = ({ horizontalOnSmallScreens = true }) => {
         <p>{err}</p>
       ) : (
         <ul
-          className="pt-8 w-full gap-1 flex sm:flex-nowrap overflow-x-auto"
+          className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-x-auto transition-transform duration-700 ease-in-out"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           ref={ref}
         >
@@ -141,7 +146,7 @@ export const NewDeals = ({ horizontalOnSmallScreens = true }) => {
             <li
               key={index}
               className={cn(
-                "min-w-[11rem]",
+                "min-w-[17rem]",
                 horizontalOnSmallScreens && index === 0 ? " md:ml-0" : ""
               )}
             >
@@ -151,6 +156,7 @@ export const NewDeals = ({ horizontalOnSmallScreens = true }) => {
                 originalPrice={price}
                 image={image}
                 id={id}
+                onAddToCart={handleAddToCart}
                 className="h-full flex flex-col justify-between"
               />
             </li>

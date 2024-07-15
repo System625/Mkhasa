@@ -116,7 +116,7 @@
 //           currentLocationClassName="text-app-black"
 //         />
 
-//         <div className="@container pb-8    font-Helvetica bg-white md:px-6 md:py-6 px-2">
+//         <div className="@container pb-8       bg-white md:px-6 md:py-6 px-2">
 //           <div className="grid gap-8 @4xl:grid-cols-2">
 //             <div className="relative min-w-[350px] md:min-w-[550px]">
 //               <div
@@ -144,41 +144,41 @@
 //             </div>
 
 //             <div>
-//               <div className="flex justify-between items-center flex-wrap gap-2    font-Helvetica">
-//                 <p className="text-xl font-bold text-[#A40001]    font-Helvetica">{product?.category}</p>
+//               <div className="flex justify-between items-center flex-wrap gap-2      ">
+//                 <p className="text-xl font-bold text-[#A40001]      ">{product?.category}</p>
 //               </div>
-//               <div className="mt-5 -md:mt-6    font-Helvetica">
-//                 <h3 className="text-[#555] font-bold md:text-4xl text-3xl    font-Helvetica">
+//               <div className="mt-5 -md:mt-6      ">
+//                 <h3 className="text-[#555] font-bold md:text-4xl text-3xl      ">
 //                   {product?.name}
 //                 </h3>
 //               </div>
 
-//               <div className="mt-5 md:mt-2    font-Helvetica">
-//                 <p className="md:text-5xl text-5xl    font-Helvetica">₦<span>{format(product?.price)}</span></p>
+//               <div className="mt-5 md:mt-2      ">
+//                 <p className="md:text-5xl text-5xl      ">₦<span>{format(product?.price)}</span></p>
 //               </div>
 
-//               <div className="mt-5 md:mt-2    font-Helvetica">
-//                 <p className="   font-Helvetica mt-2">
-//                   <strong className="text-black    font-Helvetica Basis font-bold">SKU</strong>:{" "}
-//                   <span className="   font-Helvetica text-[#555]">{product?.sku}</span>
+//               <div className="mt-5 md:mt-2      ">
+//                 <p className="      mt-2">
+//                   <strong className="text-black       Basis font-bold">SKU</strong>:{" "}
+//                   <span className="      text-[#555]">{product?.sku}</span>
 //                 </p>
-//                 <p className="   font-Helvetica mt-2">
-//                   <strong className="text-black    font-Helvetica font-bold">Brand</strong>:{" "}
-//                   <span className="   font-Helvetica text-[#555]">{product?.brand}</span>
+//                 <p className="      mt-2">
+//                   <strong className="text-black       font-bold">Brand</strong>:{" "}
+//                   <span className="      text-[#555]">{product?.brand}</span>
 //                 </p>
-//                 <p className="   font-Helvetica mt-2">
-//                   <strong className="text-black    font-Helvetica font-bold">Manufacturer</strong>:{" "}
-//                   <span className="   font-Helvetica text-[#555]">{product?.manufacturer}</span>
+//                 <p className="      mt-2">
+//                   <strong className="text-black       font-bold">Manufacturer</strong>:{" "}
+//                   <span className="      text-[#555]">{product?.manufacturer}</span>
 //                 </p>
 //               </div>
 //               <div className="py-2"></div>
-//               <div className="flex gap-x-12 flex-wrap justify-between pb-2    font-Helvetica">
+//               <div className="flex gap-x-12 flex-wrap justify-between pb-2      ">
 //                 <div className="py-3">
-//                   <p className="text-[#555] text-xl font-bold mt-1 pb-2    font-Helvetica">Qty</p>
-//                   <div className="flex gap-4 pt-2 items-center    font-Helvetica">
+//                   <p className="text-[#555] text-xl font-bold mt-1 pb-2      ">Qty</p>
+//                   <div className="flex gap-4 pt-2 items-center      ">
 //                     <button
 //                       onClick={decrease}
-//                       className="h-10    font-Helvetica aspect-square rounded-full bg-white grid place-items-center font-medium"
+//                       className="h-10       aspect-square rounded-full bg-white grid place-items-center font-medium"
 //                     >
 //                       <Icon icon="ic:round-minus" style={{ fontSize: 30 }} />
 //                     </button>
@@ -195,7 +195,7 @@
 //                     </p>
 //                     <button
 //                       onClick={increase}
-//                       className="h-10    font-Helvetica text-xl aspect-square rounded-full bg-white grid place-items-center font-medium"
+//                       className="h-10       text-xl aspect-square rounded-full bg-white grid place-items-center font-medium"
 //                     >
 //                       <Icon icon="ph:plus-bold" style={{ fontSize: 24 ,marginTop:-4}} />
 //                     </button>
@@ -238,7 +238,7 @@
 //           {Array.isArray(product.layerWith) && product.layerWith.length > 0 && (
 //             <div className="mb-4">
 //               <div className="flex justify-between gap-2 mt-8">
-//                 <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">
+//                 <Heading className="mt-3 mb-[-10px] font-    font-bold text-app-black">
 //                   Products you can Layer With
 //                 </Heading>
 //                 <div className="hidden">
@@ -280,7 +280,7 @@
 //           {Array.isArray(recommend) && recommend.length > 0 && (
 //             <div className="mb-4">
 //               <div className="flex justify-between gap-2 mt-8">
-//                 <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">We also Recommend</Heading>
+//                 <Heading className="mt-3 mb-[-10px] font-    font-bold text-app-black">We also Recommend</Heading>
 //                 <div className="hidden">
 //                   <button
 //                     {...getHandlers("backward")}
@@ -439,7 +439,7 @@
 //           currentLocationClassName="text-app-black"
 //         /> */}
 
-//         <div className="@container pb-8    font-Helvetica bg-white md:px-6 md:py-6 px-2">
+//         <div className="@container pb-8       bg-white md:px-6 md:py-6 px-2">
 //           <div className="grid gap-8 @4xl:grid-cols-2">
 //             <div className="relative min-w-[350px] md:min-w-[550px]">
 //               <div
@@ -470,47 +470,47 @@
 //             </div>
 
 //             <div>
-//               <div className="flex justify-between items-center flex-wrap gap-2 font-Helvetica">
-//                 <p className="text-xl font-bold text-[#A40001] font-Helvetica">{product?.category}</p>
+//               <div className="flex justify-between items-center flex-wrap gap-2   ">
+//                 <p className="text-xl font-bold text-[#A40001]   ">{product?.category}</p>
 //               </div>
-//               <div className="mt-5 -md:mt-6    font-Helvetica">
-//                 <h3 className="text-[#555] font-bold md:text-4xl text-3xl font-Helvetica">
+//               <div className="mt-5 -md:mt-6      ">
+//                 <h3 className="text-[#555] font-bold md:text-4xl text-3xl   ">
 //                   {product?.name}
 //                 </h3>
 //               </div>
 
-//               <div className="mt-5 md:mt-2    font-Helvetica">
-//                 <p className="md:text-5xl text-5xl  font-Helvetica">₦<span>{format(product?.price)}</span></p>
+//               <div className="mt-5 md:mt-2      ">
+//                 <p className="md:text-5xl text-5xl    ">₦<span>{format(product?.price)}</span></p>
 //               </div>
 
-//               <div className="mt-5 md:mt-2    font-Helvetica">
+//               <div className="mt-5 md:mt-2      ">
 //                 {product?.sku && (
-//                   <p className="   font-Helvetica mt-2">
-//                     <strong className="text-black    font-Helvetica Basis font-bold">SKU</strong>:{" "}
-//                     <span className="   font-Helvetica text-[#555]">{product?.sku}</span>
+//                   <p className="      mt-2">
+//                     <strong className="text-black       Basis font-bold">SKU</strong>:{" "}
+//                     <span className="      text-[#555]">{product?.sku}</span>
 //                   </p>
 //                 )}
 //                 {product?.brand && (
-//                   <p className="   font-Helvetica mt-2">
-//                     <strong className="text-black    font-Helvetica font-bold">Brand</strong>:{" "}
-//                     <span className="   font-Helvetica text-[#555]">{product?.brand}</span>
+//                   <p className="      mt-2">
+//                     <strong className="text-black       font-bold">Brand</strong>:{" "}
+//                     <span className="      text-[#555]">{product?.brand}</span>
 //                   </p>
 //                 )}
 //                 {product?.manufacturer && (
-//                   <p className="   font-Helvetica mt-2">
-//                     <strong className="text-black    font-Helvetica font-bold">Manufacturer</strong>:{" "}
-//                     <span className="   font-Helvetica text-[#555]">{product?.manufacturer}</span>
+//                   <p className="      mt-2">
+//                     <strong className="text-black       font-bold">Manufacturer</strong>:{" "}
+//                     <span className="      text-[#555]">{product?.manufacturer}</span>
 //                   </p>
 //                 )}
 //               </div>
 //               <div className="py-2"></div>
-//               <div className="flex gap-x-12 flex-wrap justify-between pb-2 font-Helvetica">
+//               <div className="flex gap-x-12 flex-wrap justify-between pb-2   ">
 //                 <div className="py-3">
-//                   <p className="text-[#555] text-xl font-bold mt-1 pb-2    font-Helvetica">Qty</p>
-//                   <div className="flex gap-4 pt-2 items-center    font-Helvetica">
+//                   <p className="text-[#555] text-xl font-bold mt-1 pb-2      ">Qty</p>
+//                   <div className="flex gap-4 pt-2 items-center      ">
 //                     <button
 //                       onClick={decrease}
-//                       className="h-10 font-Helvetica aspect-square rounded-full bg-white grid place-items-center font-medium"
+//                       className="h-10    aspect-square rounded-full bg-white grid place-items-center font-medium"
 //                     >
 //                       <Icon icon="ic:round-minus" style={{ fontSize: 30 }} />
 //                     </button>
@@ -527,7 +527,7 @@
 //                     </p>
 //                     <button
 //                       onClick={increase}
-//                       className="h-10    font-Helvetica text-xl aspect-square rounded-full bg-white grid place-items-center font-medium"
+//                       className="h-10       text-xl aspect-square rounded-full bg-white grid place-items-center font-medium"
 //                     >
 //                       <Icon icon="ph:plus-bold" style={{ fontSize: 24 ,marginTop:-5}} />
 //                     </button>
@@ -570,7 +570,7 @@
 //           {Array.isArray(product.layerWith) && product.layerWith.length > 0 && (
 //             <div className="mb-4">
 //               <div className="flex justify-between gap-2 mt-8">
-//                 <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">
+//                 <Heading className="mt-3 mb-[-10px] font-    font-bold text-app-black">
 //                   Products you can Layer With
 //                 </Heading>
 //                 <div className="hidden">
@@ -612,7 +612,7 @@
 //           {Array.isArray(recommend) && recommend.length > 0 && (
 //             <div className="mb-4">
 //               <div className="flex justify-between gap-2 mt-8">
-//                 <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">We also Recommend</Heading>
+//                 <Heading className="mt-3 mb-[-10px] font-    font-bold text-app-black">We also Recommend</Heading>
 //                 <div className="hidden">
 //                   <button
 //                     {...getHandlers("backward")}
@@ -671,7 +671,7 @@ import { Product } from "../components/ProductCard";
 import { ListGrid } from "../components/ui/ListGrid";
 import useLongPress from "../hooks/utils/useLongPress";
 import axios from "axios";
-import { useSwipeable } from "react-swipeable"; 
+import { useSwipeable } from "react-swipeable";
 import { fetchRecommendations } from '../services/recommendService';
 
 export const Component = () => {
@@ -733,7 +733,7 @@ export const Component = () => {
     product?.firstImage,
     product?.secondImage,
     product?.thirdImage,
-  ].filter(Boolean); 
+  ].filter(Boolean);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -771,7 +771,7 @@ export const Component = () => {
           currentLocationClassName="text-app-black"
         /> */}
 
-        <div className="@container pb-8 font-Helvetica bg-white md:px-6 md:py-6">
+        <div className="@container pb-8    bg-white md:px-6 md:py-6">
           <div className="grid gap-8 @4xl:grid-cols-2">
             <div className="relative md:min-w-[550px]">
               <div
@@ -786,9 +786,9 @@ export const Component = () => {
               </div>
               <div className="flex gap-4 absolute top-6 right-6 z-50"></div>
               <div
-  className="flex gap-4 overflow-x-auto pt-6 md:object-cover object-contain [scrollbar-width:none] [-ms-overflow-style:none]"
-  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
->
+                className="flex gap-4 overflow-x-auto pt-6 md:object-cover object-contain [scrollbar-width:none] [-ms-overflow-style:none]"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
                 {images.map((img, index) => (
                   <img
                     key={index}
@@ -802,71 +802,78 @@ export const Component = () => {
             </div>
 
             <div>
-              <div className="flex justify-between items-center flex-wrap gap-2 font-Helvetica">
-                <p className="text-xl font-bold text-[#A40001] font-Helvetica">{product?.category}</p>
+              <div className="flex justify-between items-center flex-wrap gap-2">
+                <p className="text-xl font-bold text-[#A40001]   ">{product?.category}</p>
               </div>
-              <div className="mt-5 -md:mt-6 font-Helvetica">
-                <h3 className="text-[#555] font-bold md:text-4xl text-3xl font-Helvetica">
+              <div className="mt-5 -md:mt-6">
+                <h3 className="font-bold md:text-4xl text-3xl">
                   {product?.name}
                 </h3>
               </div>
 
-              <div className="mt-5 md:mt-2 font-Helvetica">
-                <p className="md:text-5xl text-5xl  font-Helvetica">₦<span>{format(product?.price)}</span></p>
+              <div className="mt-5 md:mt-2   ">
+                <p className="md:text-3xl text-3xl    ">₦<span>{format(product?.price)}</span></p>
               </div>
 
-              <div className="mt-5 md:mt-2 font-Helvetica">
+              <div className="mt-5 md:mt-2   ">
                 {product?.sku && (
-                  <p className="   font-Helvetica mt-2">
-                    <strong className="text-black    font-Helvetica Basis font-bold">SKU</strong>:{" "}
-                    <span className="   font-Helvetica text-[#555]">{product?.sku}</span>
+                  <p className="      mt-2">
+                    <strong className="text-black       Basis font-bold">SKU</strong>:{" "}
+                    <span className="      text-[#555]">{product?.sku}</span>
                   </p>
                 )}
                 {product?.brand && (
-                  <p className="   font-Helvetica mt-2">
-                    <strong className="text-black    font-Helvetica font-bold">Brand</strong>:{" "}
-                    <span className="   font-Helvetica text-[#555]">{product?.brand}</span>
+                  <p className="      mt-2">
+                    <strong className="text-black       font-bold">Brand</strong>:{" "}
+                    <span className="      text-[#555]">{product?.brand}</span>
                   </p>
                 )}
                 {product?.manufacturer && (
-                  <p className="   font-Helvetica mt-2">
-                    <strong className="text-black    font-Helvetica font-bold">Manufacturer</strong>:{" "}
-                    <span className="   font-Helvetica text-[#555]">{product?.manufacturer}</span>
+                  <p className="      mt-2">
+                    <strong className="text-black       font-bold">Manufacturer</strong>:{" "}
+                    <span className="      text-[#555]">{product?.manufacturer}</span>
                   </p>
                 )}
               </div>
               <div className="py-2"></div>
-              <div className="flex gap-x-12 flex-wrap justify-between pb-2 font-Helvetica">
+              <div className="flex gap-x-12 flex-wrap justify-between pb-2   ">
                 <div className="py-3">
-                  <p className="text-[#555] text-xl font-bold mt-1 pb-2    font-Helvetica">Qty</p>
-                  <div className="flex gap-4 pt-2 items-center    font-Helvetica">
+                  {/* <p className="text-[#555] text-xl font-bold mt-1 pb-2      ">Quantity</p> */}
+                  <div className="flex pt-2 items-center">
                     <button
                       onClick={decrease}
-                      className="h-10 font-Helvetica aspect-square rounded-full bg-white grid place-items-center font-medium"
+                      className="h-12 w-14 aspect-square border-[#F5F5F5] bg-[#F5F5F5] grid place-items-center font-medium"
                     >
                       <Icon icon="ic:round-minus" style={{ fontSize: 30 }} />
                     </button>
-                    <p className="text-3xl -mt-1 font-NimbusSan font-normal">
+                    <span className="text-3xl h-12 w-14 pl-4 border-[#F5F5F5] bg-[#F5F5F5] pt-1 -mt-[1px] font-NimbusSan font-normal">
                       {!data?.items
                         ? count
                         : data.items.find(
-                            (item) => item?.productId?._id === product._id
-                          )
-                        ? data.items.find(
+                          (item) => item?.productId?._id === product._id
+                        )
+                          ? data.items.find(
                             (item) => item?.productId?._id === product._id
                           )?.quantity
-                        : count}
-                    </p>
+                          : count}
+                    </span>
                     <button
                       onClick={increase}
-                      className="h-10    font-Helvetica text-xl aspect-square rounded-full bg-white grid place-items-center font-medium"
+                      className="h-12 w-14 border-[#F5F5F5] bg-[#F5F5F5]  text-xl aspect-square grid place-items-center font-medium"
                     >
-                      <Icon icon="ph:plus-bold" style={{ fontSize: 24 ,marginTop:-5}} />
+                      <Icon icon="ph:plus-bold" style={{ fontSize: 24, marginTop: -5 }} />
                     </button>
                   </div>
                 </div>
               </div>
               <div className="my-button flex flex-col md:flex-row gap-8 md:space-x-4 mt-4">
+                <Button
+                  variant="rectangle"
+                  onClick={onClickCheckout}
+                  className="bg-[#0FA958] text-white text-xl rounded-none py-3 w-full font-semibold disabled:bg-[#848484]"
+                >
+                  Buy Now
+                </Button>
                 {!(
                   data &&
                   data.items.find((item) => item?.productId?._id === product._id)
@@ -875,76 +882,28 @@ export const Component = () => {
                     disabled={!count}
                     variant="rectangle"
                     onClick={onClick}
-                    className="  bg-app-black w-full disabled:bg-[#848484]"
+                    className=" w-full rounded-none text-xl py-3 disabled:bg-[#848484]"
                   >
                     Add to Cart
                   </Button>
                 ) : (
                   <Link to="/cart" style={{ display: "contents" }}>
-                    <Button variant="rectangle"  className=" bg-app-black w-full font-normal">
+                    <Button variant="rectangle" className="text-xl bg-transparent border-2  text-black border-black rounded-none py-3 w-full font-semibold">
                       Go to Cart
                     </Button>
                   </Link>
                 )}
-                <Button
-                  variant="rectangle"
-                  onClick={onClickCheckout}
-                  className="bg-[#27D34C] text-white  w-full font-normal disabled:bg-[#848484]"
-                >
-                  Buy Now
-                </Button>
               </div>
             </div>
           </div>
         </div>
 
         <div className="">
-          {Array.isArray(product.layerWith) && product.layerWith.length > 0 && (
-            <div className="mb-4">
-              <div className="flex justify-between gap-2 mt-8">
-                <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">
-                  Products you can Layer With
-                </Heading>
-                <div className="hidden">
-                  <button
-                    {...getHandlers("backward")}
-                    className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
-                  >
-                    <Icon icon="fa6-solid:angle-left" style={{ fontSize: 28 }} />
-                  </button>
-                  <button
-                    {...getHandlers("forward")}
-                    className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
-                  >
-                    <Icon icon="fa6-solid:angle-left" hFlip style={{ fontSize: 28 }} />
-                  </button>
-                </div>
-              </div>
-              <ul
-                className="pt-8 w-full gap-1 flex sm:flex-nowrap overflow-x-auto sm:no-scrollbar"
-                ref={ref}
-              >
-                {product.layerWith.map((product) => (
-                  <li className="" key={product._id}>
-                    <Product
-                      key={product?._id}
-                      id={product?._id}
-                      product={product?.name}
-                      category={product?.category}
-                      originalPrice={product?.price}
-                      image={product?.productImage || product?.mainImage}
-                      className="min-w-[11rem]"
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
           <ProductDetail productId={product._id} />
           {Array.isArray(product.recommend) && product.recommend.length > 0 && (
             <div className="mb-4">
               <div className="flex justify-between gap-2 mt-8">
-                <Heading className="mt-3 mb-[-10px] font-  font-HelveticaBold font-bold text-app-black">We also Recommend</Heading>
+                <Heading className="mt-3 mb-[-10px] font-    font-bold text-app-black">We also Recommend</Heading>
                 <div className="hidden">
                   <button
                     {...getHandlers("backward")}
@@ -966,17 +925,59 @@ export const Component = () => {
               >
                 {product.recommend.map((product) => (
                   <li className="" key={product._id}>
-                  <Product
-                    key={product?._id}
-                    id={product?._id}
-                    product={product.name}
-                    category={product?.category}
-                    originalPrice={product?.price}
-                    image={product?.productImage || product?.mainImage}
-                    className="min-w-[11rem]"
-                  />
-                </li>               
-               ))}
+                    <Product
+                      key={product?._id}
+                      id={product?._id}
+                      product={product.name}
+                      category={product?.category}
+                      originalPrice={product?.price}
+                      image={product?.productImage || product?.mainImage}
+                      className="min-w-[11rem]"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {Array.isArray(product.layerWith) && product.layerWith.length > 0 && (
+            <div className="mb-4">
+              <div className="flex justify-between gap-2 mt-8">
+                <Heading className="mt-3 mb-[-10px] font-    font-bold text-app-black">
+                  Products you can Layer With
+                </Heading>
+                <div className="hidden">
+                  <button
+                    {...getHandlers("backward")}
+                    className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
+                  >
+                    <Icon icon="fa6-solid:angle-left" style={{ fontSize: 28 }} />
+                  </button>
+                  <button
+                    {...getHandlers("forward")}
+                    className="h-10 w-10 bg-white rounded-full grid place-items-center hover:scale-105"
+                  >
+                    <Icon icon="fa6-solid:angle-left" hFlip style={{ fontSize: 28 }} />
+                  </button>
+                </div>
+              </div>
+              <ul
+                className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-x-auto sm:no-scrollbar"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                ref={ref}
+              >
+                {product.layerWith.map((product) => (
+                  <li className="" key={product._id}>
+                    <Product
+                      key={product?._id}
+                      id={product?._id}
+                      product={product?.name}
+                      category={product?.category}
+                      originalPrice={product?.price}
+                      image={product?.productImage || product?.mainImage}
+                      className="min-w-[17rem]"
+                    />
+                  </li>
+                ))}
               </ul>
             </div>
           )}

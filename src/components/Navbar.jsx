@@ -9,10 +9,7 @@ import { Logo } from "./ui/Logo";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [expand, setExpand] = useState(false);
-  const toggle = () => {
-    setExpand((v) => !v);
-  };
+  const [expandMobile, setExpandMobile] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -23,113 +20,116 @@ const Navbar = () => {
 
   return (
     <Wrapper className="py-4 relative">
-      <nav className="relative font-Helvetica flex items-center justify-between gap-x-8 pb-[56px] md:pb-0 ">
-        <div className="flex items-center gap-2 font-Helvetica">
-          <button onClick={toggle}>
-            {expand ? (
-              <Icon icon="uil:times" style={{ fontSize: 36 }} />
-            ) : (
-              <Icon icon="charm:menu-hamburger" style={{ fontSize: 36 }} />
-            )}
+      {/* Mobile Navbar */}
+      <nav className="lg:hidden">
+        <div className="flex items-center justify-between mb-4">
+          <button onClick={() => setExpandMobile(!expandMobile)}>
+            <Icon icon="charm:menu-hamburger" style={{ fontSize: 24 }} />
           </button>
-
-          <div>
-            <Logo />
-
+          <Logo />
+          <div className="flex items-center gap-4">
+            <CartButton />
+            <Link to="/account">
+              <Icon icon="mdi:account" style={{ fontSize: 24 }} />
+            </Link>
           </div>
         </div>
-
-        <form
-          className="absolute bottom-0 w-full group md:relative md:w-fit"
-          onSubmit={onSubmit}
-        >
+        <form onSubmit={onSubmit} className="relative">
           <input
             id="search"
             type="text"
-            placeholder="Search for item"
-            className="w-full px-6 py-2 rounded-full font-Helvetica outline-none peer bg-app-ash md:bg-transparent md:focus-visible:bg-app-ash"
-          ></input>
+            placeholder="Search For Item"
+            className="w-full px-4 py-2 rounded-full    outline-none bg-app-ash"
+          />
           <button
             aria-label="search for product"
-            className="absolute -translate-y-1/2 right-3 top-1/2 font-Helvetica md:hidden md:group-focus-within:block"
+            className="absolute right-3 top-1/2 -translate-y-1/2"
             type="submit"
           >
-            <Icon icon="mynaui:search" style={{ fontSize: 28 }} />
+            <Icon icon="mynaui:search" style={{ fontSize: 20 }} />
           </button>
         </form>
-        <div className="flex items-center font-Helvetica justify-between gap-2 sm:gap-4">
-          <CartButton />
-          <User />
+      </nav>
+
+      {/* Desktop Navbar */}
+      <nav className="hidden lg:flex items-center justify-between gap-x-4">
+        <Logo />
+        
+        <div className="flex items-center gap-4 font-semibold">
+          <CategoryDropdown />
+          <Link to="/new">What's New</Link>
+          <Link to="/deals">Deals</Link>
+        </div>
+
+        <form onSubmit={onSubmit} className="flex-grow max-w-md relative">
+          <input
+            id="search"
+            type="text"
+            placeholder="search product"
+            className="w-full px-6 py-2 rounded-full    outline-none bg-app-ash"
+          />
+          <button
+            aria-label="search for product"
+            className="absolute right-3 top-1/2 -translate-y-1/2"
+            type="submit"
+          >
+            <Icon icon="mynaui:search" style={{ fontSize: 20 }} />
+          </button>
+        </form>
+
+        <div className="flex items-center gap-4 font-semibold">
+          <Link to="/account" className="flex gap-2 items-center">
+            <Icon icon="mdi:account" style={{ fontSize: 24 }} /> Account
+          </Link>
+          <span className="flex gap-2 items-center">
+            <CartButton /> Cart
+            </span>
         </div>
       </nav>
-      {expand && <MobileNavbar toggle={toggle} />}
-      {expand && <DesktopNav toggle={toggle} />}
+      
+      {expandMobile && <MobileMenu toggle={() => setExpandMobile(false)} />}
     </Wrapper>
   );
 };
 export default Navbar;
 
-const MobileNavbar = ({ toggle }) => {
-  const css = `
-                body {
-                      overflow: hidden;
-                    }
-              `;
-
-  const { categories, status } = useCategory();
-
+const CategoryDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="fixed font-Helvetica top-0 bottom-0 left-0 right-0 z-50 overflow-y-scroll bg-white  md:hidden">
-      <nav className="pt-6 min-h-[100vh]">
-        <Wrapper>
-          <div className="flex items-center font-Helvetica justify-between pt-2 pb-6">
-            <h2 className="text-2xl font-Helvetica">Categories</h2>
-            <button onClick={toggle}>
-              <Icon icon="uil:times" style={{ fontSize: 32 }} />
-            </button>
-          </div>
-          {status === "pending" ? (
-            "Loading..."
-          ) : status === "error" ? (
-            `An error has occurred`
-          ) : (
-            <ul>
-              {categories.map(({ name }, index) => (
-                <li key={index}>
-                  <Link
-                    to={`/categories/${encodeURIComponent(name)}`}
-                    className="flex items-center gap-3 py-4 hover:text-app-red"
-                    onClick={toggle}
-                  >
-                    {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </Wrapper>
-      </nav>
-      <style>{css}</style>
+    <div className="relative">
+      <button 
+        className="flex items-center gap-1"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        Categories <Icon icon="mdi:chevron-down" />
+      </button>
+      {isOpen && <DesktopCategoryDropdown />}
     </div>
   );
 };
 
-const DesktopNav = ({ toggle }) => {
+const MobileMenu = ({ toggle }) => {
   const { categories, status } = useCategory();
   return (
-    <div className="z-50 rounded font-Helvetica bg-white top-[calc(100%+.5rem)] left-0 absolute px-12 hidden md:block">
-      <nav>
+    <div className="fixed top-0 left-0 w-full h-full bg-white z-50 overflow-y-auto">
+      <Wrapper>
+        <div className="flex justify-between items-center py-4">
+          <Logo />
+          <button onClick={toggle}>
+            <Icon icon="uil:times" style={{ fontSize: 24 }} />
+          </button>
+        </div>
         {status === "pending" ? (
           "Loading..."
         ) : status === "error" ? (
-          `An error has occurred`
+          "An error has occurred"
         ) : (
           <ul>
             {categories.map(({ name }, index) => (
               <li key={index}>
                 <Link
                   to={`/categories/${encodeURIComponent(name)}`}
-                  className="flex items-center gap-3 py-3 hover:text-app-red"
+                  className="block py-2"
                   onClick={toggle}
                 >
                   {name}
@@ -138,7 +138,33 @@ const DesktopNav = ({ toggle }) => {
             ))}
           </ul>
         )}
-      </nav>
+      </Wrapper>
+    </div>
+  );
+};
+
+const DesktopCategoryDropdown = () => {
+  const { categories, status } = useCategory();
+  return (
+    <div className="absolute z-50 bg-white shadow-md rounded-md mt-2">
+      {status === "pending" ? (
+        "Loading..."
+      ) : status === "error" ? (
+        "An error has occurred"
+      ) : (
+        <ul>
+          {categories.map(({ name }, index) => (
+            <li key={index}>
+              <Link
+                to={`/categories/${encodeURIComponent(name)}`}
+                className="block px-4 py-2 hover:bg-gray-100"
+              >
+                {name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
@@ -147,7 +173,7 @@ const CartButton = () => {
   const { data, status } = useCartQuery();
   return (
     <Link to="/cart" className="relative p-2">
-      <Icon icon="bytesize:cart" style={{ fontSize: 32 }} />
+      <Icon icon="mdi:cart" style={{ fontSize: 25, }} />
       {status === "success" && (
         <p className="absolute grid w-4 h-4 text-xs font-bold leading-none text-white rounded-full bg-app-red place-items-center top-1 right-1">
           {data?.items?.length ?? 0}

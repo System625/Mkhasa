@@ -13,7 +13,7 @@ export const Input = ({
     <div className="py-2 w-full">
       <input
         type={type}
-        className={cn("w-full py-2 px-6 outline-none border border-black", className)}
+        className={cn("w-full py-[10px] px-6 outline-none border border-black", className)}
         {...formik.getFieldProps(name)}
         {...rest}
       />
@@ -34,7 +34,7 @@ export const PInput = ({ name, formik, className = "", ...rest }) => {
       <div className="relative">
         <input
           type={seePassword ? "text" : "password"}
-          className={`w-full py-2 px-6 outline-none border border-black ${className}`}
+          className={`w-full py-[10px] px-6 outline-none border border-black ${className}`}
           {...formik.getFieldProps(name)}
           {...rest}
         />

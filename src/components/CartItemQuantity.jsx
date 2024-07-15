@@ -17,7 +17,7 @@ export const CartItemQuantity = ({ productId, quantity }) => {
   }, [quantity]);
 
   return (
-    <div className="grid grid-cols-12 grid-rows-6">
+    <div className="flex items-center justify-center mb-2 md:mb-0">
       <button
         onClick={(e) => {
           if (qty <= 1) {
@@ -25,24 +25,25 @@ export const CartItemQuantity = ({ productId, quantity }) => {
           }
           decreaseItem({ quantity: 1, itemId: productId });
         }}
-        className="h-8 text-2xl w-6 col-start-1 col-end-7 row-start-4 row-end-7 @lg:h-auto @lg:row-start-1 @lg:col-end-4"
+        className="h-8 w-8 flex items-center justify-center text-2xl border border-[#F5F5F5] bg-[#F5F5F5]"
       >
         <Icon icon="tdesign:minus" />
       </button>
       <input
         type="number"
         value={qty}
-        className="w-8 mx-auto h-7 text-center outline-none border-black border-2 text-lg rounded col-start-1 col-end-13 row-start-1 row-end-4 @lg:row-end-7 @lg:border-none"
+        className="w-8 h-8 text-right mx-auto flex justify-end items-end border border-[#F5F5F5] text-lg bg-[#F5F5F5]"
         onChange={(e) => {
           const val = e.target.value;
           if (Number(val) === 0) return;
+          // You may want to add logic to handle changes in the input
         }}
       />
       <button
         onClick={(e) => {
           increaseItem({ quantity: 1, itemId: productId });
         }}
-        className="grid place-items-center h-8 text-2xl w-6 col-start-7 col-end-13 row-start-4 row-end-7 @lg:h-auto @lg:row-start-1 @lg:col-start-10"
+        className="h-8 w-8 flex items-center justify-center text-2xl border border-[#F5F5F5] bg-[#F5F5F5]"
       >
         <Icon icon="tdesign:plus" />
       </button>
@@ -67,7 +68,7 @@ export const CartItemQuantity = ({ productId, quantity }) => {
               Cancel
             </button>
             <Button
-              className="bg-app-black text-white font-bold font-  font-HelveticaBold"
+              className="bg-app-black text-white font-bold  "
               onClick={() => {
                 removeFromCart(productId);
                 setShowModal(false);
@@ -79,5 +80,6 @@ export const CartItemQuantity = ({ productId, quantity }) => {
         </Modal>
       )}
     </div>
+
   );
 };

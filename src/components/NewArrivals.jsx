@@ -7,8 +7,13 @@ export const NewArrivals = () => {
   const { featuredProducts } = useLoaderData();
   console.log(useLoaderData())
 
+  const handleAddToCart = ({ id, quantity }) => {
+    // Logic to add the product to the cart
+    console.log(`Added product ${id} with quantity ${quantity} to cart`);
+  };
+
   return (
-    <section className="py-8    font-Helvetica">
+    <section className="py-8      ">
       <SectionHeader header="Deals" />
 
       <ListGrid>
@@ -17,7 +22,7 @@ export const NewArrivals = () => {
             { product, category, originalPrice, discountedPrice, image, id },
             index
           ) => (
-            <li key={index}>
+            <li key={index} className="min-w-[17rem]">
               <Product
                 product={product}
                 category={category}
@@ -25,6 +30,7 @@ export const NewArrivals = () => {
                 discountedPrice={discountedPrice}
                 image={image}
                 id={id}
+                onAddToCart={handleAddToCart}
               />
             </li>
           )

@@ -47,7 +47,7 @@
 //   }, []);
 
 //   return (
-//     <section className="py-8 font-Helvetica">
+//     <section className="py-8   ">
 //       <div className="flex items-center justify-between">
 //         <SectionHeader header="Top Selling Products" />
 
@@ -142,7 +142,7 @@ export const TopSelling = ({ horizontalOnSmallScreens = true }) => {
   }, []);
 
   return (
-    <section className="py-8 font-Helvetica">
+    <section className="py-8   ">
       <div className="flex items-center justify-between">
         <SectionHeader header="Top Selling Products" />
         <div className="hidden gap-4">
