@@ -1,16 +1,16 @@
 import { Wrapper } from "../components/ui/Wrapper";
-import { Features } from "../components/Features";
+// import { Features } from "../components/Features";
 import { SwiperElem } from "../components/Swiper";
-import { FeaturedProducts } from "../components/FeaturedProducts";
+// import { FeaturedProducts } from "../components/FeaturedProducts";
 import { LatestProducts } from "../components/LatestProducts";
 import { TopCategories } from "../components/TopCategories";
 import { Seo } from "../components/Seo";
-import { Sales } from "../components/Sales";
-import { NewArrivals } from "../components/NewArrivals";
+// import { Sales } from "../components/Sales";
+// import { NewArrivals } from "../components/NewArrivals";
 import { NewDeals } from "../components/NewDeals"
 import { BestSellers } from "../components/BestSellers";
-import { Recommended } from "../components/Recommended";
-import { CategoryPanel } from "../components/CategoryPanel";
+// import { Recommended } from "../components/Recommended";
+// import { CategoryPanel } from "../components/CategoryPanel";
 import NewArrival from "../components/NewArrival";
 
 export const Component = () => {
