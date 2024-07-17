@@ -201,18 +201,18 @@ export const Product = ({
               )}
             </div>
           </div>
-          <div className="flex gap-2 w-full mt-2">
+          <div className="flex gap-2 justify-center w-full mt-2">
             <Button
               variant="rectangle"
-              className="w-full rounded-none h-12 bg-transparent transition duration-300 hover:bg-black hover:text-white text-black border-black border-2"
+              className="w-full rounded-none text-xs px-2 lg:px-2 h-10 lg:h-12 bg-transparent transition duration-300 hover:bg-black hover:text-white text-black border-black border-2"
               onClick={handleAddToCart}
             >
               Add To Cart
             </Button>
-            <div className="flex items-center border border-black bg-black text-white">
-              <button onClick={(e) => { e.stopPropagation(); decrement(); }} className="px-2 py-1">-</button>
-              <span className="px-2">{quantity}</span>
-              <button onClick={(e) => { e.stopPropagation(); increment(); }} className="px-2 py-1">+</button>
+            <div className="flex items-center justify-between lg:text-lg w-full border border-black bg-black text-white">
+              <button onClick={(e) => { e.stopPropagation(); decrement(); }} className="pl-1 md:pl-2 lg:text-xl py-1">-</button>
+              <span className="px-0 text-xs lg:px-0 lg:text-base">{quantity}</span>
+              <button onClick={(e) => { e.stopPropagation(); increment(); }} className="pr-1 md:pr-2 lg:text-xl py-1">+</button>
             </div>
           </div>
         </div>

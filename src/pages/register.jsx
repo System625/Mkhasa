@@ -142,24 +142,37 @@ export const Component = ({ backGroundColor }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const schema = yup.object().shape({
-    address: yup.string().required().min(3, "Must be at least 3 characters"),
+    name: yup.string().required("Name is required").min(3, "Must be at least 3 characters"),
+    email: yup.string().email("Invalid email address").required("Email is required"),
     phoneNumber: yup
       .string()
-      .required("Phone number is required")
-      .matches(/^\d+$/, "Phone number must contain only digits"),
-    email: yup.string().email().required("Email is required"),
+      .required("Mobile number is required")
+      .matches(/^\d+$/, "Mobile number must contain only digits"),
+    street1: yup.string().required("Street 1 is required").min(3, "Must be at least 3 characters"),
+    street2: yup.string().min(3, "Must be at least 3 characters"),
+    city: yup.string().required("City is required").min(2, "Must be at least 2 characters"),
+    state: yup.string().required("State is required").min(2, "Must be at least 2 characters"),
     password: yup
       .string()
       .trim()
       .required("Password is required")
-      .matches(/(?=.*[A-Z])/, "Password must contain uppercase")
-      .matches(/^(?=.*[a-z])/, "Password must contain lowercase")
+      .matches(/(?=.*[A-Z])/, "Password must contain an uppercase letter")
+      .matches(/^(?=.*[a-z])/, "Password must contain a lowercase letter")
       .min(6, "Password must be at least 6 characters long")
       .max(50, "Password must be at most 50 characters long"),
   });
 
   const formik = useFormik({
-    initialValues: { email: "", password: "", address: "", phoneNumber: "", },
+    initialValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      street1: "",
+      street2: "",
+      city: "",
+      state: "",
+      password: "",
+    },
     validationSchema: schema,
     onSubmit: async (values) => {
       try {
@@ -192,31 +205,38 @@ export const Component = ({ backGroundColor }) => {
       <Wrapper className="max-w-xl flex flex-col items-center py-12">
         <Heading>Create Your Account</Heading>
         <p className="text-xl font-bold mt-1">
-        welcome to {""}
-        <span
-          className={`font-fuzzy font-extrabold tracking-tighter text-sm pt-2 ${backGroundColor === "black" ? "text-white" : "text-app-red"
-            } min-[360px]:text-lg md:text-xl lg:text-2xl`}
+          welcome to {""}
+          <span
+            className={`font-fuzzy font-extrabold tracking-tighter text-sm pt-2 ${backGroundColor === "black" ? "text-white" : "text-app-red"
+              } min-[360px]:text-lg md:text-xl lg:text-2xl`}
 
-        >
-          Mkhasa
-        </span>
-      </p>
+          >
+            Mkhasa
+          </span>
+        </p>
 
 
         <form
           onSubmit={formik.handleSubmit}
-          className="w-full max-w-xl bg-white rounded-3xl p-4   "
+          className="w-full max-w-xl bg-white rounded-3xl p-4"
         >
           <div className="w-[90%] md:w-[60%] mx-auto gap-10">
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="name">Name</Label>
+              <Input
+                name="name"
+                formik={formik}
+              />
+            </div>
+            <div>
+              <Label htmlFor="email">Email Address</Label>
               <Input
                 name="email"
                 formik={formik}
               />
             </div>
             <div>
-              <Label htmlFor="email">Phone Number</Label>
+              <Label htmlFor="phoneNumber">Mobile Number</Label>
               <Input
                 name="phoneNumber"
                 formik={formik}
@@ -224,14 +244,35 @@ export const Component = ({ backGroundColor }) => {
               />
             </div>
             <div>
-              <Label htmlFor="email">Address</Label>
+              <Label htmlFor="street1">Street 1</Label>
               <Input
-                name="address"
+                name="street1"
                 formik={formik}
               />
             </div>
             <div>
-              <Label htmlFor="email">Password</Label>
+              <Label htmlFor="street2">Street 2</Label>
+              <Input
+                name="street2"
+                formik={formik}
+              />
+            </div>
+            <div>
+              <Label htmlFor="city">City</Label>
+              <Input
+                name="city"
+                formik={formik}
+              />
+            </div>
+            <div>
+              <Label htmlFor="state">State</Label>
+              <Input
+                name="state"
+                formik={formik}
+              />
+            </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
               <PInput
                 name="password"
                 formik={formik}
@@ -269,9 +310,8 @@ export const Component = ({ backGroundColor }) => {
               </Link>
             </p>
           </div>
-
-
         </form>
+
       </Wrapper>
       <ToastContainer />
     </>

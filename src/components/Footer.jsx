@@ -66,18 +66,13 @@ export const Footer = () => {
 
           <div className="md:col-span-3       mt-4">
             <h2 className="text-lg font-bold font-    text-white text-center lg:text-left">
-              CONTACT US
+              Contact Us
             </h2>
             <div className="text-app-ash-2 mt-4 text-center lg:text-left       ">
               {/* <p>House 92, Dele Orisabiyi Street Okota Lagos State</p> */}
-              <p className="py-2">Call Us: <span className="font-NimbusSan"> 09013898261</span></p>
-              <p className="py-2">Email: info@mkhasa.com</p>
-
-              <h3 className="text-lg font-bold font-    text-white mt-4">Support/Sales Team</h3>
-              <p className="py-2">Call Us: <span className="font-NimbusSan">09131451391 </span></p>
-
-              <p className="py-2">Email: sales@mkhasa.com</p>
-              <p className="py-2">Email: support@mkhasa.com</p>
+              <p className="w-full py-2 inline-block">Call Us: <span className="font-NimbusSan"> +2349013898261</span></p>
+              <p className="w-full py-2 inline-block">Contact Email: info@mkhasa.com</p>
+              <p className="w-full py-2 inline-block">Help Email: support@mkhasa.com</p>
             </div>
           </div>
 

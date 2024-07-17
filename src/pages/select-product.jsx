@@ -866,11 +866,11 @@ export const Component = () => {
                   </div>
                 </div>
               </div>
-              <div className="my-button flex flex-col md:flex-row gap-8 md:space-x-4 mt-4">
+              <div className="my-button flex gap-8 md:space-x-4 mt-4">
                 <Button
                   variant="rectangle"
                   onClick={onClickCheckout}
-                  className="bg-[#0FA958] text-white text-xl rounded-none py-3 w-full font-semibold disabled:bg-[#848484]"
+                  className="bg-[#0FA958] text-white text-sm lg:text-xl rounded-none py-1 lg:py-3 w-full font-semibold disabled:bg-[#848484]"
                 >
                   Buy Now
                 </Button>
@@ -882,13 +882,13 @@ export const Component = () => {
                     disabled={!count}
                     variant="rectangle"
                     onClick={onClick}
-                    className=" w-full rounded-none text-xl py-3 disabled:bg-[#848484]"
+                    className=" w-full rounded-none text-sm lg:text-xl py-3 disabled:bg-[#848484]"
                   >
                     Add to Cart
                   </Button>
                 ) : (
                   <Link to="/cart" style={{ display: "contents" }}>
-                    <Button variant="rectangle" className="text-xl bg-transparent border-2  text-black border-black rounded-none py-3 w-full font-semibold">
+                    <Button variant="rectangle" className="text-sm lg:text-xl bg-transparent border-2  text-black border-black rounded-none py-3 w-full font-semibold">
                       Go to Cart
                     </Button>
                   </Link>
@@ -920,7 +920,7 @@ export const Component = () => {
                 </div>
               </div>
               <ul
-                className="pt-8 w-full gap-1 flex sm:flex-nowrap overflow-auto sm:no-scrollbar"
+                className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-auto sm:no-scrollbar"
                 ref={ref} key={product.id}
               >
                 {product.recommend.map((product) => (
@@ -932,7 +932,7 @@ export const Component = () => {
                       category={product?.category}
                       originalPrice={product?.price}
                       image={product?.productImage || product?.mainImage}
-                      className="min-w-[11rem]"
+                      className="min-w-[13rem] md:min-w-[17rem]"
                     />
                   </li>
                 ))}
@@ -974,7 +974,7 @@ export const Component = () => {
                       category={product?.category}
                       originalPrice={product?.price}
                       image={product?.productImage || product?.mainImage}
-                      className="min-w-[17rem]"
+                      className="min-w-[13rem] md:min-w-[17rem]"
                     />
                   </li>
                 ))}

@@ -203,12 +203,11 @@ export const Component = ({ backGroundColor }) => {
       </p>
       <p className="text-xl font-bold mt-1">Sign In To Continue</p>
       <div className="w-[90%] md:w-[62%] mx-auto gap-10">
-        <p className="py-4 text-[#666666] text-center md:text-left text-sm   ">
+        <p className="py-4 text-[#666666] text-center text-sm   ">
           Don&rsquo;t Have An Account?
           <Link to="/register" className="ml-2 text-app-black underline hover:underline font-medium    z-50">
-            Create An Account{" "}
+            Kindly sign up{" "}
           </Link>
-          It Takes Less Than A Minute
         </p>
       </div>
 

@@ -418,7 +418,7 @@ export const Component = () => {
               ) : (
                 <>
                   <ul
-                    className="grid justify-center grid-flow-row grid-cols-2 gap-1
+                    className="grid justify-center grid-flow-row grid-cols-2 gap-4
                    pt-8 auto-rows-fr sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
                   >
                     {data?.pages?.map((group, i) => (
@@ -438,7 +438,7 @@ export const Component = () => {
                       </Fragment>
                     ))}
                   </ul>
-                  <div>
+                  <div className="mt-3">
                     {hasNextPage && (
                       <button
                         onClick={() => fetchNextPage()}

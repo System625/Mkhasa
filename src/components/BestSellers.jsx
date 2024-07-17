@@ -211,7 +211,7 @@ export const BestSellers = ({ horizontalOnSmallScreens = true }) => {
             { product, category, originalPrice, discountedPrice, image, id },
             index
           ) => (
-            <li key={index} className="min-w-[17rem]">
+            <li key={index} className="min-w-[11rem] md:min-w-[13rem]">
               <Product
                 product={product}
                 category={category}

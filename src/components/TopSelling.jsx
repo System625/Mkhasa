@@ -172,7 +172,7 @@ export const TopSelling = ({ horizontalOnSmallScreens = true }) => {
           {recommend.map(({ product, category, price, image, id }, index) => (
             <li
               key={index}
-              className="min-w-[17rem]"
+              className="min-w-[13rem]"
             >
               <Product
                 product={product}
