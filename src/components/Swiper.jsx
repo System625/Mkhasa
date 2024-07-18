@@ -18,7 +18,7 @@ export const SwiperElem = () => {
     const swiperEl = ref.current;
     const swiperParams = {
       loop: true,
-      speed: 200,
+      speed: 500,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",

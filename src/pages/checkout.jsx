@@ -126,7 +126,7 @@ const PersonalDetails = ({ className, formik }) => {
             placeholder="Your Full Name"
             formik={formik}
             name="name"
-            className="rounded-sm bg-app-ash-1"
+            className="rounded-sm border-none bg-app-ash-1"
           />
         </div>
 
@@ -135,13 +135,13 @@ const PersonalDetails = ({ className, formik }) => {
             placeholder="Your Email"
             formik={formik}
             name="email"
-            className="rounded-sm bg-app-ash-1"
+            className="rounded-sm border-none bg-app-ash-1"
           />
           <Input
             placeholder="Your Phone"
             formik={formik}
             name="phone"
-            className="rounded-sm bg-app-ash-1"
+            className="rounded-sm border-none bg-app-ash-1"
           />
         </div>
       </div>
@@ -318,7 +318,7 @@ const DeliveryDetails = ({ className, formik }) => {
               placeholder="Address"
               formik={formik}
               name="address"
-              className="bg-app-ash-1 rounded-sm"
+              className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
           <div className="col-span-12 @sm:col-span-4">
@@ -327,7 +327,7 @@ const DeliveryDetails = ({ className, formik }) => {
               placeholder="City"
               formik={formik}
               name="city"
-              className="bg-app-ash-1 rounded-sm"
+              className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
         </div>
@@ -341,17 +341,17 @@ const DeliveryDetails = ({ className, formik }) => {
               name="state"
               className="bg-app-ash-1 rounded-sm"
             /> */}
-            <div className="py-2 w-full bg-app-ash-1">
+            <div className="py-2 w-full bg-app-ash-1 md:mt-2">
               <select
                 {...formik.getFieldProps("state")}
-                className="bg-app-ash-1 rounded-sm  w-full py-2 px-6 outline-none"
+                className="bg-app-ash-1 rounded-sm  w-full py-1 px-6 outline-none"
                 placeholder="State"
               >
                 <option value="" selected>
                   Select state
                 </option>
                 {states.map(({ name, value }, i) => (
-                  <option key={i} value={value} className="bg-app-ash-1">
+                  <option key={i} value={value} className="bg-app-ash-1 w-full">
                     {name}
                   </option>
                 ))}
@@ -367,7 +367,7 @@ const DeliveryDetails = ({ className, formik }) => {
               placeholder="Country"
               formik={formik}
               name="country"
-              className="bg-app-ash-1 rounded-sm"
+              className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
         </div>
@@ -448,7 +448,7 @@ const CartSummary = ({ className, isPending, deliveryState }) => {
             type="submit"
             form="checkout-form"
             variant="rectangle"
-            className="bg-[#27D34C] text-white md:px-8 w-full px-10 focus:outline-none font-bold mt-6"
+            className="bg-[#27D34C] text-white md:px-8 rounded-none md:py-3 w-full px-10 focus:outline-none font-bold mt-6"
           >
             {isPending ? (
               <Icon

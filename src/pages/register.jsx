@@ -177,7 +177,14 @@ export const Component = ({ backGroundColor }) => {
     onSubmit: async (values) => {
       try {
         setIsSubmitting(true);
-        const response = await axios.post(`user/send/verification`, values, {
+
+        // Combine street1 and street2 into a single street field
+        const combinedValues = {
+          ...values,
+          street: `${values.street1} ${values.street2}`.trim()
+        };
+
+        const response = await axios.post(`user/send/verification`, combinedValues, {
           headers: { "Content-Type": "application/json" },
         });
         if (response.status === 200) {

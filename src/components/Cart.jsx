@@ -26,7 +26,7 @@ export const CartItems = ({ isCheckout }) => {
   ) : (
     <ul>
       {data.items.map((item, i) => (
-        <li key={i} className="py-2">
+        <li key={i} className="py-3">
           <CartItem item={item} isCheckout={isCheckout} />
         </li>
       ))}

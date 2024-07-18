@@ -260,21 +260,21 @@ export const CartItem = ({ item, isCheckout }) => {
   const [showModal, setShowModal] = useState(false);
   const { removeFromCart } = useCartContext();
   return (
-    <div className="text-sm border-b-2 sm:text-md">
+    <div className="text-sm border-b-2 pb-3 sm:text-md">
       <div className="grid grid-cols-12 items-center">
-        <div className="flex items-center gap-2 col-span-9 md:col-span-6 md:gap-12">
+        <div className="flex items-center gap-2 col-span-9 md:col-span-6 md:gap-4">
           <div className="w-20 min-h-[96px] bg-white">
             <img
               src={item?.productId?.mainImage}
               alt="main-image"
-              className="md:w-44 md:h-24 md:object-cover w-full h-full object-cover"
+              className=" md:w-44 md:h-24 md:object-cover w-full h-full object-cover"
             />
           </div>
 
           <div>
             <p className="line-clamp-1">{item?.productId?.name}</p>
             <button
-              className="inline-flex items-center gap-2 mt-3 hover:bg-app-ash-1 rounded-sm"
+              className="inline-flex items-center gap-2 mt-1 hover:bg-app-ash-1 rounded-sm"
               onClick={() => {
                 setShowModal(true);
               }}
@@ -284,15 +284,15 @@ export const CartItem = ({ item, isCheckout }) => {
           </div>
         </div>
         {isCheckout ? (
-          <div className="col-span-3 sm:col-span-1 items-center md:col-span-6 grid grid-cols-1">
-            <div className="grid items-center justify-end md:justify-center md:items-start md:text-center">
+          <div className="col-span-3 md:gap-2 sm:col-span-1 items-center md:col-span-6 grid grid-cols-1">
+            <div className="grid items-center justify-end md:items-start md:text-center">
               <CartItemQuantity
                 quantity={item?.quantity}
                 productId={item?.productId._id}
               />
             </div>
 
-            <p className="text-right md:text-center">
+            <p className="text-right md:text-right">
               #{item?.quantity * item?.price}
             </p>
           </div>

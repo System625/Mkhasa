@@ -35,7 +35,7 @@ export const Component = () => {
           iconClassName="text-[#3339] text-2xl"
           currentLocationClassName="text-app-black"
         /> */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center">
           <Heading className="pt-2">Cart</Heading>
           {status === "success" && data.items.length > 0 && (
             <button
@@ -56,11 +56,11 @@ export const Component = () => {
         ) : (
           <>
             <div className="py-4">
-              <p className="pb-4">
+              <p className="pb-4 text-center">
                 Please login to your account to view items in your cart
               </p>
               <Link to={`/login?redirect=${encodeURIComponent("/cart")}`}>
-                <Button className="bg-app-red px-12 text-white ">
+                <Button className="bg-app-red px-12 rounded-none w-12 text-center mx-auto flex justify-center text-white ">
                   Login
                 </Button>
               </Link>

@@ -55,10 +55,8 @@ const Navbar = () => {
       <nav className="hidden lg:flex items-center justify-between gap-x-4">
         <Logo />
         
-        <div className="flex items-center gap-4 font-semibold">
+        <div className="flex items-center font-semibold">
           <CategoryDropdown />
-          <Link to="/new">What's New</Link>
-          <Link to="/deals">Deals</Link>
         </div>
 
         <form onSubmit={onSubmit} className="flex-grow max-w-md relative">
@@ -81,9 +79,9 @@ const Navbar = () => {
           <Link to="/account" className="flex gap-2 items-center">
             <Icon icon="mdi:account" style={{ fontSize: 24 }} /> Account
           </Link>
-          <span className="flex gap-2 items-center">
+          <Link to="/cart" className="flex gap-2 items-center">
             <CartButton /> Cart
-            </span>
+            </Link>
         </div>
       </nav>
       

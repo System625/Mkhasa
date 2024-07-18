@@ -80,7 +80,7 @@ export const Footer = () => {
             <h2 className="text-lg font-bold font-    text-white text-center md:pr-20 md:text-right">
               Socials
             </h2>
-            <ul className="flex text-app-ash-2 justify-center gap-3 mt-4 md:justify-end">
+            <ul className="flex text-app-ash-2 justify-center gap-3 md:gap-0 lg:gap-3 mt-4 md:justify-end">
               <li>
                 <Link
 
@@ -158,7 +158,7 @@ export const Footer = () => {
           </div>
         </div> */}
 
-        <p className="text-app-ash-2 text-sm text-left pt-10 sm:text-right md:text-center      ">
+        <p className="text-app-ash-2 text-sm text-center pt-10 sm:text-right md:text-center      ">
           &copy; {new Date().getFullYear()} All Rights Reserved
         </p>
       </Wrapper>
