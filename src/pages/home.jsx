@@ -4,7 +4,8 @@ import { LatestProducts } from "../components/LatestProducts";
 import { Seo } from "../components/Seo";
 import { NewDeals } from "../components/NewDeals"
 import { BestSellers } from "../components/BestSellers";
-import NewArrival from "../components/NewArrival";
+import { FeaturedProducts } from "../components/FeaturedProducts";
+// import NewArrival from "../components/NewArrival";
 // import { Sales } from "../components/Sales";
 // import { Recommended } from "../components/Recommended";
 // import { CategoryPanel } from "../components/CategoryPanel";
@@ -23,14 +24,13 @@ export const Component = () => {
           <SwiperElem />
         </div>        
         <LatestProducts />                
-        <NewArrival/>                
+        <FeaturedProducts />          
         <BestSellers />     
         <NewDeals/>
         {/* <Sales /> */}
         {/* <NewArrivals /> */}
         {/* <TopCategories /> */}
         {/* <div className="pt-6"><Features /></div> */}
-        {/* <FeaturedProducts /> */}
       </Wrapper>
     </main>
   );

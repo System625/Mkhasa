@@ -666,7 +666,7 @@ export const ProductDetail = ({ productId }) => {
 const DescriptionContent = ({ product }) => (
   <div className="mt-5">
     {/* Heading for mobile */}
-    <h2 className="text-2xl md:hidden font-bold mb-4">Description</h2>
+    {/* <h2 className="text-2xl md:hidden font-bold mb-2">Description</h2> */}
     {/* Heading for tab and laptop */}
     <div className="relative hidden md:inline-block">
       <h2 className="text-2xl font-bold mb-4">Description</h2>
@@ -677,7 +677,7 @@ const DescriptionContent = ({ product }) => (
     <div className="border-b md:border-none pb-3">
       {product?.description && (
         <p className="py-1">
-          <span className="font-bold">Description:</span> {product.description}
+           {product.description}
         </p>
       )}
       {product?.appeal && (

@@ -127,7 +127,7 @@ const MobileMenu = ({ toggle }) => {
               <li key={index}>
                 <Link
                   to={`/categories/${encodeURIComponent(name)}`}
-                  className="block py-2"
+                  className="flex justify-center items-center py-2"
                   onClick={toggle}
                 >
                   {name}
@@ -144,7 +144,7 @@ const MobileMenu = ({ toggle }) => {
 const DesktopCategoryDropdown = () => {
   const { categories, status } = useCategory();
   return (
-    <div className="absolute z-50 bg-white shadow-md rounded-md mt-2">
+    <div className="absolute z-50 bg-white shadow-md rounded-md mt-2 left-[-15px] w-[9rem]">
       {status === "pending" ? (
         "Loading..."
       ) : status === "error" ? (

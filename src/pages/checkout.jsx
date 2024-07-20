@@ -62,17 +62,27 @@ export const Component = () => {
 
   useEffect(() => {
     axios.get(`/get/user/${getUserId()}`).then((res) => {
-      formik.setValues({
+      // console.log('User data:', res.data.user);
+      formik.setValues(prevValues => ({
+        ...prevValues, // Spread the previous values to retain any user input
         email: res.data.user.email,
         phone: res.data.user.phoneNumber,
         address: res.data.user.address,
-        name: formik.values.name, // Retain current value if already entered
-        city: formik.values.city, // Retain current value if already entered
-        state: formik.values.state, // Retain current value if already entered
-        country: formik.values.country, // Retain current value if already entered
-      });
+        street1: res.data.user.street1,
+        name: res.data.user.name,
+        // Only override city, state, country if they haven't been set by the user
+        city: prevValues.city || res.data.user.city,
+        state: prevValues.state || res.data.user.state,
+        country: prevValues.country || res.data.user.country,
+      }));
     });
   }, []);
+
+  useEffect(() => {
+    if (formik.values.state) {
+      formik.setFieldValue("country", "Nigeria");
+    }
+  }, [formik.values.state]);
 
   // useEffect(() => {
   //   console.log(formik.values.state);
@@ -317,7 +327,7 @@ const DeliveryDetails = ({ className, formik }) => {
               type="text"
               placeholder="Address"
               formik={formik}
-              name="address"
+              name="street1"
               className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
@@ -348,7 +358,7 @@ const DeliveryDetails = ({ className, formik }) => {
                 placeholder="State"
               >
                 <option value="" selected>
-                  Select state
+                  Select State
                 </option>
                 {states.map(({ name, value }, i) => (
                   <option key={i} value={value} className="bg-app-ash-1 w-full">
@@ -408,7 +418,7 @@ const PaymentMethod = ({ className, setProvider, provider }) => {
               />
             </label>
           </div>
-          {/* <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <input
               type="radio"
               id="paystack"
@@ -424,7 +434,7 @@ const PaymentMethod = ({ className, setProvider, provider }) => {
                 alt="paystack-logo"
               />
             </label>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

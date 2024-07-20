@@ -138,7 +138,7 @@ import { useNavigate } from 'react-router-dom';
 import { cn } from "../utils/cn";
 import { Button } from "./ui/Button";
 import { format } from "../utils/lib";
-import { CartContext } from '../contexts/Cart';
+import { useCartContext } from '../hooks/utils/useCart';
 
 export const Product = ({
   product,
@@ -151,14 +151,17 @@ export const Product = ({
 }) => {
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCartContext();
 
   const increment = () => setQuantity(prev => prev + 1);
   const decrement = () => setQuantity(prev => prev > 1 ? prev - 1 : 1);
 
-  const handleAddToCart = (e) => {
+  const handleAddToCart = async (e) => {
     e.stopPropagation();
-    addToCart({ itemId: id, quantity });
+    const success = await addToCart({ itemId: id, quantity });
+    if (success) {
+      toast.success("Added to Cart", { duration: 2000 });
+    }
   };
 
   const navigateToProduct = () => navigate(`/products/${id}`);

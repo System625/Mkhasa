@@ -121,6 +121,7 @@ import toast from "react-hot-toast";
 import { prefix } from "../utils/lib";
 import { useState } from "react";
 import { Label } from "../components/ui/label"
+import { useCartContext } from "../hooks/utils/useCart";
 
 export const Component = ({ backGroundColor }) => {
   const queryClient = useQueryClient();
@@ -141,6 +142,7 @@ export const Component = ({ backGroundColor }) => {
   const [searchParams] = useSearchParams();
   const redirect = searchParams.get("redirect") || "/";
   const [error, setError] = useState("");
+  const { mergeCartsOnLogin } = useCartContext();
 
   const mutation = useMutation({
     mutationFn: (values) => {
@@ -148,10 +150,14 @@ export const Component = ({ backGroundColor }) => {
         headers: { "Content-Type": "application/json" },
       });
     },
-    onSuccess: (response) => {
+    onSuccess: async (response) => {
       setUser(response.data);
       localStorage.setItem(prefix("user"), JSON.stringify(response.data));
-      queryClient.setQueryData(["cart"], response.data.cart);
+      
+      // Merge local cart with server cart
+      await mergeCartsOnLogin(response.data.id);
+      
+      queryClient.invalidateQueries(["cart"]); // Refetch cart data
       navigate(decodeURIComponent(redirect));
     },
     onError: (err) => {

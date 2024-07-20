@@ -25,36 +25,29 @@ export const Component = () => {
         type="webapp"
         name=""
       />
-      <Wrapper className="py-4">
-        {/* <Navigation
-          location={[
-            { description: "Home", to: "/", title: "Go to Home Page" },
-            { description: "Cart", to: "/cart" },
-          ]}
-          className="text-[#3338]"
-          iconClassName="text-[#3339] text-2xl"
-          currentLocationClassName="text-app-black"
-        /> */}
-        <div className="flex items-center justify-center">
-          <Heading className="pt-2">Cart</Heading>
-          {status === "success" && data.items.length > 0 && (
-            <button
-              onClick={() => {
-                setShowModal(true);
-              }}
-            >
-              Clear All
-            </button>
-          )}
-        </div>
-
+      <Wrapper className="py-4">  
         {getUserId() ? (
           <>
+            <div className="flex items-center justify-between">
+              <Heading className="pt-2">Cart</Heading>
+              {status === "success" && data.items.length > 0 && (
+                <button
+                  onClick={() => {
+                    setShowModal(true);
+                  }}
+                >
+                  Clear All
+                </button>
+              )}
+            </div>
             <Cart />
             <OrderTotal partial />
           </>
         ) : (
           <>
+            <div className="flex items-center justify-center">
+              <Heading className="pt-2">Cart</Heading>
+            </div>
             <div className="py-4">
               <p className="pb-4 text-center">
                 Please login to your account to view items in your cart
@@ -84,8 +77,7 @@ export const Component = () => {
               CANCEL
             </button>
             <button
-            // variant="rectangle"
-              className="bg-app-black px-6 py-2 rounded-full text-white font-normal"
+              className="bg-app-black px-6 py-2 text-white font-normal"
               onClick={() => {
                 clearCart();
                 setShowModal(false);

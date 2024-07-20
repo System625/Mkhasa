@@ -137,9 +137,11 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { Label } from "../components/ui/label"
 import { Checkbox } from "../components/ui/checkbox"
+import { useCartContext } from "../hooks/utils/useCart";
 
 export const Component = ({ backGroundColor }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { mergeCartsOnLogin } = useCartContext();
   const navigate = useNavigate();
   const schema = yup.object().shape({
     name: yup.string().required("Name is required").min(3, "Must be at least 3 characters"),
@@ -189,6 +191,13 @@ export const Component = ({ backGroundColor }) => {
         });
         if (response.status === 200) {
           setIsSubmitting(false);
+
+          // Assuming the response includes the user ID of the newly registered user
+        const userId = response.data.userId;
+
+        // Merge local cart with server cart
+        await mergeCartsOnLogin(userId);
+
           navigate(`/confirm-otp?email=${encodeURIComponent(values.email)}`);
         }
       } catch (error) {
@@ -258,7 +267,7 @@ export const Component = ({ backGroundColor }) => {
               />
             </div>
             <div>
-              <Label htmlFor="street2">Street 2</Label>
+              <Label htmlFor="street2">Street 2 (Optional)</Label>
               <Input
                 name="street2"
                 formik={formik}
