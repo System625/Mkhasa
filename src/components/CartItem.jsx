@@ -293,12 +293,12 @@ export const CartItem = ({ item, isCheckout }) => {
             </div>
 
             <p className="text-right md:text-right">
-              #{item?.quantity * item?.price}
+              ₦{item?.quantity * item?.price}
             </p>
           </div>
         ) : (
           <div className="col-span-3 sm:col-span-1 items-center md:col-span-6 grid grid-cols-1 md:grid-cols-6 ">
-            
+
 
             <div className="grid items-center md:col-span-2 justify-end md:justify-center md:items-start md:text-center">
               <CartItemQuantity
@@ -308,11 +308,11 @@ export const CartItem = ({ item, isCheckout }) => {
             </div>
 
             <p className="hidden md:block md:text-center md:col-span-2">
-              #{item?.price}
+              ₦{item?.price}
             </p>
 
             <p className="text-right md:text-center md:col-span-2">
-              #{item?.quantity * item?.price}
+              ₦{item?.quantity * item?.price}
             </p>
           </div>
         )}

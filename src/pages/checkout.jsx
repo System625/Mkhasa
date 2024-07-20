@@ -26,13 +26,13 @@ export const Component = () => {
     state: yup.string().required(),
     country: yup.string().required(),
     name: yup.string().required(),
-    address: yup.string().required(),
+    street1: yup.string().required(),
   });
 
   const formik = useFormik({
     initialValues: {
       name: "",
-      address: "",
+      street1: "",  // Add street1 for address
       email: "",
       phone: "",
       city: "",
@@ -41,7 +41,11 @@ export const Component = () => {
     },
     validationSchema: schema,
     onSubmit: async (values) => {
-      mutation.mutate(values);
+      // Concatenate street and city to create address
+      const address = `${values.street1}, ${values.city}`;
+      const payload = { ...values, address };
+      delete payload.street1;  // Remove street1 from the payload
+      mutation.mutate(payload);
     },
   });
 
@@ -56,9 +60,19 @@ export const Component = () => {
       });
     },
     onSuccess: (res) => {
-      window.location.href = res.data.paymentLink;
+      const { paymentLink } = res.data;
+      if (paymentLink) {
+        window.location.href = paymentLink;
+      } else {
+        console.error("Payment link is missing from the response");
+      }
+    },
+    onError: (error) => {
+      console.error("Error creating order:", error);
+      // Handle error appropriately (e.g., show error message to user)
     },
   });
+
 
   useEffect(() => {
     axios.get(`/get/user/${getUserId()}`).then((res) => {
@@ -98,7 +112,7 @@ export const Component = () => {
       />
 
       <Wrapper className="py-4">
-       
+
         <div className="grid gap-6 md:grid-cols-12">
           <form
             onSubmit={formik.handleSubmit}
@@ -325,7 +339,7 @@ const DeliveryDetails = ({ className, formik }) => {
           <div className="col-span-12 @sm:col-span-8">
             <Input
               type="text"
-              placeholder="Address"
+              placeholder="Street"
               formik={formik}
               name="street1"
               className="bg-app-ash-1 border-none rounded-sm"
