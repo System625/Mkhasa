@@ -58,7 +58,7 @@ export const ForgotPassword = () => {
         <LockIcon />
         <Heading>Forgot Password</Heading>
         <p className="pt-4 text-[#666666] text-sm text-center pb-2">
-          Enter The Email You Used To Create Your Account So We Can Send You A Link To Reseting Your Password.
+          Enter The Email You Used To Create Your Account So We Can Send You A Link To Reset Your Password.
         </p>
 
         <form

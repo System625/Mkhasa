@@ -361,6 +361,7 @@ export const Cart = ({ children }) => {
         decreaseItem,
         hasItem,
         mergeCartsOnLogin,
+        getCartFromLocalStorage,
       }}
     >
       {children}
