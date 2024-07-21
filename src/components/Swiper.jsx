@@ -7,7 +7,7 @@ import { SwiperCard2 } from "./SwiperCard2";
 import { SwiperCard3 } from "./SwiperCard3";
 import { SwiperCard4 } from "./SwiperCard4";
 import { SwiperCard5 } from "./SwiperCard5";
-import { SwiperCard6 } from "./SwiperCard6";
+// import { SwiperCard6 } from "./SwiperCard6"; 
 import { SwiperCard7 } from "./SwiperCard7";
 
 export const SwiperElem = () => {
@@ -18,7 +18,7 @@ export const SwiperElem = () => {
     const swiperEl = ref.current;
     const swiperParams = {
       loop: true,
-      speed: 200,
+      speed: 500,
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
@@ -32,9 +32,8 @@ export const SwiperElem = () => {
             arr.push(i + 1);
           }
           const elem = arr.map((val) => {
-            return `<li style="background-color:white;height:${
-              val == current ? "10px" : "6px"
-            };width:${val == current ? "10px" : "6px"};border-radius:50%;margin:0 2px;"></li>`;
+            return `<li style="background-color:white;height:${val == current ? "10px" : "6px"
+              };width:${val == current ? "10px" : "6px"};border-radius:50%;margin:0 2px;"></li>`;
           });
           return elem.join("");
         },
@@ -56,8 +55,8 @@ export const SwiperElem = () => {
         autoplay="true"
         autoplay-delay="4000"
       >
-       
-       
+
+
         {/* <swiper-slide
           style={{
             borderRadius: 24,
@@ -68,7 +67,7 @@ export const SwiperElem = () => {
             <SwiperCard2 />
           </div>
         </swiper-slide> */}
-       
+
         <swiper-slide
           style={{
             borderRadius: 24,
@@ -89,7 +88,7 @@ export const SwiperElem = () => {
             <SwiperCard5 />
           </div>
         </swiper-slide>
-        <swiper-slide
+        {/* <swiper-slide
           style={{
             borderRadius: 24,
             overflow: "hidden",
@@ -98,7 +97,7 @@ export const SwiperElem = () => {
           <div className="min-h-[250px] h-[40vw] md:h-[559px]">
             <SwiperCard6 />
           </div>
-        </swiper-slide>
+        </swiper-slide> */}
         {/* <swiper-slide
           style={{
             borderRadius: 24,
@@ -157,7 +156,6 @@ export const SwiperElem = () => {
         />
       </button>
       <ul className="absolute z-10 w-full flex items-center justify-center gap-2 swiper-pagination bottom-4 left-0 md:bottom-8">
-        
       </ul>
     </div>
   );

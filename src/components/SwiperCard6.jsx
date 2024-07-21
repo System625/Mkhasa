@@ -10,7 +10,7 @@ export const SwiperCard6 = () => {
         <img
           src={armafimg}
           // fetchpriority="high"
-          className="block md:hidden cursor-pointer object-cover bg-no-repeat absolute bottom-8 top-0 right-0 left-0 w-full h-60"
+          className="block cursor-pointer object-cover bg-no-repeat absolute bottom-8 top-0 right-0 left-0 w-full h-60"
         />
       </Link>
     </div>

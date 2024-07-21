@@ -26,13 +26,13 @@ export const Component = () => {
     state: yup.string().required(),
     country: yup.string().required(),
     name: yup.string().required(),
-    address: yup.string().required(),
+    street1: yup.string().required(),
   });
 
   const formik = useFormik({
     initialValues: {
       name: "",
-      address: "",
+      street1: "",  // Add street1 for address
       email: "",
       phone: "",
       city: "",
@@ -41,7 +41,11 @@ export const Component = () => {
     },
     validationSchema: schema,
     onSubmit: async (values) => {
-      mutation.mutate(values);
+      // Concatenate street and city to create address
+      const address = `${values.street1}, ${values.city}`;
+      const payload = { ...values, address };
+      delete payload.street1;  // Remove street1 from the payload
+      mutation.mutate(payload);
     },
   });
 
@@ -56,23 +60,43 @@ export const Component = () => {
       });
     },
     onSuccess: (res) => {
-      window.location.href = res.data.paymentLink;
+      const { paymentLink } = res.data;
+      if (paymentLink) {
+        window.location.href = paymentLink;
+      } else {
+        console.error("Payment link is missing from the response");
+      }
+    },
+    onError: (error) => {
+      console.error("Error creating order:", error);
+      // Handle error appropriately (e.g., show error message to user)
     },
   });
 
+
   useEffect(() => {
     axios.get(`/get/user/${getUserId()}`).then((res) => {
-      formik.setValues({
+      // console.log('User data:', res.data.user);
+      formik.setValues(prevValues => ({
+        ...prevValues, // Spread the previous values to retain any user input
         email: res.data.user.email,
         phone: res.data.user.phoneNumber,
         address: res.data.user.address,
-        name: formik.values.name, // Retain current value if already entered
-        city: formik.values.city, // Retain current value if already entered
-        state: formik.values.state, // Retain current value if already entered
-        country: formik.values.country, // Retain current value if already entered
-      });
+        street1: res.data.user.street1,
+        name: res.data.user.name,
+        // Only override city, state, country if they haven't been set by the user
+        city: prevValues.city || res.data.user.city,
+        state: prevValues.state || res.data.user.state,
+        country: prevValues.country || res.data.user.country,
+      }));
     });
   }, []);
+
+  useEffect(() => {
+    if (formik.values.state) {
+      formik.setFieldValue("country", "Nigeria");
+    }
+  }, [formik.values.state]);
 
   // useEffect(() => {
   //   console.log(formik.values.state);
@@ -88,7 +112,7 @@ export const Component = () => {
       />
 
       <Wrapper className="py-4">
-       
+
         <div className="grid gap-6 md:grid-cols-12">
           <form
             onSubmit={formik.handleSubmit}
@@ -126,7 +150,7 @@ const PersonalDetails = ({ className, formik }) => {
             placeholder="Your Full Name"
             formik={formik}
             name="name"
-            className="rounded-sm bg-app-ash-1"
+            className="rounded-sm border-none bg-app-ash-1"
           />
         </div>
 
@@ -135,13 +159,13 @@ const PersonalDetails = ({ className, formik }) => {
             placeholder="Your Email"
             formik={formik}
             name="email"
-            className="rounded-sm bg-app-ash-1"
+            className="rounded-sm border-none bg-app-ash-1"
           />
           <Input
             placeholder="Your Phone"
             formik={formik}
             name="phone"
-            className="rounded-sm bg-app-ash-1"
+            className="rounded-sm border-none bg-app-ash-1"
           />
         </div>
       </div>
@@ -315,10 +339,10 @@ const DeliveryDetails = ({ className, formik }) => {
           <div className="col-span-12 @sm:col-span-8">
             <Input
               type="text"
-              placeholder="Address"
+              placeholder="Street"
               formik={formik}
-              name="address"
-              className="bg-app-ash-1 rounded-sm"
+              name="street1"
+              className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
           <div className="col-span-12 @sm:col-span-4">
@@ -327,7 +351,7 @@ const DeliveryDetails = ({ className, formik }) => {
               placeholder="City"
               formik={formik}
               name="city"
-              className="bg-app-ash-1 rounded-sm"
+              className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
         </div>
@@ -341,17 +365,17 @@ const DeliveryDetails = ({ className, formik }) => {
               name="state"
               className="bg-app-ash-1 rounded-sm"
             /> */}
-            <div className="py-2 w-full bg-app-ash-1">
+            <div className="py-2 w-full bg-app-ash-1 md:mt-2">
               <select
                 {...formik.getFieldProps("state")}
-                className="bg-app-ash-1 rounded-sm  w-full py-2 px-6 outline-none"
+                className="bg-app-ash-1 rounded-sm  w-full py-1 px-6 outline-none"
                 placeholder="State"
               >
                 <option value="" selected>
-                  Select state
+                  Select State
                 </option>
                 {states.map(({ name, value }, i) => (
-                  <option key={i} value={value} className="bg-app-ash-1">
+                  <option key={i} value={value} className="bg-app-ash-1 w-full">
                     {name}
                   </option>
                 ))}
@@ -367,7 +391,7 @@ const DeliveryDetails = ({ className, formik }) => {
               placeholder="Country"
               formik={formik}
               name="country"
-              className="bg-app-ash-1 rounded-sm"
+              className="bg-app-ash-1 border-none rounded-sm"
             />
           </div>
         </div>
@@ -408,7 +432,7 @@ const PaymentMethod = ({ className, setProvider, provider }) => {
               />
             </label>
           </div>
-          {/* <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <input
               type="radio"
               id="paystack"
@@ -424,7 +448,7 @@ const PaymentMethod = ({ className, setProvider, provider }) => {
                 alt="paystack-logo"
               />
             </label>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
@@ -448,7 +472,7 @@ const CartSummary = ({ className, isPending, deliveryState }) => {
             type="submit"
             form="checkout-form"
             variant="rectangle"
-            className="bg-[#27D34C] text-white md:px-8 w-full px-10 focus:outline-none font-bold mt-6"
+            className="bg-[#27D34C] text-white md:px-8 rounded-none md:py-3 w-full px-10 focus:outline-none font-bold mt-6"
           >
             {isPending ? (
               <Icon

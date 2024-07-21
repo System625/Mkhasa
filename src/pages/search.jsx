@@ -314,7 +314,7 @@ export const Component = () => {
   // const sortBy = searchParams.get("sort") || "";
   const filterBy = searchParams.get("filter") || "";
 
-const url=`search?name=${search}&sort=${sortBy}` 
+  const url = `search?name=${search}&sort=${sortBy}`
 
 
   const {
@@ -405,17 +405,20 @@ const url=`search?name=${search}&sort=${sortBy}`
             <>
               {isEmpty ? (
                 <div className="text-center">
-                  <p className="md:text-xl text-lg font-   ">
-                    We don't have what you're looking for this time, but why not
-                    take recommendations made for you. Alternatively, shop by
-                    category.
-                  </p>
+                  <div className="flex flex-col text-center justify-center items-center gap-3 md:flex-row md:text-left">
+                    <Icon icon="material-symbols:error-outline" style={{ fontSize: 72, color: "#F24E1E" }} />
+                    <div className="flex flex-col justify-center items-center md:justify-start md:items-start">
+                      <h2 className="text-xl font-semibold">NOTHING MATCHES YOUR SEARCH</h2>
+                      <p className="text-gray-400">No results could be found for "{search}"</p>
+                    </div>
+                  </div>
+
                   {/* Add your recommendations and categories here */}
                 </div>
               ) : (
                 <>
                   <ul
-                    className="grid justify-center grid-flow-row grid-cols-2 gap-1
+                    className="grid justify-center grid-flow-row grid-cols-2 gap-4
                    pt-8 auto-rows-fr sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
                   >
                     {data?.pages?.map((group, i) => (
@@ -435,14 +438,13 @@ const url=`search?name=${search}&sort=${sortBy}`
                       </Fragment>
                     ))}
                   </ul>
-                  <div>
+                  <div className="mt-3">
                     {hasNextPage && (
                       <button
                         onClick={() => fetchNextPage()}
                         disabled={isFetchingNextPage}
-                        className={`${
-                          !hasNextPage ? "hidden" : ""
-                        } text-white bg-app-red py-2 px-6 hover:bg-app-red/70 disabled:bg-app-black/50`}
+                        className={`${!hasNextPage ? "hidden" : ""
+                          } text-white bg-app-red py-2 px-6 hover:bg-app-red/70 disabled:bg-app-black/50`}
                       >
                         {isFetchingNextPage ? "Loading more..." : "Load More"}
                       </button>
@@ -460,8 +462,8 @@ const url=`search?name=${search}&sort=${sortBy}`
               )}
             </>
           )}
-          <TopSelling/>
-          <Recommended/>
+          <TopSelling />
+          <Recommended />
         </Wrapper>
       </section>
     </>

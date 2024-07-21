@@ -66,18 +66,13 @@ export const Footer = () => {
 
           <div className="md:col-span-3       mt-4">
             <h2 className="text-lg font-bold font-    text-white text-center lg:text-left">
-              CONTACT US
+              Contact Us
             </h2>
             <div className="text-app-ash-2 mt-4 text-center lg:text-left       ">
               {/* <p>House 92, Dele Orisabiyi Street Okota Lagos State</p> */}
-              <p className="py-2">Call Us: <span className="font-NimbusSan"> 09013898261</span></p>
-              <p className="py-2">Email: info@mkhasa.com</p>
-
-              <h3 className="text-lg font-bold font-    text-white mt-4">Support/Sales Team</h3>
-              <p className="py-2">Call Us: <span className="font-NimbusSan">09131451391 </span></p>
-
-              <p className="py-2">Email: sales@mkhasa.com</p>
-              <p className="py-2">Email: support@mkhasa.com</p>
+              <p className="w-full py-2 inline-block">Call Us: <span className="font-NimbusSan"> +2349013898261</span></p>
+              <p className="w-full py-2 inline-block">Contact Email: info@mkhasa.com</p>
+              <p className="w-full py-2 inline-block">Help Email: support@mkhasa.com</p>
             </div>
           </div>
 
@@ -85,7 +80,7 @@ export const Footer = () => {
             <h2 className="text-lg font-bold font-    text-white text-center md:pr-20 md:text-right">
               Socials
             </h2>
-            <ul className="flex text-app-ash-2 justify-center gap-3 mt-4 md:justify-end">
+            <ul className="flex text-app-ash-2 justify-center gap-3 md:gap-0 lg:gap-3 mt-4 md:justify-end">
               <li>
                 <Link
 
@@ -163,7 +158,7 @@ export const Footer = () => {
           </div>
         </div> */}
 
-        <p className="text-app-ash-2 text-sm text-left pt-10 sm:text-right md:text-center      ">
+        <p className="text-app-ash-2 text-sm text-center pt-10 sm:text-right md:text-center      ">
           &copy; {new Date().getFullYear()} All Rights Reserved
         </p>
       </Wrapper>

@@ -121,6 +121,7 @@ import toast from "react-hot-toast";
 import { prefix } from "../utils/lib";
 import { useState } from "react";
 import { Label } from "../components/ui/label"
+import { useCartContext } from "../hooks/utils/useCart";
 
 export const Component = ({ backGroundColor }) => {
   const queryClient = useQueryClient();
@@ -141,6 +142,7 @@ export const Component = ({ backGroundColor }) => {
   const [searchParams] = useSearchParams();
   const redirect = searchParams.get("redirect") || "/";
   const [error, setError] = useState("");
+  const { mergeCartsOnLogin } = useCartContext();
 
   const mutation = useMutation({
     mutationFn: (values) => {
@@ -148,10 +150,14 @@ export const Component = ({ backGroundColor }) => {
         headers: { "Content-Type": "application/json" },
       });
     },
-    onSuccess: (response) => {
+    onSuccess: async (response) => {
       setUser(response.data);
       localStorage.setItem(prefix("user"), JSON.stringify(response.data));
-      queryClient.setQueryData(["cart"], response.data.cart);
+      
+      // Merge local cart with server cart
+      await mergeCartsOnLogin(response.data.id);
+      
+      queryClient.invalidateQueries(["cart"]); // Refetch cart data
       navigate(decodeURIComponent(redirect));
     },
     onError: (err) => {
@@ -203,21 +209,20 @@ export const Component = ({ backGroundColor }) => {
       </p>
       <p className="text-xl font-bold mt-1">Sign In To Continue</p>
       <div className="w-[90%] md:w-[62%] mx-auto gap-10">
-        <p className="py-4 text-[#666666] text-left text-sm   ">
+        <p className="py-4 text-[#666666] text-center text-sm   ">
           Don&rsquo;t Have An Account?
           <Link to="/register" className="ml-2 text-app-black underline hover:underline font-medium    z-50">
-            Create An Account{" "}
+            Kindly sign up{" "}
           </Link>
-          It Takes Less Than A Minute
         </p>
       </div>
 
       <form onSubmit={formik.handleSubmit} className="w-[90%] md:w-[60%] mx-auto gap-10">
-        <div className="text-center">
+        <div className="text-left md:text-center">
           <Label htmlFor="email">Email</Label>
           <Input name="email" formik={formik} />
         </div>
-        <div className="text-center">
+        <div className="text-left md:text-center">
           <Label htmlFor="password">Password</Label>
           <PInput name="password" formik={formik} />
         </div>
@@ -226,7 +231,7 @@ export const Component = ({ backGroundColor }) => {
 
         <Link
           to={"/forgot-password"}
-          className="inline-block text-center underline text-sm font-semibold w-full pb-6 text-app-black"
+          className="inline-block text-right md:text-center underline text-sm font-semibold w-full pb-6 text-app-black"
         >
           Forgot Password?
         </Link>

@@ -32,7 +32,7 @@ export const CartItemQuantity = ({ productId, quantity }) => {
       <input
         type="number"
         value={qty}
-        className="w-8 h-8 text-right mx-auto flex justify-end items-end border border-[#F5F5F5] text-lg bg-[#F5F5F5]"
+        className="w-8 h-8 text-center md:text-right mx-auto flex justify-center items-center border border-[#F5F5F5] text-lg bg-[#F5F5F5]"
         onChange={(e) => {
           const val = e.target.value;
           if (Number(val) === 0) return;

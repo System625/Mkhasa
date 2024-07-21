@@ -144,7 +144,7 @@ export const Recommended = ({ horizontalOnSmallScreens = true }) => {
             <li
               key={index}
               className={cn(
-                "min-w-[11rem]",
+                "min-w-[13rem]",
 
 
                 horizontalOnSmallScreens && index === 0 ? " md:ml-0" : ""

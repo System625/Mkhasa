@@ -664,6 +664,7 @@ import { Heading } from "../components/Heading";
 import { Button } from "../components/ui/Button";
 import { useCartContext } from "../hooks/utils/useCart";
 import { useCartQuery } from "../hooks/query/useCart";
+import { useAuth } from "../hooks/utils/useAuth";
 // import toast from "react-hot-toast";
 import { format } from "../utils/lib";
 import { Seo } from "../components/Seo";
@@ -677,7 +678,8 @@ import { fetchRecommendations } from '../services/recommendService';
 export const Component = () => {
   const { product } = useLoaderData();
   // console.log(product.layerWith);
-  const { decreaseItem, increaseItem, addToCart } = useCartContext();
+  const { decreaseItem, increaseItem, addToCart, getCartFromLocalStorage } = useCartContext();
+  const { getUserId } = useAuth();
   const [count, setCount] = useState(1);
   const [recommend, setRecommend] = useState([]);
   const { data } = useCartQuery();
@@ -689,25 +691,38 @@ export const Component = () => {
     setElement(ref.current);
   }, [setElement]);
 
+  const isInCart = () => {
+    const userId = getUserId();
+    if (userId) {
+      return data.items.find((item) => item.productId._id === product._id);
+    } else {
+      const localCart = getCartFromLocalStorage();
+      return localCart.find((item) => item.productId === product._id);
+    }
+  };
+
   const increase = () => {
-    if (data.items.find((item) => item.productId._id === product._id)) {
+    if (isInCart()) {
       return increaseItem({ itemId: product._id, quantity: 1 });
     }
     setCount((v) => v + 1);
   };
 
   const decrease = () => {
-    if (data.items.find((item) => item.productId._id === product._id)) {
+    if (isInCart()) {
       return decreaseItem({ itemId: product._id, quantity: 1 });
     }
-    setCount((v) => (v <= 0 ? 0 : v - 1));
+    setCount((v) => (v <= 1 ? 1 : v - 1));
   };
 
   const onClick = () => {
     if (count <= 0) {
       return toast.error("Please specify quantity");
     }
-    addToCart({ itemId: product._id, quantity: count });
+    const success = addToCart({ itemId: product._id, quantity: count });
+    if (success) {
+      toast.success("Added to Cart", { duration: 2000 });
+    }
   };
 
   const onClickCheckout = () => {
@@ -866,11 +881,11 @@ export const Component = () => {
                   </div>
                 </div>
               </div>
-              <div className="my-button flex flex-col md:flex-row gap-8 md:space-x-4 mt-4">
+              <div className="my-button flex gap-8 md:space-x-4 mt-4">
                 <Button
                   variant="rectangle"
                   onClick={onClickCheckout}
-                  className="bg-[#0FA958] text-white text-xl rounded-none py-3 w-full font-semibold disabled:bg-[#848484]"
+                  className="bg-[#0FA958] text-white text-sm lg:text-xl rounded-none py-1 lg:py-3 w-full font-semibold disabled:bg-[#848484]"
                 >
                   Buy Now
                 </Button>
@@ -882,13 +897,13 @@ export const Component = () => {
                     disabled={!count}
                     variant="rectangle"
                     onClick={onClick}
-                    className=" w-full rounded-none text-xl py-3 disabled:bg-[#848484]"
+                    className=" w-full rounded-none text-sm lg:text-xl py-3 disabled:bg-[#848484]"
                   >
                     Add to Cart
                   </Button>
                 ) : (
                   <Link to="/cart" style={{ display: "contents" }}>
-                    <Button variant="rectangle" className="text-xl bg-transparent border-2  text-black border-black rounded-none py-3 w-full font-semibold">
+                    <Button variant="rectangle" className="text-sm lg:text-xl bg-transparent border-2  text-black border-black rounded-none py-3 w-full font-semibold">
                       Go to Cart
                     </Button>
                   </Link>
@@ -920,7 +935,7 @@ export const Component = () => {
                 </div>
               </div>
               <ul
-                className="pt-8 w-full gap-1 flex sm:flex-nowrap overflow-auto sm:no-scrollbar"
+                className="pt-8 w-full gap-4 flex sm:flex-nowrap overflow-auto sm:no-scrollbar"
                 ref={ref} key={product.id}
               >
                 {product.recommend.map((product) => (
@@ -932,7 +947,7 @@ export const Component = () => {
                       category={product?.category}
                       originalPrice={product?.price}
                       image={product?.productImage || product?.mainImage}
-                      className="min-w-[11rem]"
+                      className="min-w-[13rem] md:min-w-[17rem]"
                     />
                   </li>
                 ))}
@@ -974,7 +989,7 @@ export const Component = () => {
                       category={product?.category}
                       originalPrice={product?.price}
                       image={product?.productImage || product?.mainImage}
-                      className="min-w-[17rem]"
+                      className="min-w-[13rem] md:min-w-[17rem]"
                     />
                   </li>
                 ))}

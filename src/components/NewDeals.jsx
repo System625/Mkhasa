@@ -146,7 +146,7 @@ export const NewDeals = ({ horizontalOnSmallScreens = true }) => {
             <li
               key={index}
               className={cn(
-                "min-w-[17rem]",
+                "min-w-[11rem] md:w-[13rem]",
                 horizontalOnSmallScreens && index === 0 ? " md:ml-0" : ""
               )}
             >

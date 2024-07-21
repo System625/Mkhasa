@@ -57,19 +57,19 @@ export const Component = () => {
         name=""
       />
       <Wrapper>
-        <div className="py-12 grid items-center md:grid-cols-[40%,60%]">
+        <div className="py-12 grid items-center md:grid-cols-[45%,55%]">
           <div>
-            <div className="max-w-[420px] mx-auto">
+            <div className="max-w-[420px] mx-auto mb-5 md:mb-0">
               <img src={authkey} className="w-full" />
             </div>
           </div>
 
-          <form onSubmit={onSubmit} className="flex flex-col md:items-end">
-            <div>
+          <form onSubmit={onSubmit} className="flex flex-col items-center">
+            <div className="text-center">
               <Heading className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px]">
                 AUTHENTICATION
               </Heading>
-              <p className="text-lg text-app-black  sm:text-[18px] md:text-[20px] lg:text-[24px]">
+              <p className="text-lg text-app-black sm:text-[18px] md:text-[20px] lg:text-[24px]">
                 Enter the verification Code sent to
               </p>
               <span className="text-lg text-[#a40001] mt-2 font-medium">
@@ -79,7 +79,7 @@ export const Component = () => {
 
             <OTPInput verificationCode={verificationCode} setVerificationCode={setVerificationCode} canSubmit={canSubmit} />
             <Button
-              className="w-36 flex justify-center bg-app-red hover:bg-red-500 text-sm  text-white font-bold mt-4 sm:hover:bg-black disabled:bg-[#999999] hover:disabled:bg-[#999999] sm:bg-app-black"
+              className="w-36 md:w-48 md:py-3 flex justify-center rounded-none bg-app-red hover:bg-red-500 text-sm  text-white font-bold mt-4 sm:hover:bg-black disabled:bg-[#999999] hover:disabled:bg-[#999999] sm:bg-app-black"
               type="submit"
               disabled={!canSubmit}
             >
@@ -161,7 +161,7 @@ const Box = ({ index, refs, onKeyUp, verificationCode, ...rest }) => {
       value={verificationCode[index]}
       onChange={() => {}}
       onKeyUp={onKeyUp(index, refs)}
-      className="w-10 aspect-square outline-none text-center font-bold rounded-xl border-4 bg-transparent border-app-red sm:w-12 sm:text-lg md:text-2xl md:w-14 lg:text-4xl lg:w-16"
+      className="w-10 aspect-square outline-none text-center overflow-hidden font-bold rounded-xl border-4 bg-transparent border-app-red sm:w-12 sm:text-lg md:text-2xl md:w-14 lg:text-4xl lg:w-16"
       {...rest}
     />
   );

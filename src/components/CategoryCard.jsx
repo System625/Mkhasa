@@ -10,23 +10,23 @@ const categoriesImage={
   "Roll-on":"/topCategories/Roll-on.webp",
   "Perfumes":"/topCategories/Perfumes.webp",
   "Oil Perfumes":"/topCategories/oilperfumes.webp",
-  "Air fresheners":"/topCategories/AirFresheners.webp",
+  "Air fresheners":"/topCategories/Airfreshener.webp",
   "Car Wash":"/topCategories/Car Wash.webp",
   "Car fragrances":"/topCategories/Car fragnances.webp"
 }
 export const CategoryCard = ({ category, numberOfProducts = Math.floor(Math.random()*11+1), image }) => {
   return (
     <Link to={`/categories/${category}`}>
-      <div className="relative aspect-[5/7] w-[17rem] overflow-hidden rounded-xl lg:rounded-none">
+      <div className="relative aspect-[4/7] md:aspect-[5/7] w-[8rem] md:w-[13rem] overflow-hidden rounded-xl lg:rounded-sm">
         <img
           src={categoriesImage[category.trim()]||image||""}
           alt=""
           className="object-cover object-center w-full h-full"
         />
 
-        <div className="absolute bottom-0 left-0 right-0 z-10 h-32 px-4 pt-10 bg-gradient-to-t from-black">
-          <h2 className="font-bold font-    text-white">{category}</h2>
-          <p className="text-app-ash">
+        <div className="absolute bottom-0 left-0 right-0 z-10 h-28 md:h-32 px-4 pt-10 bg-gradient-to-t from-black">
+          <h2 className="font-bold text-sm md:text-base text-white">{category}</h2>
+          <p className="text-app-ash text-sm md:text-base">
             {numberOfProducts} Product{numberOfProducts > 1 ? "s" : ""}
           </p>
         </div>

@@ -55,8 +55,8 @@ export const OrderSummary = ({ alignToEnd, state, partial }) => {
         return data.subTotal > 100_000
           ? 0
           : state && state === "lagos"
-            ? 2500
-            : 5000;
+            ? 3500
+            : 6000;
       }
     });
   }, [state, data?.subTotal]);

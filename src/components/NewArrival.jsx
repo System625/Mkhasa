@@ -1,35 +1,105 @@
-import React from 'react';
-import newArivval from "../assets/images/newArrival.png";
-import newArrivalMobile from "../assets/images/newArrivalMobile.png";
+import { useEffect, useRef } from "react";
+import { register } from "swiper/element/bundle";
+import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 
-const NewArrival = () => {
-    return (
-        <section className="new-arrival-banner px-0 md:px-6 border-b border-black border-t">
-            <div className="mx-auto">
-                <div className="flex items-center justify-between bg-white">
-                    <div className="md:flex-1 hidden md:block">
-                        <img src={newArivval} alt="New Arrival" className=" h-52 w-auto" />
-                    </div>
-                    <div className="flex-1 md:hidden">
-                        <img src={newArrivalMobile} alt="New Arrival Mobile" className="h-52 w-full object-cover" />
-                    </div>
-                    <div className="flex-1 justify-center md:justify-start text-center md:text-left">
-                        <h2 className=" text-2xl lg:text-7xl font-medium tracking-tighter">New Arrival</h2>
-                        <div className="text-2xl lg:text-7xl text-[#FD451A] font-semibold tracking-tighter flex items-center flex-col md:flex-row gap-1 md:gap-5">
-                            <div className='flex gap-1'>
-                                30%{" "}
-                                <span className='text-black font-normal'>Off{" "}</span>
-                            </div>
-                            <Link to="/categories/Perfumes%20" className="px-6 py-2 bg-black text-white text-base lg:text-2xl tracking-tighter font-medium">
-                                Order Now
-                            </Link>
-                        </div>
-                    </div>
+// Import your category images here
+import airFreshenerImage from "../assets/images/topCategories/airfreshner.webp";
+import bodySprayImage from "../assets/images/topCategories/bodyspray2.webp";
+import rollOnImage from "../assets/images/topCategories/rollon.webp";
+import diffusersImage from "../assets/images/topCategories/diffusers.webp";
 
-                </div>
-            </div>
-        </section>
+const categories = [
+    { name: "Air Freshener", image: airFreshenerImage, link: "/categories/Air%20Freshener" },
+    { name: "Body Spray", image: bodySprayImage, link: "/categories/body-spray" },
+    { name: "Deodorant", image: rollOnImage, link: "/categories/Deodorant" },
+    { name: "Diffusers", image: diffusersImage, link: "/categories/diffusers" },
+];
+
+const NewArrival = () => {
+    const swiperRef = useRef(null);
+
+    useEffect(() => {
+        register();
+        const swiperEl = swiperRef.current;
+        const swiperParams = {
+            loop: true,
+            speed: 500,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: "custom",
+                renderCustom: function (swiper, current, total) {
+                    return Array(total)
+                        .fill()
+                        .map((_, i) => `
+              <li style="
+                background-color: white;
+                height: ${i + 1 === current ? "10px" : "6px"};
+                width: ${i + 1 === current ? "10px" : "6px"};
+                border-radius: 50%;
+                margin: 0 2px;
+              "></li>
+            `)
+                        .join("");
+                },
+            },
+        };
+        Object.assign(swiperEl, swiperParams);
+        swiperEl.initialize();
+    }, []);
+
+    return (
+        <div className="relative w-full md:w-[calc(100%)]">
+            <swiper-container
+                ref={swiperRef}
+                slides-per-view="1"
+                navigation="true"
+                init="false"
+                a11y-prev-slide-message="Previous slide"
+                a11y-next-slide-message="Next slide"
+                autoplay="true"
+                autoplay-delay="4000"
+            >
+                {categories.map((category, index) => (
+                    <swiper-slide key={index} style={{ borderRadius: 24, overflow: "hidden" }}>
+                        <Link to={category.link} style={{ display: "contents" }}>
+                            <div className="min-h-[250px] h-[40vw] md:h-[579px] relative">
+                                <img
+                                    src={category.image}
+                                    alt={category.name}
+                                    className="block cursor-pointer object-cover bg-no-repeat absolute inset-0 w-full h-full"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
+                                    <h2 className="text-white text-base md:text-4xl font-bold">{category.name}</h2>
+                                </div>
+                            </div>
+                        </Link>
+                    </swiper-slide>
+                ))}
+            </swiper-container>
+
+            <button className="swiper-button-prev flex absolute bg-[#3333] w-12 h-12 z-10 left-3 top-[40%] md:top-[46%] items-center justify-center rounded-full">
+                <Icon
+                    icon="fa6-solid:angle-right"
+                    style={{ fontSize: 36 }}
+                    color="white"
+                    hFlip={true}
+                />
+            </button>
+            <button className="swiper-button-next flex absolute bg-[#3333] w-12 h-12 z-10 right-3 top-[40%] md:top-[46%] items-center justify-center rounded-full">
+                <Icon
+                    icon="fa6-solid:angle-right"
+                    style={{ fontSize: 36 }}
+                    color="white"
+                />
+            </button>
+            <ul className="absolute z-10 w-full flex items-center justify-center gap-2 swiper-pagination bottom-4 left-0 md:bottom-8">
+            </ul>
+        </div>
     );
 };
 
