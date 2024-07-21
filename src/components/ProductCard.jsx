@@ -139,6 +139,7 @@ import { cn } from "../utils/cn";
 import { Button } from "./ui/Button";
 import { format } from "../utils/lib";
 import { useCartContext } from '../hooks/utils/useCart';
+import toast from 'react-hot-toast';
 
 export const Product = ({
   product,
@@ -160,7 +161,7 @@ export const Product = ({
     e.stopPropagation();
     const success = await addToCart({ itemId: id, quantity });
     if (success) {
-      toast.success("Added to Cart", { duration: 2000 });
+      toast.success("Will be added when you login", { duration: 2000 });
     }
   };
 

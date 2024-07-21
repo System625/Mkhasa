@@ -11,6 +11,21 @@ import axios from "../utils/axios";
 
 export const Component = () => {
   const { getUserEmail,getUserId } = useAuth();
+
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+  });
+
+  useEffect(() => {
+    axios.get(`/get/user/${getUserId()}`).then((res) => {
+      setUserDetails({
+        name: res.data.user.name,
+      });
+    }).catch((err) => {
+      console.error("Error fetching user details:", err);
+    });
+  }, [getUserId]);
+
  const [orderdata,setOrderData]=useState({})
   useEffect(()=>{
     axios.get(`/count/user/orders/${getUserId()}`).then((res)=>{
@@ -40,7 +55,7 @@ export const Component = () => {
           currentLocationClassName="text-app-black"
         /> */}
         <div className="flex justify-between gap-8 items-center py-4">
-          <Heading className="text-app-black">Hi {getUserEmail()}</Heading>
+          <Heading className="text-app-black"> Hi {userDetails.name || getUserEmail()}</Heading>
           <Logout
             className="w-fit bg-transparent text-nowrap font-medium text-app-black hover:text-app-red"
             toggle={() => {}}

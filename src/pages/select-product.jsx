@@ -663,9 +663,10 @@ import { Icon } from "@iconify/react";
 import { Heading } from "../components/Heading";
 import { Button } from "../components/ui/Button";
 import { useCartContext } from "../hooks/utils/useCart";
+import { CartContext } from "../contexts/Cart";
 import { useCartQuery } from "../hooks/query/useCart";
 import { useAuth } from "../hooks/utils/useAuth";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 import { format } from "../utils/lib";
 import { Seo } from "../components/Seo";
 import { Product } from "../components/ProductCard";
@@ -702,17 +703,21 @@ export const Component = () => {
   };
 
   const increase = () => {
-    if (isInCart()) {
-      return increaseItem({ itemId: product._id, quantity: 1 });
+    const cartItem = isInCart();
+    if (cartItem) {
+      increaseItem({ itemId: product._id, quantity: 1 });
+    } else {
+      setCount((v) => v + 1);
     }
-    setCount((v) => v + 1);
   };
 
   const decrease = () => {
-    if (isInCart()) {
-      return decreaseItem({ itemId: product._id, quantity: 1 });
+    const cartItem = isInCart();
+    if (cartItem) {
+      decreaseItem({ itemId: product._id, quantity: 1 });
+    } else {
+      setCount((v) => (v <= 1 ? 1 : v - 1));
     }
-    setCount((v) => (v <= 1 ? 1 : v - 1));
   };
 
   const onClick = () => {
@@ -721,7 +726,7 @@ export const Component = () => {
     }
     const success = addToCart({ itemId: product._id, quantity: count });
     if (success) {
-      toast.success("Added to Cart", { duration: 2000 });
+      toast.success("Will be added when you login", { duration: 2000 });
     }
   };
 
@@ -862,15 +867,7 @@ export const Component = () => {
                       <Icon icon="ic:round-minus" style={{ fontSize: 30 }} />
                     </button>
                     <span className="text-3xl h-12 w-14 pl-4 border-[#F5F5F5] bg-[#F5F5F5] pt-1 -mt-[1px] font-NimbusSan font-normal">
-                      {!data?.items
-                        ? count
-                        : data.items.find(
-                          (item) => item?.productId?._id === product._id
-                        )
-                          ? data.items.find(
-                            (item) => item?.productId?._id === product._id
-                          )?.quantity
-                          : count}
+                      {isInCart()?.quantity || count}
                     </span>
                     <button
                       onClick={increase}

@@ -13,11 +13,29 @@ import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import axios from "../utils/axios";
 import toast from "react-hot-toast";
-import { useRef,useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 export const Component = () => {
-  const { getUserEmail, username, getUserId, getUserAddress, getUserPhone } = useAuth();
+  const {username, getUserId, getUserAddress} = useAuth();
   console.log(useAuth())
+
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
+
+  useEffect(() => {
+    axios.get(`/get/user/${getUserId()}`).then((res) => {
+      setUserDetails({
+        name: res.data.user.name,
+        email: res.data.user.email,
+        phone: res.data.user.phoneNumber,
+        address: res.data.user.address,
+      });
+    });
+  }, []);
 
   console.log(getUserAddress())
   const [editMode, setEditMode] = useState(false);
@@ -43,21 +61,36 @@ export const Component = () => {
   }, []);
 
 
-  const nameMutation = useMutation({
+  const updateProfileMutation = useMutation({
     mutationFn: async (values) => {
       try {
-        setUpdatingPassword(true);
-        await axios.post(`user/change/password/${getUserId()}`, values, {
-          headers: { "Content-Type": "application/json" },
-        });
-        toast.success(error.response?.data?.message || "Password updated");
+        if (values.username) {
+          await axios.post(`user/update/${getUserId()}`, { username: values.username }, {
+            headers: { "Content-Type": "application/json" },
+          });
+          setUserDetails(prev => ({ ...prev, name: values.username }));
+          toast.success("Name updated successfully");
+        } else if (values.currentPassword && values.newPassword) {
+          await axios.post(`user/change/password/${getUserId()}`, values, {
+            headers: { "Content-Type": "application/json" },
+          });
+          toast.success("Password updated successfully");
+        }
       } catch (error) {
         toast.error(error.response?.data?.message || "Update attempt failed");
-      } finally {
-        setUpdatingPassword(false);
       }
     },
   });
+
+  // Use this mutation for both name and password updates
+  const handleNameUpdate = () => {
+    updateProfileMutation.mutate({ username: val });
+    toggle();
+  };
+
+  const handlePasswordUpdate = (values) => {
+    updateProfileMutation.mutate(values);
+  };
 
   const schema = yup.object().shape({
     currentPassword: yup
@@ -86,9 +119,10 @@ export const Component = () => {
     initialValues: { newPassword: "", currentPassword: "" },
     validationSchema: schema,
     onSubmit: async (values) => {
-      nameMutation.mutate(values);
+      handlePasswordUpdate(values);
     },
   });
+
   return (
     <>
       <Seo
@@ -98,16 +132,7 @@ export const Component = () => {
         name=""
       />
       <Wrapper className="py-4">
-        {/* <Navigation
-          location={[
-            { description: "Home", to: "/", title: "Go to Home Page" },
-            { description: "My Account", to: "/account" },
-            { description: "My Profile", to: "" },
-          ]}
-          className="text-[#3338] py-4"
-          iconClassName="text-[#3339] text-2xl"
-          currentLocationClassName="text-app-black"
-        /> */}
+
         <Heading>My Profile</Heading>
 
         <div className="grid gap-6 py-6 md:grid-cols-2">
@@ -124,17 +149,13 @@ export const Component = () => {
                       <input
                         type="text"
                         value={val}
-                        className="outline-noe"
+                        className="outline-none"
                         onChange={(e) => {
                           setVal(e.target.value);
                         }}
                       />
-                      <button
-                        onClick={() => {
-                          nameMutation.mutate({ username: val });
-                          toggle();
-                        }}
-                      >
+
+                      <button onClick={handleNameUpdate}>
                         <Icon
                           icon="mingcute:check-2-fill"
                           style={{ fontSize: 32 }}
@@ -143,7 +164,7 @@ export const Component = () => {
                     </>
                   ) : (
                     <>
-                      <p>{username}</p>
+                      <p>{userDetails.name}</p>
                       <button onClick={toggle}>
                         <Icon
                           icon="lucide:edit"
@@ -157,16 +178,9 @@ export const Component = () => {
               </div>
               <div className="py-4">
                 <p className="font-bold">Email:</p>
-                <p>{getUserEmail()}</p>
+                <p>{userDetails.email}</p>
               </div>
-              {/* <div>
-                <p className="font-bold">Phone:</p>
-                <p>{getUserPhone()}</p>
-              </div> */}
-              {/* <div>
-                <p className="font-bold">Address</p>
-                <p>{getUserAddress()}</p>
-              </div> */}
+
             </div>
           </div>
 
