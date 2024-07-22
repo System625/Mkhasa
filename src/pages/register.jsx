@@ -129,7 +129,8 @@ import { Wrapper } from "../components/ui/Wrapper";
 import { Button } from "../components/ui/Button";
 import { Input, PInput } from "../components/Input";
 import { useCanSubmitForm } from "../hooks/utils/useCanSubmitFormik";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import { Icon } from "@iconify/react";
 import axios from "../utils/axios";
 import { Seo } from "../components/Seo";
@@ -143,6 +144,17 @@ export const Component = ({ backGroundColor }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { mergeCartsOnLogin } = useCartContext();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const schema = yup.object().shape({
     name: yup.string().required("Name is required").min(3, "Must be at least 3 characters"),
     email: yup.string().email("Invalid email address").required("Email is required"),
@@ -209,6 +221,10 @@ export const Component = ({ backGroundColor }) => {
   });
 
   const canSubmit = useCanSubmitForm(formik);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>

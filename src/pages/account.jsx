@@ -6,7 +6,8 @@ import { Navigation } from "../components/ui/Navigation";
 import { Seo } from "../components/Seo";
 import { Logout } from "../components/Logout";
 import { useAuth } from "../hooks/utils/useAuth";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import axios from "../utils/axios";
 
 export const Component = () => {
@@ -15,6 +16,16 @@ export const Component = () => {
   const [userDetails, setUserDetails] = useState({
     name: "",
   });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     axios.get(`/get/user/${getUserId()}`).then((res) => {
@@ -36,6 +47,11 @@ export const Component = () => {
     })
 
   },[])
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <>
       <Seo

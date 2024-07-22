@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import { Cart } from "../components/Cart";
 import { Heading } from "../components/Heading";
 import { Modal } from "../components/Modal";
@@ -17,6 +18,21 @@ export const Component = () => {
   const [showModal, setShowModal] = useState(false);
   const { status, data } = useCartQuery();
   const { clearCart } = useCartContext();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <main>
       <Seo

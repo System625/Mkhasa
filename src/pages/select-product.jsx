@@ -655,6 +655,7 @@
 // };
 
 import React, { useState, useRef, useEffect } from "react";
+import LoadingSpinner from '../components/LoadingSpinner';
 import { Wrapper } from "../components/ui/Wrapper";
 import { Navigation } from "../components/ui/Navigation";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
@@ -687,6 +688,16 @@ export const Component = () => {
   const navigate = useNavigate();
   const ref = useRef();
   const { getHandlers, setElement } = useLongPress(ref.current);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     setElement(ref.current);
@@ -767,6 +778,10 @@ export const Component = () => {
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>

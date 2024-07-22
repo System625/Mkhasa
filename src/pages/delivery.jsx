@@ -1,5 +1,22 @@
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
+
 export const Delivery=()=>{
-    // console.log("hello")
+    const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
     return(
 
         <div className="bg-white p-6 md:px-28 rounded-lg shadow-md      ">
@@ -29,7 +46,8 @@ export const Delivery=()=>{
         <div className="mb-4">
           <h4 className="text-lg font-semibold mb-2">Orders Below ₦100,000</h4>
           <ul className="list-disc pl-5">
-            <li>Delivery Cost: ₦2,500.00 within Lagos</li>
+            <li>Delivery Cost: ₦3,500.00 within Lagos</li>
+            <li>Delivery Cost: ₦6,000.00 outside Lagos</li>
             <li>Delivery Time:
               <ul className="list-disc pl-5">
                 <li>2 days max within Lagos</li>
@@ -44,7 +62,7 @@ export const Delivery=()=>{
         <div className="mb-4">
           <h4 className="text-lg font-semibold mb-2">Orders Above ₦100,000</h4>
           <ul className="list-disc pl-5">
-            <li>Delivery Cost: Free within Lagos</li>
+            <li>Delivery Cost: Free within and outside Lagos</li>
             <li>Delivery Time:
               <ul className="list-disc pl-5">
                 <li>2 days max within Lagos</li>
