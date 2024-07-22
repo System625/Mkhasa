@@ -7,7 +7,8 @@ import { Heading } from "../components/Heading";
 import { OrderSummary } from "../components/OrderTotal";
 import { CartItems } from "../components/Cart";
 import { cn } from "../utils/cn";
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import { useAuth } from "../hooks/utils/useAuth";
 import axios from "../utils/axios";
 import { useMutation } from "@tanstack/react-query";
@@ -50,6 +51,16 @@ export const Component = () => {
   });
 
   const [provider, setProvider] = useState("flutterwave");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const { getUserId } = useAuth();
   const mutation = useMutation({
@@ -98,9 +109,9 @@ export const Component = () => {
     }
   }, [formik.values.state]);
 
-  // useEffect(() => {
-  //   console.log(formik.values.state);
-  // }, [formik.values.state]);
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <main>

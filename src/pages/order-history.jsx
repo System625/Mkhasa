@@ -1,4 +1,6 @@
 // import { Icon } from "@iconify/react";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import { Heading } from "../components/Heading";
 import { Wrapper } from "../components/ui/Wrapper";
 import { Navigation } from "../components/ui/Navigation";
@@ -9,6 +11,17 @@ import { useQuery } from "@tanstack/react-query";
 import { Virtuoso } from "react-virtuoso";
 
 export const Component = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const { getUserId } = useAuth();
   const fetchOrders = async () => {
     const res = await axios.get(`all/order/${getUserId()}`);
@@ -19,6 +32,10 @@ export const Component = () => {
     queryKey: ["orders"],
     queryFn: fetchOrders,
   });
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>

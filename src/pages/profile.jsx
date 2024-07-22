@@ -7,13 +7,13 @@ import { cn } from "../utils/cn";
 import { Button } from "../components/ui/Button";
 import { Seo } from "../components/Seo";
 import { useAuth } from "../hooks/utils/useAuth";
-import { useState } from "react";
 import { PInput } from "../components/Input";
 import { useFormik } from "formik";
 import { useMutation } from "@tanstack/react-query";
 import axios from "../utils/axios";
 import toast from "react-hot-toast";
-import { useRef, useEffect } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 export const Component = () => {
   const {username, getUserId, getUserAddress} = useAuth();
@@ -25,6 +25,16 @@ export const Component = () => {
     phone: "",
     address: "",
   });
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     axios.get(`/get/user/${getUserId()}`).then((res) => {
@@ -122,6 +132,10 @@ export const Component = () => {
       handlePasswordUpdate(values);
     },
   });
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>

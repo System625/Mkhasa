@@ -7,7 +7,8 @@ import { Input, PInput } from "../components/Input";
 import { useCanSubmitForm } from "../hooks/utils/useCanSubmitFormik";
 import { Wrapper } from "../components/ui/Wrapper";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import axios from "../utils/axios";
 import { Seo } from "../components/Seo";
 import { Label } from "../components/ui/label"
@@ -15,6 +16,17 @@ import { Label } from "../components/ui/label"
 export const ForgotPassword = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const schema = yup.object().shape({
     email: yup.string().email().required(),
   });
@@ -45,6 +57,10 @@ export const ForgotPassword = () => {
   });
 
   const canSubmit = useCanSubmitForm(formik);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <>

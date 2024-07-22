@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Wrapper } from "../components/ui/Wrapper";
 import { SwiperElem } from "../components/Swiper";
 import { LatestProducts } from "../components/LatestProducts";
@@ -13,9 +14,29 @@ import { FeaturedProducts } from "../components/FeaturedProducts";
 // import { FeaturedProducts } from "../components/FeaturedProducts";
 // import { TopCategories } from "../components/TopCategories";
 
-
+const LoadingSpinner = () => (
+  <div className="flex justify-center items-center h-screen">
+    <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-app-red"></div>
+  </div>
+);
 
 export const Component = () => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this value as needed
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <main className="bg-white">
       <Seo title="Mkhasa | Home" type="webapp" name="" />

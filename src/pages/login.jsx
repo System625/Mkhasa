@@ -105,6 +105,8 @@
 // };
 
 import * as yup from "yup";
+import React, { useState, useEffect } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import { useFormik } from "formik";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Heading } from "../components/Heading";
@@ -119,7 +121,6 @@ import { Seo } from "../components/Seo";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { prefix } from "../utils/lib";
-import { useState } from "react";
 import { Label } from "../components/ui/label"
 import { useCartContext } from "../hooks/utils/useCart";
 
@@ -143,6 +144,16 @@ export const Component = ({ backGroundColor }) => {
   const redirect = searchParams.get("redirect") || "/";
   const [error, setError] = useState("");
   const { mergeCartsOnLogin } = useCartContext();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading or fetch data here
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust this time as needed
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const mutation = useMutation({
     mutationFn: (values) => {
@@ -188,6 +199,10 @@ export const Component = ({ backGroundColor }) => {
   });
 
   const canSubmit = useCanSubmitForm(formik);
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <Wrapper className="flex flex-col items-center max-w-lg py-12">
