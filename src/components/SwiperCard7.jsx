@@ -4,7 +4,7 @@ export const SwiperCard7 = () => {
   return (
 
     <div className="max-h-screen w-full rounded-3xl md:h-screen overflow-y-hidden   ">
-      <Link to="/products/666e888a8587aa00152706fb" style={{ display: "contents" }}>
+      <Link to="/products/669c0eaaaa718b0015e29a0a" style={{ display: "contents" }}>
       <div className="bg-fifth-card-image h-screen">
       <div className="">
         <img
