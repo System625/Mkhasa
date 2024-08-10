@@ -185,6 +185,7 @@ import { Cart } from "./contexts/Cart.jsx";
 import ErrorPage from "./pages/error-page.jsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { CategoryProvider } from "./components/CategoryContext.jsx";
+import { AdminLayout } from "../src/components/AdminLayout.jsx";
 
 import {
   LayoutLoader,
@@ -297,6 +298,16 @@ const router = createBrowserRouter([
             lazy: () => import("./pages/confirm-otp"),
           },
         ],
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: <AdminLayout />, 
+    children: [
+      {
+        path: "login",
+        lazy: () => import("./pages/admin/login").then(module => ({ Component: module.default })),
       },
     ],
   },

@@ -158,7 +158,21 @@ export const Footer = () => {
           </div>
         </div> */}
 
-        <p className="text-app-ash-2 text-sm text-center pt-10 sm:text-right md:text-center      ">
+        <div className="border-t border-dashed py-2 border-b border-gray-400 text-gray-400 mt-3 flex gap-1 justify-center">
+          <span>
+            #4 Oliyide Street
+          </span>
+          <Icon icon="radix-icons:dot-filled" style={{ fontSize: 24 }} />
+          <span>
+            Off Unity Road
+          </span>
+          <Icon icon="radix-icons:dot-filled" style={{ fontSize: 24 }} />
+          <span>
+            Ikeja, Lagos State
+          </span>
+        </div>
+
+        <p className="text-app-ash-2 text-sm text-center pt-5 sm:text-right md:text-center      ">
           &copy; {new Date().getFullYear()} All Rights Reserved
         </p>
       </Wrapper>
