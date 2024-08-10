@@ -73,6 +73,7 @@ export const Footer = () => {
               <p className="w-full py-2 inline-block">Call Us: <span className="font-NimbusSan"> +2349013898261</span></p>
               <p className="w-full py-2 inline-block">Contact Email: info@mkhasa.com</p>
               <p className="w-full py-2 inline-block">Help Email: support@mkhasa.com</p>
+              <p className="w-full py-2 inline-block">Address: House 4 Oliyide Street, Ikeja, Lagos State</p>
             </div>
           </div>
 
@@ -156,23 +157,9 @@ export const Footer = () => {
           <div className="sm:block text-white font-fuzzy">
             <Logo backGroundColor="black" />
           </div>
-        </div> */}
+        </div> */}    
 
-        <div className="border-t border-dashed py-2 border-b border-gray-400 text-gray-400 mt-3 flex gap-1 justify-center">
-          <span>
-            #4 Oliyide Street
-          </span>
-          <Icon icon="radix-icons:dot-filled" style={{ fontSize: 24 }} />
-          <span>
-            Off Unity Road
-          </span>
-          <Icon icon="radix-icons:dot-filled" style={{ fontSize: 24 }} />
-          <span>
-            Ikeja, Lagos State
-          </span>
-        </div>
-
-        <p className="text-app-ash-2 text-sm text-center pt-5 sm:text-right md:text-center      ">
+        <p className="text-app-ash-2 text-sm text-center pt-10 sm:text-right md:text-center      ">
           &copy; {new Date().getFullYear()} All Rights Reserved
         </p>
       </Wrapper>
