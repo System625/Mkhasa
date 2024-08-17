@@ -70,10 +70,10 @@ export const Component = () => {
           iconClassName="text-[#3339] text-2xl"
           currentLocationClassName="text-app-black"
         /> */}
-        <div className="flex justify-between gap-8 items-center py-4">
+        <div className="flex flex-col-reverse md:flex-row justify-between gap-4 md:gap-8 items-center py-4">
           <Heading className="text-app-black"> Hi {userDetails.name || getUserEmail()}</Heading>
           <Logout
-            className="w-fit bg-transparent text-nowrap font-medium text-app-black hover:text-app-red"
+            className="w-fit bg-transparent bg-app-red rounded-sm border-app-red border text-nowrap py-2 px-4 font-medium text-white"
             toggle={() => {}}
           />
         </div>
