@@ -24,6 +24,7 @@ export const Component = () => {
     email: "",
     phone: "",
     address: "",
+    street1: "", 
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,6 +44,7 @@ export const Component = () => {
         email: res.data.user.email,
         phone: res.data.user.phoneNumber,
         address: res.data.user.address,
+        street1: res.data.user.street1,
       });
     });
   }, []);
@@ -147,10 +149,10 @@ export const Component = () => {
       />
       <Wrapper className="py-4">
 
-        <Heading>My Profile</Heading>
+        <Heading className="pl-3 md:pl-0">My Profile</Heading>
 
-        <div className="grid gap-6 py-6 md:grid-cols-2">
-          <div className={cn("bg-white rounded-xl p-5")}>
+        <div className="grid gap-6 md:gap-20 py-6 md:grid-cols-2">
+          <div className={cn("bg-white rounded-xl p-3 md:px-0")}>
             <div className="flex items-center gap-3 border-b-2 pb-4">
               <Heading>Personal Details</Heading>
             </div>
@@ -194,16 +196,20 @@ export const Component = () => {
                 <p className="font-bold">Email:</p>
                 <p>{userDetails.email}</p>
               </div>
+              <div className="py-4">
+                <p className="font-bold">Address:</p>
+                <p>{userDetails.street1}</p>
+              </div>
 
             </div>
           </div>
 
-          <div className={cn("bg-white rounded-xl p-5")}>
+          <div className={cn("bg-white rounded-xl p-3 md:px-0")}>
             <div className="flex items-center gap-3 border-b-2 pb-4">
               <Heading >Reset Password</Heading>
             </div>
 
-            <form onSubmit={formik.handleSubmit} className="pt-6">
+            <form onSubmit={formik.handleSubmit} className="pt-6 text-center md:text-left">
               <div className="grid gap-6">
                 <PInput
                   placeholder="Enter Current Password"
@@ -220,7 +226,7 @@ export const Component = () => {
               </div>
               <Button
                 type="submit"
-                className="bg-app-black text-white  mt-6 w-28 h-10"
+                className="bg-app-black text-white mt-6 w-28 h-10"
               >
                 {updatingPassword ? (
                   <Icon
