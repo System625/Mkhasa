@@ -195,10 +195,10 @@ export const Component = () => {
               </div>
 
               <div className="mt-5 md:mt-2   ">
-                {product?.sku && (
+                {product?.barcode && (
                   <p className="      mt-2">
                     <strong className="text-black       Basis font-bold">Barcode</strong>:{" "}
-                    <span className="      text-[#555]">{product?.sku}</span>
+                    <span className="      text-[#555]">{product?.barcode}</span>
                   </p>
                 )}
                 {product?.brand && (
